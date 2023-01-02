@@ -15,12 +15,6 @@
 
   /* Default Formatter Settings */
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[html]": {
-    "editor.defaultFormatter": "vscode.html-language-features"
-  },
-  "[css][scss]": {
-    "editor.defaultFormatter": "vscode.css-language-features"
-  },
 
   /* Formatting Toggle */
   "formattingToggle.affects": [
@@ -51,15 +45,18 @@
   /* Power Mode Settings */
   "powermode.enabled": true,
   "powermode.shake.enabled": false,
-  "powermode.presets": "flames",
-  "powermode.explosions.customExplosions": ["https://i.imgur.com/Rh9pk1e.gif"],
-  "powermode.explosions.size": 10,
+  "powermode.presets": "magic",
+  "powermode.explosions.customExplosions": ["https://i.imgur.com/CnBUEmi.gif"],
+  "powermode.explosions.size": 14,
   "powermode.explosions.duration": 360,
   "powermode.combo.counterEnabled": "hide",
-  "powermode.combo.timerEnabled": "hide"
+  "powermode.combo.timerEnabled": "hide",
+
+  /*liveServer Browser Settings*/
+  "liveServer.settings.CustomBrowser": "chrome"
 
   // Default settings 참고) https://code.visualstudio.com/docs/getstarted/settings#_default-settings
-
+  
 
   [유용한 extensions]
 
@@ -74,6 +71,7 @@
   Auto Rename Tag
   HTML CSS Support
   HTML to CSS autocompletion
+  CSS Navigation
   htmltagwrap
   HTML Enter++
   cdnjs
