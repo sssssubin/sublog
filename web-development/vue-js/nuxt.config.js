@@ -38,4 +38,8 @@ module.exports = {
   styleResources: {
     scss: ["@/assets/scss/_*.scss"],
   },
+  target: "static", // 정적 웹사이트임을 명시
+  router: {
+    base: "/sublog/", // github repository 이름 넣기
+  },
 };
