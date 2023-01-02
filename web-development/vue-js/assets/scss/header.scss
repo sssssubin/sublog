@@ -1,0 +1,4 @@
+h1 {
+  color: color(primary);
+  @include font($type: main-tit);
+}

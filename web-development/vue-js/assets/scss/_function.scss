@@ -1,0 +1,38 @@
+$max-width: 1200px;
+
+$fonts: (
+  main-tit: 9.2rem,
+  sub-tit: 3.1rem,
+);
+
+// ex) @include font($type: primary);
+@function font($font_name) {
+  @return map-get($fonts, $font_name);
+}
+
+@mixin font($type: primary, $height: 1.3, $spacing: -0.06em) {
+  @if ($type ==main-tit) {
+    font-size: font(main-tit);
+    font-weight: 700;
+    line-height: $height;
+    letter-spacing: $spacing;
+  }
+
+  @else if($type ==sub-tit) {
+    font-size: font(sub-tit);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.355;
+    letter-spacing: $spacing;
+  }
+
+  @media only screen and (max-width: 1199px) {
+    @if ($type ==main-tit) {
+      font-size: 3.3rem;
+    }
+
+    @else if($type ==sub-tit) {
+      font-size: 3.3rem;
+    }
+  }
+}
