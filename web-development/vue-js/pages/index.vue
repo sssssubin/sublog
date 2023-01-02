@@ -14,6 +14,13 @@
           class="button--grey"
           >GitHub</a
         >
+        <a
+          href="https://www.notion.so/k-forest/Javascript-a3bcb7f19dd6422e8c8cc3cd027ffdf4"
+          target="_blank"
+          class="button--primary"
+        >
+          Notion
+        </a>
       </div>
     </div>
   </section>
@@ -49,5 +56,20 @@ export default {
 
 .links {
   padding-top: 15px;
+}
+
+.button--primary {
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid color(primary);
+  color: color(primary);
+  text-decoration: none;
+  padding: 10px 30px;
+  margin-left: 15px;
+}
+
+.button--primary:hover {
+  color: #fff;
+  background-color: color(primary);
 }
 </style>
