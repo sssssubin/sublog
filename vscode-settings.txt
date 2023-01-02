@@ -59,4 +59,36 @@
   "powermode.combo.timerEnabled": "hide"
 
   // Default settings 참고) https://code.visualstudio.com/docs/getstarted/settings#_default-settings
+
+
+  [유용한 extensions]
+
+  indent-rainbow
+  Community Material Theme
+  Material Icon Theme
+  Highlight Matching Tag
+  HTML End Tag Labels
+  Power Mode
+
+  Auto Close Tag
+  Auto Rename Tag
+  HTML CSS Support
+  HTML to CSS autocompletion
+  htmltagwrap
+  HTML Enter++
+  cdnjs
+  Close HTML/XML tag
+  HTMLHint
+  image preview
+  Html Auto Completion
+  ESLint
+  Prettier - Code formatter
+  Formatting Toggle
+
+  Live Sass Compiler
+  Live Server
+  ftp-simple
+
+  Vetur
+  Vue Language Features (Volar)
 }
