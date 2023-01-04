@@ -15,6 +15,12 @@
 
   /* Default Formatter Settings */
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[css][scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
 
   /* Formatting Toggle */
   "formattingToggle.affects": [
