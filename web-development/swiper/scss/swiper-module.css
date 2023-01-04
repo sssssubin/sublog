@@ -1,0 +1,394 @@
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 500px;
+  height: 300px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-pagination {
+  padding: 0 8px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.swiper-pagination-bullet {
+  height: auto;
+  font-size: 12px;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-pagination-bullet:nth-child(1),
+.swiper-pagination-bullet:nth-child(2),
+.swiper-pagination-bullet:nth-child(3) {
+  flex-grow: 1;
+}
+
+.swiper-pagination-bullet-active {
+  color: #fff;
+  background: #007aff;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0;
+}
+
+a {
+  transition: all 0.3s ease;
+}
+
+.wrapper {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  gap: 50px 10px;
+}
+
+.product {
+  flex-grow: 1;
+  background-color: #f5f5f5;
+  position: relative;
+  max-width: 33.3333333333%;
+}
+
+.container-prod {
+  height: inherit;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0px 0px 0px 0px #f2f2f2;
+  transition: all 0.3s ease;
+}
+
+.container-prod:hover,
+.container-prod.information,
+.container-prod.social-sharing {
+  box-shadow: 0px 0px 5px 0px #333;
+}
+
+.image {
+  height: 270px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 1s ease;
+}
+
+.information .image {
+  height: 150px;
+}
+
+.container-information {
+  height: 40px;
+  overflow: hidden;
+  transition: all 1s ease;
+  background-color: #031e16;
+  color: #ffffff;
+}
+
+.information .container-information {
+  height: 160px;
+}
+
+.container-information .title {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  background-color: #5dba9d;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+}
+
+.close {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  background-color: #11956c;
+  position: absolute;
+  right: -40px;
+  transition: all 1s ease;
+  color: #ffffff;
+}
+
+.information .close {
+  right: 0;
+}
+
+.container-information .description {
+  padding: 10px;
+  height: 120px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.sharing {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: -50px;
+  overflow: hidden;
+  transition: all 1s ease;
+  background-color: #031e16;
+  z-index: 1;
+  display: flex;
+}
+
+.social-sharing .sharing {
+  bottom: 40px;
+}
+
+.sharing a {
+  color: #ffffff;
+  font-size: 20px;
+  width: 25%;
+  height: 40px;
+  line-height: 40px;
+}
+
+.sharing a:hover {
+  color: #5dba9d;
+}
+
+.buttons {
+  position: relative;
+  z-index: 2;
+  display: flex;
+}
+
+.buttons a {
+  text-align: center;
+  width: 25%;
+  height: 40px;
+  line-height: 40px;
+  background-color: #11956c;
+  color: #ffffff;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.buttons a > span > span {
+  position: relative;
+  z-index: 3;
+  display: block;
+  width: 100%;
+}
+
+.buttons a > span:before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.buttons a:hover > span:before,
+.information .buttons a.more > span:before,
+.social-sharing .buttons a.share > span:before {
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.information .buttons a.more > span:before,
+.social-sharing .buttons a.share > span:before {
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.buttons a.cart.added > span:before {
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.buttons a.cart > span > span.check {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.buttons a.cart.added > span > span.check {
+  top: 0;
+  color: #11956c;
+}
+
+.buttons a.cart > span > span.add {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.buttons a.cart.added > span > span.add {
+  top: -40px;
+}
+
+.buttons a i {
+  font-size: 20px;
+}
+
+.buttons a:first-of-type {
+  width: 50%;
+}
+
+#test {
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.list {
+  display: none;
+}
+
+.list.on {
+  -webkit-animation: fade-in 0.5s;
+          animation: fade-in 0.5s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  display: flex;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.swiper-container {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: #000;
+}
+
+.swiper-slide-duplicate,
+.swiper-slide {
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  /* Slide content */
+}
+.swiper-slide-duplicate .description,
+.swiper-slide-duplicate .title,
+.swiper-slide .description,
+.swiper-slide .title {
+  display: block;
+  opacity: 0;
+  transition: 0.5s ease 0.5s;
+}
+.swiper-slide-duplicate-active .description,
+.swiper-slide-duplicate-active .title,
+.swiper-slide-active .description,
+.swiper-slide-active .title {
+  opacity: 1;
+}
+.swiper-slide-duplicate-active .title,
+.swiper-slide-active .title {
+  margin-bottom: 0.5rem;
+  font-size: 24px;
+  color: #000;
+  transition: opacity 0.5s ease 0.5s;
+}
+.swiper-slide-duplicate-active .description,
+.swiper-slide-active .description {
+  font-size: 16px;
+  color: #777;
+  transition: opacity 0.5s ease 0.75s;
+}
+
+.swiper-progress-bar {
+  position: relative;
+  width: 100%;
+  display: block;
+  z-index: 1;
+  height: 2px;
+}
+.swiper-progress-bar .slide_progress-bar {
+  position: absolute;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.3);
+  width: auto;
+  clear: both;
+  opacity: 0;
+  bottom: 45px;
+  left: 0;
+  right: 0;
+}
+.swiper-progress-bar .slide_progress-bar:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  height: 100%;
+  width: 0;
+  content: "";
+  transition: 0.1s width linear;
+}
+.swiper-progress-bar.active .slide_progress-bar {
+  opacity: 1;
+}
+.swiper-progress-bar.animate .slide_progress-bar:after {
+  transition: width linear;
+  transition-delay: unset;
+  width: 100%;
+  transition-duration: 5s;
+}/*# sourceMappingURL=swiper-module.css.map */
