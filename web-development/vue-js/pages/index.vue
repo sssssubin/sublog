@@ -22,6 +22,9 @@
           Notion
         </a>
       </div>
+      <NuxtLink to="/web-development/swiper/swiper-module.html"
+        >swiper demo</NuxtLink
+      >
     </div>
   </section>
 </template>
