@@ -1,44 +1,47 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>title</title>
-    <style>
-      body {
-        background-color: black;
-        height: 500vh;
-        margin: 0;
-      }
-      #test {
-        position: sticky;
-        top: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        font-size: 5em;
-        font-family: Arial;
-        font-weight: bold;
-      }
+<html lang="en">
 
-      span {
-        background: linear-gradient(
-          -60deg,
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: black;
+      height: 500vh;
+      margin: 0;
+    }
+
+    #test {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-size: 5em;
+      font-family: Arial;
+      font-weight: bold;
+    }
+
+    span {
+      background: linear-gradient(-60deg,
           rgba(255, 255, 255, 0) 33.3%,
-          rgba(255, 255, 255, 1) 66.7%
-        );
-        background-size: 300% 100%;
-        background-position-x: calc(100% - var(--percentage));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-    </style>
-  </head>
-  <body>
-    <div onscroll="onScroll" id="test" style="--percentage: 50%">
-      <span>Testing Text and Testing Text</span>
-    </div>
-  </body>
+          rgba(255, 255, 255, 1) 66.7%);
+      background-size: 300% 100%;
+      background-position-x: calc(100% - var(--percentage));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+
+<body>
+  <div onscroll="onScroll" id="test" style="--percentage: 50%">
+    <span>Testing Text and Testing Text</span>
+  </div>
+
   <script>
     window.onscroll = onScroll;
 
@@ -54,4 +57,6 @@
     }
     onScroll();
   </script>
+</body>
+
 </html>

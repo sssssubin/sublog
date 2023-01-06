@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #counter {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    #counter .item {
+      background-color: #007aff;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      padding: 20px 0;
+      gap: 10px;
+    }
+
+    #counter .item .count {
+      color: #fff;
+      font-size: 40px;
+      width: 100%;
+      text-align: center;
+      margin: 0;
+    }
+
+    #counter .item h3 {
+      margin: 0;
+      color: lightskyblue;
+    }
+
+    @media (max-width: 768px) {
+      #counter {
+        gap: 8px;
+      }
+
+      #counter .item {
+        width: 100%;
+        gap: 8px;
+        padding: 8px;
+        border-radius: 8px;
+      }
+
+      #counter .item .count {
+        font-size: 24px;
+      }
+
+      #counter .item h3 {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="counter">
+    <div class="item">
+      <h1 class="count" data-number="100"></h1>
+      <h3 class="text">Counter 1</h3>
+    </div>
+    <div class="item">
+      <h1 class="count" data-number="200"></h1>
+      <h3 class="text">Counter 2</h3>
+    </div>
+    <div class="item">
+      <h1 class="count" data-number="300"></h1>
+      <h3 class="text">Counter 3</h3>
+    </div>
+    <div class="item">
+      <h1 class="count" data-number="400"></h1>
+      <h3 class="text">Counter 4</h3>
+    </div>
+  </div>
+
+  <script>
+    let count = document.querySelectorAll(".count")
+    let arr = Array.from(count)
+
+    arr.map(function (item) {
+      let startnumber = 0
+
+      function counterup() {
+        startnumber++
+        item.innerHTML = startnumber
+
+        if (startnumber == item.dataset.number) {
+          clearInterval(stop)
+        }
+      }
+
+      let stop = setInterval(function () {
+        counterup()
+      }, 10)
+
+    })
+  </script>
+</body>
+
+</html>

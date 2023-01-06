@@ -56,51 +56,6 @@
       height: 100%;
       object-fit: cover;
     }
-
-    .swiper-pagination {
-      padding: 0 8px;
-      box-sizing: border-box;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .swiper-pagination-bullet {
-      width: 88px;
-      height: auto;
-      font-size: 12px;
-      color: #000;
-      opacity: 1;
-      background: rgba(0, 0, 0, 0.2);
-      padding: 10px 0;
-      border-radius: 8px;
-      box-sizing: border-box;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .swiper-pagination-bullet:nth-child(1),
-    .swiper-pagination-bullet:nth-child(2),
-    .swiper-pagination-bullet:nth-child(3),
-    .swiper-pagination-bullet:nth-child(4),
-    .swiper-pagination-bullet:nth-child(5),
-    .swiper-pagination-bullet:nth-child(6),
-    .swiper-pagination-bullet:nth-child(7),
-    .swiper-pagination-bullet:nth-child(8),
-    .swiper-pagination-bullet:nth-child(9) {
-      flex-grow: 1;
-    }
-
-    .swiper-pagination-bullet-active {
-      color: #fff;
-      background: #007aff;
-    }
-
-    .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
-    .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-      margin: 0;
-    }
   </style>
 </head>
 
@@ -118,7 +73,6 @@
       <div class="swiper-slide">Slide 8</div>
       <div class="swiper-slide">Slide 9</div>
     </div>
-    <div class="swiper-pagination"></div>
   </div>
 
   <!-- Swiper JS -->
@@ -126,20 +80,8 @@
 
   <!-- Initialize Swiper -->
   <script>
-    var swiper = new Swiper(".mySwiper", {
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        renderBullet: function (index, className) {
-          return '<span class="' + className + '">' + (index + 1) + "</span>";
-        }
-      },
-    });
+    var swiper = new Swiper(".mySwiper", {});
   </script>
 </body>
 
 </html>
-
-
-
-<!-- 참고) https://eond.com/jquery/443421 -->

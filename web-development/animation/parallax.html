@@ -1,92 +1,89 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>title</title>
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        margin: 0;
-        background: #000;
-        touch-action: pan-y;
-        height: 100vh;
-        overflow: auto;
-      }
-      section {
-        display: flex;
-        justify-content: center;
-      }
-      video {
-        position: fixed;
-        z-index: 0;
-        max-width: 100%;
-      }
-      .scroll-dummy {
-        height: 2000px;
-        max-width: 998px;
-        padding: 20px;
-        z-index: 1;
-        font-family: sans-serif;
-      }
+<html lang="en">
 
-      .scroll-dummy h1 {
-        font-size: 80px;
-        font-weight: 700;
-        padding: 200px 0;
-        color: white;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
-      .scroll-dummy p,
-      .scroll-dummy a {
-        font-size: 20px;
-        color: #ccc;
-        line-height: 1.4;
-      }
+    body {
+      margin: 0;
+      background: #000;
+      touch-action: pan-y;
+      height: 100vh;
+      overflow: auto;
+    }
 
-      code {
-        font-family: monospace;
-        background: #333;
-        border: 1px solid #999;
-        border-radius: 4px;
-        padding: 2px 4px;
-      }
-    </style>
-  </head>
-  <body>
-    <section>
-      <video
-        id="video"
-        width="998"
-        height="560"
-        playsinline
-        poster="https://lqez.github.io/js/airpodsvf/video.jpg"
-      >
-        <source
-          src="https://lqez.github.io/js/airpodsvf/video.mp4"
-          type="video/mp4"
-        />
-        Your browser does not support the video tag.
-      </video>
-      <div class="scroll-dummy">
-        <h1>AirPods Pro page is TOO BIG</h1>
-        <p>
-          <a href="https://www.apple.com/kr/airpods-pro/"
-            >https://www.apple.com/kr/airpods-pro/</a
-          >
-          contains 1,500+ images and their size is over 60MiB.
-        </p>
-        <p>
-          I encoded the first 148ea, 4.8MiB of AirPods Pro images into a single
-          1.1MiB x264 video file and put it as a background. The video file has
-          total 148 i-frame frames by ffmpeg's <code>-intra</code> option. It
-          makes much smoother frame changes.
-        </p>
-        <p>Image countesy of Apple, Inc.</p>
-      </div>
-    </section>
-  </body>
+    section {
+      display: flex;
+      justify-content: center;
+    }
+
+    video {
+      position: fixed;
+      z-index: 0;
+      max-width: 100%;
+    }
+
+    .scroll-dummy {
+      height: 2000px;
+      max-width: 998px;
+      padding: 20px;
+      z-index: 1;
+      font-family: sans-serif;
+    }
+
+    .scroll-dummy h1 {
+      font-size: 80px;
+      font-weight: 700;
+      padding: 200px 0;
+      color: white;
+    }
+
+    .scroll-dummy p,
+    .scroll-dummy a {
+      font-size: 20px;
+      color: #ccc;
+      line-height: 1.4;
+    }
+
+    code {
+      font-family: monospace;
+      background: #333;
+      border: 1px solid #999;
+      border-radius: 4px;
+      padding: 2px 4px;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <video id="video" width="998" height="560" playsinline poster="https://lqez.github.io/js/airpodsvf/video.jpg">
+      <source src="https://lqez.github.io/js/airpodsvf/video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="scroll-dummy">
+      <h1>AirPods Pro page is TOO BIG</h1>
+      <p>
+        <a href="https://www.apple.com/kr/airpods-pro/">https://www.apple.com/kr/airpods-pro/</a>
+        contains 1,500+ images and their size is over 60MiB.
+      </p>
+      <p>
+        I encoded the first 148ea, 4.8MiB of AirPods Pro images into a single
+        1.1MiB x264 video file and put it as a background. The video file has
+        total 148 i-frame frames by ffmpeg's <code>-intra</code> option. It
+        makes much smoother frame changes.
+      </p>
+      <p>Image countesy of Apple, Inc.</p>
+    </div>
+  </section>
+
   <script>
     var FRAMES = 148;
     var FPS = 30;
@@ -104,4 +101,6 @@
       video.currentTime = 0;
     });
   </script>
+</body>
+
 </html>
