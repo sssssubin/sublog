@@ -29,7 +29,7 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: "eslint-loader",
           exclude: /(node_modules)/,
-        });
+        })
       }
     },
   },
@@ -42,4 +42,4 @@ module.exports = {
   router: {
     base: "/sublog/", // github repository 이름 넣기
   },
-};
+}
