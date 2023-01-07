@@ -22,16 +22,23 @@
           Notion
         </a>
       </div>
+      <div class="articles">
+        <article class="article">
+          <strong class="article-tit">더보기 기능</strong>
+          <TextMoreViewVue/>
+        </article>
+      </div>
     </div>
   </section>
 </template>
 
 <script>
 import AppLogo from "~/components/AppLogo.vue"
+import TextMoreViewVue from "../components/TextMoreView.vue"
 
 export default {
   components: {
-    AppLogo,
+    AppLogo, TextMoreViewVue
   },
 }
 </script>

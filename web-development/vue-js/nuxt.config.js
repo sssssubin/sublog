@@ -33,7 +33,7 @@ module.exports = {
       }
     },
   },
-  css: ["~assets/scss/common.scss"],
+  css: ["~assets/scss/common.scss", "~assets/scss/header.scss"],
   modules: ["@nuxtjs/style-resources"],
   styleResources: {
     scss: ["@/assets/scss/_*.scss"],

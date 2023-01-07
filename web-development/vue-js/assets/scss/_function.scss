@@ -3,6 +3,7 @@ $max-width: 1200px;
 $fonts: (
   main-tit: 9.2rem,
   sub-tit: 3.1rem,
+  article-tit: 1.6rem
 );
 
 // ex) @include font($type: primary);
@@ -22,7 +23,15 @@ $fonts: (
     font-size: font(sub-tit);
     font-weight: 700;
     text-align: center;
-    line-height: 1.355;
+    line-height: 1.35;
+    letter-spacing: $spacing;
+  }
+
+  @else if($type ==article-tit) {
+    font-size: font(article-tit);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.35;
     letter-spacing: $spacing;
   }
 
@@ -35,4 +44,12 @@ $fonts: (
       font-size: 3.3rem;
     }
   }
+}
+
+@mixin lineBreak($num) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
 }
