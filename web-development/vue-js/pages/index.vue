@@ -1,6 +1,8 @@
 <template>
-  <section class="container">
-    <div>
+  <section id="contentsWrap">    
+    {{ isMobile }}
+      <MainVisualAnimation />
+    <div class="container">
       <app-logo />
       <h1 class="title">sublog</h1>
       <h2 class="subtitle">Nuxt.js project</h2>
@@ -33,20 +35,27 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex"
 import AppLogo from "~/components/AppLogo.vue"
-import TextMoreViewVue from "../components/TextMoreView.vue"
+import TextMoreViewVue from "~/components/TextMoreView.vue"
+import MainVisualAnimation from "~/components/mainContainers/container_1.vue"
 
 export default {
   components: {
-    AppLogo, TextMoreViewVue
+    AppLogo, TextMoreViewVue, MainVisualAnimation
   },
+  computed: {
+    ...mapGetters("ui", {
+      isMobile: "getIsMobile",
+    })
+  }
 }
 </script>
 
 <style lang="scss">
 .container {
-  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;

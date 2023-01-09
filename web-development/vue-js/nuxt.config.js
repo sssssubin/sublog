@@ -9,7 +9,10 @@ module.exports = {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { hid: "description", name: "description", content: "Nuxt.js project" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap' }
+    ],
   },
   /*
    ** Customize the progress bar color
@@ -33,7 +36,7 @@ module.exports = {
       }
     },
   },
-  css: ["~assets/scss/common.scss", "~assets/scss/header.scss"],
+  css: ["~assets/scss/common.scss"],
   modules: ["@nuxtjs/style-resources"],
   styleResources: {
     scss: ["@/assets/scss/_*.scss"],

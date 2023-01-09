@@ -1,9 +1,25 @@
-$max-width: 1200px;
+$max-width: 1400px;
+$break-point-pc : 768px;
+
+@mixin mobile {
+  @media (max-width: #{$break-point-pc - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $break-point-pc ) {
+    @content;
+  }
+}
 
 $fonts: (
   main-tit: 9.2rem,
   sub-tit: 3.1rem,
-  article-tit: 1.6rem
+  article-tit: 1.6rem,
+  test: 33px,
+  test2: 40px,
+  test3: 58px
 );
 
 // ex) @include font($type: primary);
@@ -11,28 +27,52 @@ $fonts: (
   @return map-get($fonts, $font_name);
 }
 
-@mixin font($type: primary, $height: 1.3, $spacing: -0.06em) {
+@mixin font($type: primary, $weight: 700) {
   @if ($type ==main-tit) {
     font-size: font(main-tit);
-    font-weight: 700;
-    line-height: $height;
-    letter-spacing: $spacing;
+    font-weight: $weight;
+    line-height: font(main-tit) * 1.5;
+    letter-spacing: - (font(main-tit) * .03);
   }
 
   @else if($type ==sub-tit) {
     font-size: font(sub-tit);
-    font-weight: 700;
+    font-weight: $weight;
     text-align: center;
-    line-height: 1.35;
-    letter-spacing: $spacing;
+    line-height: font(sub-tit) * 1.5;
+    letter-spacing: - (font(sub-tit) * .03);
   }
 
   @else if($type ==article-tit) {
     font-size: font(article-tit);
-    font-weight: 700;
+    font-weight: $weight;
     text-align: center;
-    line-height: 1.35;
-    letter-spacing: $spacing;
+    line-height: font(article-tit) * 1.5;
+    letter-spacing: - (font(article-tit) * .03);
+  }
+
+  @else if($type ==test) {
+    font-size: font(test);
+    font-weight: $weight;
+    text-align: center;
+    line-height: font(test) * 1.5;
+    letter-spacing: - (font(test) * .03);
+  }
+
+  @else if($type ==test2) {
+    font-size: font(test2);
+    font-weight: $weight;
+    text-align: center;
+    line-height: font(test2) * 1.5;
+    letter-spacing: - (font(test2) * .03);
+  }
+
+  @else if($type ==test3) {
+    font-size: font(test3);
+    font-weight: $weight;
+    text-align: center;
+    line-height: font(test3) * 1.5;
+    letter-spacing: - (font(test3) * .03);
   }
 
   @media only screen and (max-width: 1199px) {

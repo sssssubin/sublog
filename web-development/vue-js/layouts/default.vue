@@ -1,8 +1,21 @@
 <template>
-  <div>
+  <div id="app">
     <nuxt/>
+    <WindowEvents />
   </div>
 </template>
+
+<script>
+import WindowEvents from "~/components/util/WindowEvents"
+export default {
+  components: {
+    WindowEvents,
+  },
+  mounted() {
+    console.log("layout mounted !")
+  },
+}
+</script>
 
 <style>
 html {
