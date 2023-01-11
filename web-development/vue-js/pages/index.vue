@@ -1,6 +1,6 @@
 <template>
   <section id="contentsWrap">    
-    {{ isMobile }}
+    <!-- {{ isMobile }} -->
       <MainVisualAnimation />
     <div class="container">
       <app-logo />
