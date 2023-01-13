@@ -1,7 +1,8 @@
 <template>
-  <section id="contentsWrap">    
+  <section id="contentsWrap">
+    <TheTermsAgree />
     <!-- {{ isMobile }} -->
-      <MainVisualAnimation />
+    <MainVisualAnimation />
     <div class="container">
       <app-logo />
       <h1 class="title">sublog</h1>
@@ -27,7 +28,7 @@
       <div class="articles">
         <article class="article">
           <strong class="article-tit">더보기 기능</strong>
-          <TextMoreViewVue/>
+          <TextMoreViewVue />
         </article>
       </div>
     </div>
@@ -39,15 +40,19 @@ import { mapGetters } from "vuex"
 import AppLogo from "~/components/AppLogo.vue"
 import TextMoreViewVue from "~/components/TextMoreView.vue"
 import MainVisualAnimation from "~/components/mainContainers/container_1.vue"
+import TheTermsAgree from "../components/TheTermsAgree.vue"
 
 export default {
   components: {
-    AppLogo, TextMoreViewVue, MainVisualAnimation
+    AppLogo,
+    TextMoreViewVue,
+    MainVisualAnimation,
+    TheTermsAgree
   },
   computed: {
     ...mapGetters("ui", {
       isMobile: "getIsMobile",
-    })
+    }),
   }
 }
 </script>
