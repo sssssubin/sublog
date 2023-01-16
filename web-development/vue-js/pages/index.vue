@@ -1,16 +1,17 @@
 <template>
-  <section id="contentsWrap">
-    <div class="container">
+  <section class="container">
+    <div>
       <app-logo />
       <h1 class="title">sublog</h1>
-      <h2 class="subtitle">Nuxt.js project</h2>
-      <nuxt-link to="/study" class="button--primary">study</nuxt-link>
       <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green"
+        <nuxt-link to="/study/interaction/" class="button--green"
+          >study</nuxt-link
+        >
+        <a href="https://nuxtjs.org/" target="_blank" class="button--grey"
           >Documentation</a
         >
         <a
-          href="https://github.com/nuxt/nuxt.js"
+          href="https://github.com/k-forest/sublog.git"
           target="_blank"
           class="button--grey"
           >GitHub</a
@@ -18,7 +19,7 @@
         <a
           href="https://www.notion.so/k-forest/Javascript-a3bcb7f19dd6422e8c8cc3cd027ffdf4"
           target="_blank"
-          class="button--primary"
+          class="button--grey"
         >
           Notion
         </a>
@@ -28,52 +29,40 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
 import AppLogo from "~/components/AppLogo.vue"
-import TextMoreViewVue from "~/components/TextMoreView.vue"
-
 export default {
   components: {
     AppLogo,
-    TextMoreViewVue,
   },
 }
 </script>
 
 <style lang="scss">
 .container {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  max-width: $max-width;
-  margin: 0 auto;
 }
-
-.subtitle {
-  @include font($type: sub-tit);
-  color: color(secondary);
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.title {
+  display: block;
+  font-weight: 700;
+  font-size: 100px;
+  color: #35495e;
+  letter-spacing: 1px;
 }
-
 .links {
   padding-top: 15px;
-}
-
-.button--primary {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid color(primary);
-  color: color(primary);
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--primary:hover {
-  color: #fff;
-  background-color: color(primary);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  > a {
+    flex-grow: 1;
+    &:first-child {
+      flex-grow: 3;
+      width: 100%;
+    }
+  }
 }
 </style>

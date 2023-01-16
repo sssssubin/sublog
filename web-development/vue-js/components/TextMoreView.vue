@@ -54,3 +54,27 @@ export default {
   },
 }
 </script>
+<style lang="scss">
+// 더보기 기능
+.comment-info {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 5rem auto;
+  .comment-container {
+    width: 100%;
+  }
+
+  .fix-height {
+    @include lineBreak(4);
+  }
+
+  .more-btn {
+    width: 100%;
+    margin: 0;
+    cursor: pointer;
+    text-align: center;
+  }
+}
+</style>

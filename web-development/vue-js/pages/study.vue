@@ -1,44 +1,56 @@
 <template>
-  <div class="cards">
-    <nuxt-link to="/motion/motion1" class="card">
-      <img class="thumbnail-img" alt="" src="~/static/motion1.png" />
-      <p>도형 모션</p>
-    </nuxt-link>
-    <nuxt-link to="/motion/textmoreview" class="card">
-      <img class="thumbnail-img" alt="" src="" />
-      <p>텍스트 더 보기</p>
-    </nuxt-link>
+  <div class="study-container">
+    <nav>
+      <ul>
+        <li>
+          <NuxtLink to="/study/interaction">Interaction</NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/study/animation">Animation</NuxtLink>
+        </li>
+      </ul>
+    </nav>
+    <NuxtChild />
   </div>
 </template>
 
 <style lang="scss">
-.cards {
-  width: 100%;
-  display: flex;
-  gap: 20px;
-}
-.card {
-  width: calc(100% / 5);
-  text-decoration: none;
-  background: gray;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  img {
-    width: 100%;
-    height: auto;
-    background-size: contain;
-    display: block;
-  }
-  p {
-    width: 100%;
-    background-color: bisque;
-    padding: 15px;
-    font-size: 22px;
-    font-weight: 700;
-    color: #222;
-    text-align: center;
+.study-container {
+  background: #f8f9fa;
+  margin: 0;
+  padding: 10px;
+  height: 100vh;
+  > nav > ul {
+    list-style: none;
+    margin: 0 0 10px;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    li {
+      flex-grow: 1;
+      a {
+        width: 100%;
+        height: auto;
+        font-size: 12px;
+        color: #000;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 10px 0;
+        border-radius: 8px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        &.nuxt-link-exact-active,
+        &.nuxt-link-active {
+          color: #fff;
+          background: #007aff;
+        }
+      }
+    }
   }
 }
 </style>
