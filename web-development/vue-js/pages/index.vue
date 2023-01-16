@@ -1,11 +1,10 @@
 <template>
-  <section id="contentsWrap">    
-    <!-- {{ isMobile }} -->
-      <MainVisualAnimation />
+  <section id="contentsWrap">
     <div class="container">
       <app-logo />
       <h1 class="title">sublog</h1>
       <h2 class="subtitle">Nuxt.js project</h2>
+      <nuxt-link to="/study" class="button--primary">study</nuxt-link>
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green"
           >Documentation</a
@@ -24,12 +23,6 @@
           Notion
         </a>
       </div>
-      <div class="articles">
-        <article class="article">
-          <strong class="article-tit">더보기 기능</strong>
-          <TextMoreViewVue/>
-        </article>
-      </div>
     </div>
   </section>
 </template>
@@ -38,17 +31,12 @@
 import { mapGetters } from "vuex"
 import AppLogo from "~/components/AppLogo.vue"
 import TextMoreViewVue from "~/components/TextMoreView.vue"
-import MainVisualAnimation from "~/components/mainContainers/container_1.vue"
 
 export default {
   components: {
-    AppLogo, TextMoreViewVue, MainVisualAnimation
+    AppLogo,
+    TextMoreViewVue,
   },
-  computed: {
-    ...mapGetters("ui", {
-      isMobile: "getIsMobile",
-    })
-  }
 }
 </script>
 
