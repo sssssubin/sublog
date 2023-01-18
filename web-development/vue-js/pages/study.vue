@@ -19,6 +19,7 @@
 
 <style lang="scss">
 .study-container {
+  width: 100%;
   background: #f8f9fa;
   margin: 0;
   padding: 10px;
