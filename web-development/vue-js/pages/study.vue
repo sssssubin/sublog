@@ -8,6 +8,9 @@
         <li>
           <NuxtLink to="/study/animation">Animation</NuxtLink>
         </li>
+        <li>
+          <NuxtLink to="/study/sample">sample</NuxtLink>
+        </li>
       </ul>
     </nav>
     <NuxtChild />
