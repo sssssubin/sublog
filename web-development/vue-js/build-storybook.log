@@ -1,0 +1,193 @@
+i Production build
+i Bundling only for client side
+i Target: static
+i Using components loader to optimize imports
+i Discovered Components: .nuxt-storybook/components/readme.md
+√ Builder initialized
+√ Nuxt files generated
+info @nuxtjs/storybook v4.3.2
+info 
+info => Cleaning outputDir: C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\chromatic--27400-St1jxNGXkFy1
+info => Loading presets
+info => Copying static files: C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\static => ./
+info => Compiling manager..
+info => Compiling preview..
+info Addon-docs: using MDX1
+info => Using PostCSS preset with postcss@7.0.39
+info => Using default Webpack4 setup
+i Compiling Client
+info => Manager built (36 s)
+√ Client: Compiled successfully in 37.61s
+
+Hash: [1m1be23a864dab3760a306[39m[22m
+Version: webpack [1m4.46.0[39m[22m
+Time: [1m37615[39m[22mms
+Built at: 2023. 01. 30. [1m오전 3:07:05[39m[22m
+                                                         [1mAsset[39m[22m       [1mSize[39m[22m   [1mChunks[39m[22m  [1m[39m[22m                       [1m[39m[22m       [1mChunk Names[39m[22m
+                                   [1m[32m0.0fec2cfe.iframe.bundle.js[39m[22m    131 KiB        [1m0[39m[22m  [1m[32m[emitted] [immutable][39m[22m         
+                       [1m[32m0.0fec2cfe.iframe.bundle.js.LICENSE.txt[39m[22m  483 bytes         [1m[39m[22m  [1m[32m[emitted][39m[22m                     
+                                   [1m[32m1.b0e49117.iframe.bundle.js[39m[22m    133 KiB        [1m1[39m[22m  [1m[32m[emitted] [immutable][39m[22m         
+                       [1m[32m1.b0e49117.iframe.bundle.js.LICENSE.txt[39m[22m  207 bytes         [1m[39m[22m  [1m[32m[emitted][39m[22m                     
+                                  [1m[33m24.cf671d0a.iframe.bundle.js[39m[22m    [1m[33m792 KiB[39m[22m       [1m24[39m[22m  [1m[32m[emitted] [immutable][39m[22m  [1m[33m[big][39m[22m  
+                      [1m[32m24.cf671d0a.iframe.bundle.js.LICENSE.txt[39m[22m  935 bytes         [1m[39m[22m  [1m[32m[emitted][39m[22m                     
+                                  [1m[32m25.ce3dbba7.iframe.bundle.js[39m[22m     47 KiB       [1m25[39m[22m  [1m[32m[emitted] [immutable][39m[22m         
+                                  [1m[32m26.b44ba9b3.iframe.bundle.js[39m[22m   11.2 KiB       [1m26[39m[22m  [1m[32m[emitted] [immutable][39m[22m         
+                                  [1m[32m27.ae7c4ab7.iframe.bundle.js[39m[22m    148 KiB       [1m27[39m[22m  [1m[32m[emitted] [immutable][39m[22m         
+                      [1m[32m27.ae7c4ab7.iframe.bundle.js.LICENSE.txt[39m[22m  227 bytes         [1m[39m[22m  [1m[32m[emitted][39m[22m                     
+                                   [1m[33m3.df26cef8.iframe.bundle.js[39m[22m    [1m[33m609 KiB[39m[22m        [1m3[39m[22m  [1m[32m[emitted] [immutable][39m[22m  [1m[33m[big][39m[22m  
+                       [1m[32m3.df26cef8.iframe.bundle.js.LICENSE.txt[39m[22m  808 bytes         [1m[39m[22m  [1m[32m[emitted][39m[22m                     
+                                   [1m[32m4.b1ccff6a.iframe.bundle.js[39m[22m   73.8 KiB        [1m4[39m[22m  [1m[32m[emitted] [immutable][39m[22m         
+                                   [1m[32m5.d1cb071a.iframe.bundle.js[39m[22m   4.35 KiB        [1m5[39m[22m  [1m[32m[emitted] [immutable][39m[22m         
+ [1m[32mcomponents/accordion-base-accordion.e3ef339a.iframe.bundle.js[39m[22m   16.5 KiB     [1m6, 8[39m[22m  [1m[32m[emitted] [immutable][39m[22m         components/accordion-base-accordion
+                 [1m[32mcomponents/app-logo.557ca6f2.iframe.bundle.js[39m[22m   4.33 KiB        [1m7[39m[22m  [1m[32m[emitted] [immutable][39m[22m         components/app-logo
+      [1m[32mcomponents/form-base-check-box.5168fd48.iframe.bundle.js[39m[22m   10.5 KiB        [1m8[39m[22m  [1m[32m[emitted] [immutable][39m[22m         components/form-base-check-box
+    [1m[32mcomponents/interaction-shape-ani.9890e4f0.iframe.bundle.js[39m[22m   17.4 KiB        [1m9[39m[22m  [1m[32m[emitted] [immutable][39m[22m         components/interaction-shape-ani
+                     [1m[32mcomponents/link.7a3026c7.iframe.bundle.js[39m[22m  638 bytes       [1m10[39m[22m  [1m[32m[emitted] [immutable][39m[22m         components/link
+           [1m[32mcomponents/text-more-view.b9bd4db9.iframe.bundle.js[39m[22m   5.26 KiB       [1m11[39m[22m  [1m[32m[emitted] [immutable][39m[22m         components/text-more-view
+          [1m[32mcomponents/the-terms-agree.47b3d6c7.iframe.bundle.js[39m[22m   26.6 KiB  [1m2, 6, 8[39m[22m  [1m[32m[emitted] [immutable][39m[22m         components/the-terms-agree
+                                                   [1m[32miframe.html[39m[22m   11.9 KiB         [1m[39m[22m  [1m[32m[emitted][39m[22m                     
+                                [1m[32mmain.9bbff207.iframe.bundle.js[39m[22m    186 KiB       [1m12[39m[22m  [1m[32m[emitted] [immutable][39m[22m         main
+                    [1m[32mmain.9bbff207.iframe.bundle.js.LICENSE.txt[39m[22m  149 bytes         [1m[39m[22m  [1m[32m[emitted][39m[22m                     
+                         [1m[32mpages/index.bf37ae8b.iframe.bundle.js[39m[22m   8.96 KiB    [1m13, 7[39m[22m  [1m[32m[emitted] [immutable][39m[22m         pages/index
+                         [1m[32mpages/study.4b22dcbc.iframe.bundle.js[39m[22m   4.35 KiB       [1m14[39m[22m  [1m[32m[emitted] [immutable][39m[22m         pages/study
+         [1m[32mpages/study/animation/index.fbfd87b8.iframe.bundle.js[39m[22m   1.17 KiB       [1m15[39m[22m  [1m[32m[emitted] [immutable][39m[22m         pages/study/animation/index
+      [1m[32mpages/study/animation/shapeAni.5c9774e9.iframe.bundle.js[39m[22m   18.8 KiB       [1m16[39m[22m  [1m[32m[emitted] [immutable][39m[22m         pages/study/animation/shapeAni
+                   [1m[32mpages/study/index.e3c17b6f.iframe.bundle.js[39m[22m   1.95 KiB   [1m17, 18[39m[22m  [1m[32m[emitted] [immutable][39m[22m         pages/study/index
+       [1m[32mpages/study/interaction/index.ac232e89.iframe.bundle.js[39m[22m   1.24 KiB       [1m18[39m[22m  [1m[32m[emitted] [immutable][39m[22m         pages/study/interaction/index
+    [1m[32mpages/study/interaction/moreView.73be5b5e.iframe.bundle.js[39m[22m   5.99 KiB   [1m19, 11[39m[22m  [1m[32m[emitted] [immutable][39m[22m         pages/study/interaction/moreView
+[1m[32mpages/study/interaction/theTermAgree.2e6bd778.iframe.bundle.js[39m[22m  949 bytes       [1m20[39m[22m  [1m[32m[emitted] [immutable][39m[22m         pages/study/interaction/theTermAgree
+            [1m[32mpages/study/sample/index.589cdf50.iframe.bundle.js[39m[22m   1.07 KiB       [1m21[39m[22m  [1m[32m[emitted] [immutable][39m[22m         pages/study/sample/index
+                        [1m[32mruntime~main.7de22295.iframe.bundle.js[39m[22m   5.08 KiB       [1m22[39m[22m  [1m[32m[emitted] [immutable][39m[22m         runtime~main
+                        [1m[33mvendors~main.65448752.iframe.bundle.js[39m[22m   [1m[33m1.41 MiB[39m[22m       [1m23[39m[22m  [1m[32m[emitted] [immutable][39m[22m  [1m[33m[big][39m[22m  vendors~main
+            [1m[32mvendors~main.65448752.iframe.bundle.js.LICENSE.txt[39m[22m   1.57 KiB         [1m[39m[22m  [1m[32m[emitted][39m[22m                     
+ + 7 hidden assets
+Entrypoint [1mmain[39m[22m [1m[33m[big][39m[22m = [1m[32mruntime~main.7de22295.iframe.bundle.js[39m[22m [1m[32mvendors~main.65448752.iframe.bundle.js[39m[22m [1m[32mvendors~main.65448752.iframe.bundle.js.map[39m[22m [1m[32mmain.9bbff207.iframe.bundle.js[39m[22m [1m[32mmain.9bbff207.iframe.bundle.js.map[39m[22m
+
+[1m[33mWARNING in ./components/interaction/ShapeAni.vue
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\ShapeAni.vue
+    Used by 1 module(s), i. e.
+    C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\.nuxt-storybook\components\index.js
+* C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\shapeAni.vue
+    Used by 2 module(s), i. e.
+    C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\pages\study\animation\shapeAni.vue?vue&type=script&lang=js&
+ @ ./components/interaction/ShapeAni.vue
+ @ ./.nuxt-storybook/components/index.js
+ @ ./.nuxt-storybook/storybook/preview.js
+ @ ./.nuxt-storybook/storybook/preview.js-generated-config-entry.js
+ @ multi ./node_modules/@nuxt/components/lib/installComponents.js ./.nuxt-storybook/client.js ./node_modules/@storybook/core-client/dist/esm/globals/polyfills.js ./node_modules/@storybook/core-client/dist/esm/globals/globals.js ./storybook-init-framework-entry.js ./node_modules/@storybook/vue/dist/esm/client/preview/config-generated-config-entry.js ./node_modules/@storybook/vue/dist/esm/client/docs/config-generated-config-entry.js ./node_modules/@storybook/addon-docs/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-actions/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-backgrounds/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-measure/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-outline/preview.js-generated-config-entry.js ./.nuxt-storybook/storybook/preview.js-generated-config-entry.js ./generated-stories-entry.js[39m[22m
+
+[1m[33mWARNING in ./components/interaction/ShapeAni.vue?vue&type=script&lang=js& (./node_modules/vue-docgen-loader/lib??ref--10!./node_modules/babel-loader/lib??ref--0-0!./node_modules/babel-loader/lib??ref--13-0!./node_modules/@nuxt/components/dist/loader.js??ref--11-0!./node_modules/vue-loader/lib??vue-loader-options!./components/interaction/ShapeAni.vue?vue&type=script&lang=js&)
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\ShapeAni.vue?vue&type=script&lang=js&
+    Used by 4 module(s), i. e.
+    C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\loaders\pitcher.js??ref--4!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\ShapeAni.vue?vue&type=script&lang=js&
+* C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\shapeAni.vue?vue&type=script&lang=js&
+    Used by 4 module(s), i. e.
+    C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\loaders\pitcher.js??ref--4!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\shapeAni.vue?vue&type=script&lang=js&
+ @ ./components/interaction/ShapeAni.vue?vue&type=script&lang=js& (./node_modules/vue-docgen-loader/lib??ref--10!./node_modules/babel-loader/lib??ref--0-0!./node_modules/babel-loader/lib??ref--13-0!./node_modules/@nuxt/components/dist/loader.js??ref--11-0!./node_modules/vue-loader/lib??vue-loader-options!./components/interaction/ShapeAni.vue?vue&type=script&lang=js&)
+ @ ./components/interaction/ShapeAni.vue?vue&type=script&lang=js&
+ @ ./components/interaction/ShapeAni.vue
+ @ ./.nuxt-storybook/components/index.js
+ @ ./.nuxt-storybook/storybook/preview.js
+ @ ./.nuxt-storybook/storybook/preview.js-generated-config-entry.js
+ @ multi ./node_modules/@nuxt/components/lib/installComponents.js ./.nuxt-storybook/client.js ./node_modules/@storybook/core-client/dist/esm/globals/polyfills.js ./node_modules/@storybook/core-client/dist/esm/globals/globals.js ./storybook-init-framework-entry.js ./node_modules/@storybook/vue/dist/esm/client/preview/config-generated-config-entry.js ./node_modules/@storybook/vue/dist/esm/client/docs/config-generated-config-entry.js ./node_modules/@storybook/addon-docs/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-actions/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-backgrounds/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-measure/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-outline/preview.js-generated-config-entry.js ./.nuxt-storybook/storybook/preview.js-generated-config-entry.js ./generated-stories-entry.js[39m[22m
+
+[1m[33mWARNING in ./components/interaction/ShapeAni.vue?vue&type=script&lang=js&
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\loaders\pitcher.js??ref--4!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\ShapeAni.vue?vue&type=script&lang=js&
+    Used by 4 module(s), i. e.
+    C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\ShapeAni.vue
+* C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\loaders\pitcher.js??ref--4!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\shapeAni.vue?vue&type=script&lang=js&
+    Used by 4 module(s), i. e.
+    C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\shapeAni.vue
+ @ ./components/interaction/ShapeAni.vue?vue&type=script&lang=js&
+ @ ./components/interaction/ShapeAni.vue
+ @ ./.nuxt-storybook/components/index.js
+ @ ./.nuxt-storybook/storybook/preview.js
+ @ ./.nuxt-storybook/storybook/preview.js-generated-config-entry.js
+ @ multi ./node_modules/@nuxt/components/lib/installComponents.js ./.nuxt-storybook/client.js ./node_modules/@storybook/core-client/dist/esm/globals/polyfills.js ./node_modules/@storybook/core-client/dist/esm/globals/globals.js ./storybook-init-framework-entry.js ./node_modules/@storybook/vue/dist/esm/client/preview/config-generated-config-entry.js ./node_modules/@storybook/vue/dist/esm/client/docs/config-generated-config-entry.js ./node_modules/@storybook/addon-docs/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-actions/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-backgrounds/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-measure/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-outline/preview.js-generated-config-entry.js ./.nuxt-storybook/storybook/preview.js-generated-config-entry.js ./generated-stories-entry.js[39m[22m
+
+[1m[33mWARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+This can impact web performance.
+Assets: 
+  3.df26cef8.iframe.bundle.js (609 KiB)
+  vendors~main.65448752.iframe.bundle.js (1.41 MiB)
+  24.cf671d0a.iframe.bundle.js (792 KiB)[39m[22m
+
+[1m[33mWARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+Entrypoints:
+  main (1.6 MiB)
+      runtime~main.7de22295.iframe.bundle.js
+      vendors~main.65448752.iframe.bundle.js
+      main.9bbff207.iframe.bundle.js
+[39m[22m
+info => Preview built (39 s)
+WARN ./components/interaction/ShapeAni.vue
+WARN There are multiple modules with names that only differ in casing.
+WARN This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+WARN Use equal casing. Compare these module identifiers:
+WARN * C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\ShapeAni.vue
+WARN     Used by 1 module(s), i. e.
+WARN     C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\.nuxt-storybook\components\index.js
+WARN * C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\shapeAni.vue
+WARN     Used by 2 module(s), i. e.
+WARN     C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\pages\study\animation\shapeAni.vue?vue&type=script&lang=js&
+WARN  @ ./components/interaction/ShapeAni.vue
+WARN  @ ./.nuxt-storybook/components/index.js
+WARN  @ ./.nuxt-storybook/storybook/preview.js
+WARN  @ ./.nuxt-storybook/storybook/preview.js-generated-config-entry.js
+WARN  @ multi ./node_modules/@nuxt/components/lib/installComponents.js ./.nuxt-storybook/client.js ./node_modules/@storybook/core-client/dist/esm/globals/polyfills.js ./node_modules/@storybook/core-client/dist/esm/globals/globals.js ./storybook-init-framework-entry.js ./node_modules/@storybook/vue/dist/esm/client/preview/config-generated-config-entry.js ./node_modules/@storybook/vue/dist/esm/client/docs/config-generated-config-entry.js ./node_modules/@storybook/addon-docs/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-actions/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-backgrounds/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-measure/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-outline/preview.js-generated-config-entry.js ./.nuxt-storybook/storybook/preview.js-generated-config-entry.js ./generated-stories-entry.js
+WARN ./components/interaction/ShapeAni.vue?vue&type=script&lang=js& (./node_modules/vue-docgen-loader/lib??ref--10!./node_modules/babel-loader/lib??ref--0-0!./node_modules/babel-loader/lib??ref--13-0!./node_modules/@nuxt/components/dist/loader.js??ref--11-0!./node_modules/vue-loader/lib??vue-loader-options!./components/interaction/ShapeAni.vue?vue&type=script&lang=js&)
+WARN There are multiple modules with names that only differ in casing.
+WARN This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+WARN Use equal casing. Compare these module identifiers:
+WARN * C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\ShapeAni.vue?vue&type=script&lang=js&
+WARN     Used by 4 module(s), i. e.
+WARN     C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\loaders\pitcher.js??ref--4!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\ShapeAni.vue?vue&type=script&lang=js&
+WARN * C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\shapeAni.vue?vue&type=script&lang=js&
+WARN     Used by 4 module(s), i. e.
+WARN     C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\loaders\pitcher.js??ref--4!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\shapeAni.vue?vue&type=script&lang=js&
+WARN  @ ./components/interaction/ShapeAni.vue?vue&type=script&lang=js& (./node_modules/vue-docgen-loader/lib??ref--10!./node_modules/babel-loader/lib??ref--0-0!./node_modules/babel-loader/lib??ref--13-0!./node_modules/@nuxt/components/dist/loader.js??ref--11-0!./node_modules/vue-loader/lib??vue-loader-options!./components/interaction/ShapeAni.vue?vue&type=script&lang=js&)
+WARN  @ ./components/interaction/ShapeAni.vue?vue&type=script&lang=js&
+WARN  @ ./components/interaction/ShapeAni.vue
+WARN  @ ./.nuxt-storybook/components/index.js
+WARN  @ ./.nuxt-storybook/storybook/preview.js
+WARN  @ ./.nuxt-storybook/storybook/preview.js-generated-config-entry.js
+WARN  @ multi ./node_modules/@nuxt/components/lib/installComponents.js ./.nuxt-storybook/client.js ./node_modules/@storybook/core-client/dist/esm/globals/polyfills.js ./node_modules/@storybook/core-client/dist/esm/globals/globals.js ./storybook-init-framework-entry.js ./node_modules/@storybook/vue/dist/esm/client/preview/config-generated-config-entry.js ./node_modules/@storybook/vue/dist/esm/client/docs/config-generated-config-entry.js ./node_modules/@storybook/addon-docs/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-actions/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-backgrounds/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-measure/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-outline/preview.js-generated-config-entry.js ./.nuxt-storybook/storybook/preview.js-generated-config-entry.js ./generated-stories-entry.js
+WARN ./components/interaction/ShapeAni.vue?vue&type=script&lang=js&
+WARN There are multiple modules with names that only differ in casing.
+WARN This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+WARN Use equal casing. Compare these module identifiers:
+WARN * C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\loaders\pitcher.js??ref--4!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\ShapeAni.vue?vue&type=script&lang=js&
+WARN     Used by 4 module(s), i. e.
+WARN     C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\ShapeAni.vue
+WARN * C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\loaders\pitcher.js??ref--4!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--0-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\babel-loader\lib\index.js??ref--13-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\shapeAni.vue?vue&type=script&lang=js&
+WARN     Used by 4 module(s), i. e.
+WARN     C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-docgen-loader\lib\index.js??ref--10!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\@nuxt\components\dist\loader.js??ref--11-0!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\node_modules\vue-loader\lib\index.js??vue-loader-options!C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\components\interaction\shapeAni.vue
+WARN  @ ./components/interaction/ShapeAni.vue?vue&type=script&lang=js&
+WARN  @ ./components/interaction/ShapeAni.vue
+WARN  @ ./.nuxt-storybook/components/index.js
+WARN  @ ./.nuxt-storybook/storybook/preview.js
+WARN  @ ./.nuxt-storybook/storybook/preview.js-generated-config-entry.js
+WARN  @ multi ./node_modules/@nuxt/components/lib/installComponents.js ./.nuxt-storybook/client.js ./node_modules/@storybook/core-client/dist/esm/globals/polyfills.js ./node_modules/@storybook/core-client/dist/esm/globals/globals.js ./storybook-init-framework-entry.js ./node_modules/@storybook/vue/dist/esm/client/preview/config-generated-config-entry.js ./node_modules/@storybook/vue/dist/esm/client/docs/config-generated-config-entry.js ./node_modules/@storybook/addon-docs/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-actions/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-backgrounds/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-measure/preview.js-generated-config-entry.js ./node_modules/@storybook/addon-outline/preview.js-generated-config-entry.js ./.nuxt-storybook/storybook/preview.js-generated-config-entry.js ./generated-stories-entry.js
+WARN asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+WARN This can impact web performance.
+WARN Assets: 
+WARN   3.df26cef8.iframe.bundle.js (609 KiB)
+WARN   vendors~main.65448752.iframe.bundle.js (1.41 MiB)
+WARN   24.cf671d0a.iframe.bundle.js (792 KiB)
+WARN entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+WARN Entrypoints:
+WARN   main (1.6 MiB)
+WARN       runtime~main.7de22295.iframe.bundle.js
+WARN       vendors~main.65448752.iframe.bundle.js
+WARN       main.9bbff207.iframe.bundle.js
+WARN 
+info => Output directory: C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\chromatic--27400-St1jxNGXkFy1

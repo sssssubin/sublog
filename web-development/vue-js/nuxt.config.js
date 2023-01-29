@@ -11,7 +11,10 @@ module.exports = {
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap' }
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap",
+      },
     ],
   },
   /*
@@ -32,8 +35,21 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: "eslint-loader",
           exclude: /(node_modules)/,
-        })
+        });
       }
+    },
+    babel: {
+      // envName: server, client, modern
+      presets({ envName }) {
+        return [
+          [
+            "@nuxt/babel-preset-app",
+            {
+              corejs: { version: 3 },
+            },
+          ],
+        ];
+      },
     },
   },
   css: ["~assets/scss/common.scss"],
@@ -45,4 +61,5 @@ module.exports = {
   router: {
     base: "/sublog/", // github repository 이름 넣기
   },
-}
+  components: true,
+};

@@ -16,6 +16,6 @@ module.exports = {
   plugins: ["vue"],
   // add your custom rules here
   rules: {
-    semi: ["error", "never", { beforeStatementContinuationChars: "always" }],
+    // semi: ["error", "never", { beforeStatementContinuationChars: "always" }],
   },
 };

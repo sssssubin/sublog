@@ -2,7 +2,10 @@
   "name": "vue-js",
   "version": "1.0.0",
   "description": "Nuxt.js project",
-  "author": "forest-k <bstnqls@naver.com>",
+  "author": {
+    "name": "forest-k",
+    "email": "bstnqls@naver.com"
+  },
   "private": true,
   "scripts": {
     "dev": "nuxt",
@@ -11,14 +14,21 @@
     "generate": "nuxt generate",
     "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
+    "storybook": "npx nuxt storybook -p 6006",
+    "build-storybook": "npx nuxt storybook build",
+    "chromatic": "npx chromatic --project-token=361a3777974d"
   },
   "dependencies": {
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
+    "@babel/runtime-corejs3": "^7.20.13",
+    "@nuxtjs/storybook": "^4.3.2",
     "@nuxtjs/style-resources": "^1.2.1",
     "babel-eslint": "^10.0.1",
+    "chromatic": "^6.15.0",
+    "core-js": "^3.27.2",
     "eslint": "^4.19.1",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^2.1.1",
@@ -26,5 +36,7 @@
     "node-sass": "^8.0.0",
     "push-dir": "^0.4.1",
     "sass-loader": "^10.4.1"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "vue-js@1.0.0"
 }
