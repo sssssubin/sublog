@@ -4,15 +4,15 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _c25af472 = () => interopDefault(import('..\\pages\\study.vue' /* webpackChunkName: "pages/study" */))
-const _2f9a10db = () => interopDefault(import('..\\pages\\study\\index.vue' /* webpackChunkName: "pages/study/index" */))
-const _5abda1d5 = () => interopDefault(import('..\\pages\\study\\animation\\index.vue' /* webpackChunkName: "pages/study/animation/index" */))
-const _74582a72 = () => interopDefault(import('..\\pages\\study\\interaction\\index.vue' /* webpackChunkName: "pages/study/interaction/index" */))
-const _71fb3071 = () => interopDefault(import('..\\pages\\study\\sample\\index.vue' /* webpackChunkName: "pages/study/sample/index" */))
-const _14554448 = () => interopDefault(import('..\\pages\\study\\animation\\shapeAni.vue' /* webpackChunkName: "pages/study/animation/shapeAni" */))
-const _703fe896 = () => interopDefault(import('..\\pages\\study\\interaction\\moreView.vue' /* webpackChunkName: "pages/study/interaction/moreView" */))
-const _2181f84a = () => interopDefault(import('..\\pages\\study\\interaction\\theTermAgree.vue' /* webpackChunkName: "pages/study/interaction/theTermAgree" */))
-const _39881760 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _416f33c5 = () => interopDefault(import('..\\pages\\study.vue' /* webpackChunkName: "pages/study" */))
+const _3b896dc6 = () => interopDefault(import('..\\pages\\study\\index.vue' /* webpackChunkName: "pages/study/index" */))
+const _41760c53 = () => interopDefault(import('..\\pages\\study\\animation\\index.vue' /* webpackChunkName: "pages/study/animation/index" */))
+const _3fc8a476 = () => interopDefault(import('..\\pages\\study\\interaction\\index.vue' /* webpackChunkName: "pages/study/interaction/index" */))
+const _258906b3 = () => interopDefault(import('..\\pages\\study\\sample\\index.vue' /* webpackChunkName: "pages/study/sample/index" */))
+const _4305e10a = () => interopDefault(import('..\\pages\\study\\animation\\shapeAni.vue' /* webpackChunkName: "pages/study/animation/shapeAni" */))
+const _0cdc7ff7 = () => interopDefault(import('..\\pages\\study\\interaction\\moreView.vue' /* webpackChunkName: "pages/study/interaction/moreView" */))
+const _227308e8 = () => interopDefault(import('..\\pages\\study\\interaction\\theTermAgree.vue' /* webpackChunkName: "pages/study/interaction/theTermAgree" */))
+const _f44ebb64 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -27,39 +27,39 @@ export const routerOptions = {
 
   routes: [{
     path: "/study",
-    component: _c25af472,
+    component: _416f33c5,
     children: [{
       path: "",
-      component: _2f9a10db,
+      component: _3b896dc6,
       name: "study"
     }, {
       path: "animation",
-      component: _5abda1d5,
+      component: _41760c53,
       name: "study-animation"
     }, {
       path: "interaction",
-      component: _74582a72,
+      component: _3fc8a476,
       name: "study-interaction"
     }, {
       path: "sample",
-      component: _71fb3071,
+      component: _258906b3,
       name: "study-sample"
     }, {
       path: "animation/shapeAni",
-      component: _14554448,
+      component: _4305e10a,
       name: "study-animation-shapeAni"
     }, {
       path: "interaction/moreView",
-      component: _703fe896,
+      component: _0cdc7ff7,
       name: "study-interaction-moreView"
     }, {
       path: "interaction/theTermAgree",
-      component: _2181f84a,
+      component: _227308e8,
       name: "study-interaction-theTermAgree"
     }]
   }, {
     path: "/",
-    component: _39881760,
+    component: _f44ebb64,
     name: "index"
   }],
 

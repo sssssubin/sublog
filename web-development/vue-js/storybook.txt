@@ -19,6 +19,9 @@ export default {
 2. Then we can run the development
 > npx nuxt storybook
 
+2-1. Use core-js@3
+> npm run--save-dev core-js@3 @babel/runtime-corejs3
+
 3. Deploy Storybook
 3-1. Exporting as a static app
 > npx nuxt storybook build
