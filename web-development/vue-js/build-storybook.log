@@ -7,7 +7,7 @@ i Discovered Components: .nuxt-storybook/components/readme.md
 √ Nuxt files generated
 info @nuxtjs/storybook v4.3.2
 info 
-info => Cleaning outputDir: C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\chromatic--27400-St1jxNGXkFy1
+info => Cleaning outputDir: C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\chromatic--33300-XEB3ZWqbHjqg
 info => Loading presets
 info => Copying static files: C:\Users\user\Desktop\frontend-study\sublog\web-development\vue-js\static => ./
 info => Compiling manager..
@@ -16,13 +16,13 @@ info Addon-docs: using MDX1
 info => Using PostCSS preset with postcss@7.0.39
 info => Using default Webpack4 setup
 i Compiling Client
-info => Manager built (36 s)
-√ Client: Compiled successfully in 37.61s
+info => Manager built (54 s)
+√ Client: Compiled successfully in 53.71s
 
 Hash: [1m1be23a864dab3760a306[39m[22m
 Version: webpack [1m4.46.0[39m[22m
-Time: [1m37615[39m[22mms
-Built at: 2023. 01. 30. [1m오전 3:07:05[39m[22m
+Time: [1m53716[39m[22mms
+Built at: 2023. 01. 31. [1m오후 11:31:24[39m[22m
                                                          [1mAsset[39m[22m       [1mSize[39m[22m   [1mChunks[39m[22m  [1m[39m[22m                       [1m[39m[22m       [1mChunk Names[39m[22m
                                    [1m[32m0.0fec2cfe.iframe.bundle.js[39m[22m    131 KiB        [1m0[39m[22m  [1m[32m[emitted] [immutable][39m[22m         
                        [1m[32m0.0fec2cfe.iframe.bundle.js.LICENSE.txt[39m[22m  483 bytes         [1m[39m[22m  [1m[32m[emitted][39m[22m                     
@@ -128,7 +128,7 @@ Entrypoints:
       vendors~main.65448752.iframe.bundle.js
       main.9bbff207.iframe.bundle.js
 [39m[22m
-info => Preview built (39 s)
+info => Preview built (55 s)
 WARN ./components/interaction/ShapeAni.vue
 WARN There are multiple modules with names that only differ in casing.
 WARN This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
@@ -190,4 +190,4 @@ WARN       runtime~main.7de22295.iframe.bundle.js
 WARN       vendors~main.65448752.iframe.bundle.js
 WARN       main.9bbff207.iframe.bundle.js
 WARN 
-info => Output directory: C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\chromatic--27400-St1jxNGXkFy1
+info => Output directory: C:\\\\Users\\\\user\\\\AppData\\\\Local\\\\Temp\\\\chromatic--33300-XEB3ZWqbHjqg
