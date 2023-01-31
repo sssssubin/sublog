@@ -10,7 +10,7 @@
 
 <body>
   <strong>TODAY</strong>
-  <p><span id="todayMonth">0</span>월 <span id="today">0</span>일 게시판 번호: <span id="todayNum">0</span></p>
+  <p><span id="todayMonth">0</span>월 15일 이전 게시판 번호: <span id="todayNum">0</span></p>
   <br>
   <br>
   <strong>NEXT</strong>
@@ -18,7 +18,6 @@
   <p><span id="nextMonth">0</span>월 15일 이전 게시판 번호: <span id="nextNum">0</span></p>
   <p><span id="nextMonth2">0</span>월 15일 이후 게시판 번호: <span id="nextNum2">0</span></p>
   <script>
-    const $today = document.getElementById('today');
     const $todayMonth = document.getElementById('todayMonth');
     const $todayMonth2 = document.getElementById('todayMonth2');
     const $nextMonth = document.getElementById('nextMonth');
@@ -42,7 +41,6 @@
       // nextMonth = 2;
       // day = 15;
 
-      $today.innerHTML = day;
       $todayMonth.innerHTML = todayMonth;
       $todayMonth2.innerHTML = todayMonth;
       $nextMonth.innerHTML = nextMonth;
