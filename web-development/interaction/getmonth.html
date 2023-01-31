@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <strong>TODAY</strong>
+  <p><span id="todayMonth">0</span>월 <span id="today">0</span>일 게시판 번호: <span id="todayNum">0</span></p>
+  <br>
+  <br>
+  <strong>NEXT</strong>
+  <p><span id="todayMonth2">0</span>월 15일 이후 게시판 번호: <span id="todayNum2">0</span></p>
+  <p><span id="nextMonth">0</span>월 15일 이전 게시판 번호: <span id="nextNum">0</span></p>
+  <p><span id="nextMonth2">0</span>월 15일 이후 게시판 번호: <span id="nextNum2">0</span></p>
+  <script>
+    const $today = document.getElementById('today');
+    const $todayMonth = document.getElementById('todayMonth');
+    const $todayMonth2 = document.getElementById('todayMonth2');
+    const $nextMonth = document.getElementById('nextMonth');
+    const $nextMonth2 = document.getElementById('nextMonth2');
+    const $todayNum = document.getElementById('todayNum');
+    const $todayNum2 = document.getElementById('todayNum2');
+    const $nextNum = document.getElementById('nextNum');
+    const $nextNum2 = document.getElementById('nextNum2');
+
+    (function goCurrentMonth(boardNum) {
+      var today = new Date();
+      var day = parseInt(today.getUTCDate());
+      var todayMonth = parseInt(today.getUTCMonth() + 1); // 1 = 1월
+      var nextMonth = todayMonth + 1; // 1 + 1 = 2월
+      var boardNum = 2; // 2023.01 기준, 달마다 +2씩 증가
+
+      console.log('TODAY: ' + todayMonth + '월', day + '일')
+
+      // test  
+      // todayMonth = 1;
+      // nextMonth = 2;
+      // day = 15;
+
+      $today.innerHTML = day;
+      $todayMonth.innerHTML = todayMonth;
+      $todayMonth2.innerHTML = todayMonth;
+      $nextMonth.innerHTML = nextMonth;
+      $nextMonth2.innerHTML = nextMonth;
+
+      if (todayMonth < nextMonth && day >= 15) {
+        for (todayMonth == 1; todayMonth < nextMonth; todayMonth++) {
+          boardNum = boardNum + todayMonth * 2;
+
+          //
+          $todayNum.innerHTML = boardNum - 2;
+          $todayNum2.innerHTML = boardNum - 2;
+          $nextNum.innerHTML = boardNum - 2;
+          $nextNum2.innerHTML = boardNum;
+          //
+        }
+      } else {
+        if (todayMonth > 1) {
+          boardNum = boardNum + (todayMonth * 2) - 2;
+        } else {
+          boardNum = boardNum;
+        }
+
+        //
+        $todayNum.innerHTML = boardNum - 2;
+        $todayNum2.innerHTML = boardNum;
+        $nextNum.innerHTML = boardNum;
+        $nextNum2.innerHTML = boardNum + 2;
+        //
+      }
+    })();
+  </script>
+</body>
+
+</html>
