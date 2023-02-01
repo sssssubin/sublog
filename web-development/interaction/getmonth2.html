@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    (function goCurrentMonth() {
+      var today = new Date();
+      var day = parseInt(today.getDate());
+      var nowMonth = parseInt(today.getMonth() + 1); // 1 = 1월
+      var nextMonth = nowMonth + 1; // 1 + 1 = 2월
+      var boardNum = 562; // 2023.01 기준, 달마다 +2씩 증가
+
+      console.log('TODAY: ' + nowMonth + '월', day + '일');
+
+      if (nowMonth < nextMonth && day >= 28) {
+        for (nowMonth == 1; nowMonth < nextMonth; nowMonth++) {
+          boardNum = boardNum + nowMonth * 2;
+
+          // 링크 이동
+          // location.href = 'https://purunet.kumsung.co.kr/customer/customer04_view.jsp?page=1&no=' + boardNum;
+          console.log(nowMonth + '월 28일 이후 게시판 번호: ' + boardNum);
+        }
+      } else {
+        if (nowMonth > 1) {
+          boardNum = boardNum + (nowMonth * 2) - 2;
+        } else {
+          boardNum = boardNum;
+        }
+
+        // 링크 이동 
+        // location.href = 'https://purunet.kumsung.co.kr/customer/customer04_view.jsp?page=1&no=' + boardNum;
+        console.log(nowMonth + '월 28일 이전 게시판 번호: ' + boardNum);
+      }
+    })();
+  </script>
+</body>
+
+</html>
