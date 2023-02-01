@@ -13,30 +13,56 @@
     (function goCurrentMonth() {
       var today = new Date();
       var day = parseInt(today.getDate());
+      var nowYear = parseInt(String(today.getFullYear())[3]) - 2;
+      var nexYear = nowYear + 1;
       var nowMonth = parseInt(today.getMonth() + 1); // 1 = 1월
       var nextMonth = nowMonth + 1; // 1 + 1 = 2월
       var boardNum = 562; // 2023.01 기준, 달마다 +2씩 증가
 
-      console.log('TODAY: ' + nowMonth + '월', day + '일');
+      // test
+      // nowYear = 1;  // 1 -> 2023년도
+      // nexYear = 2;
+      // nowMonth = 1;
+      // nextMonth = 2;
+      // day = 2
 
-      if (nowMonth < nextMonth && day >= 28) {
-        for (nowMonth == 1; nowMonth < nextMonth; nowMonth++) {
-          boardNum = boardNum + nowMonth * 2;
+      // console.log('TODAY: 202' + (nowYear + 2) + '년', nowMonth + '월', day + '일');
 
-          // 링크 이동
-          // location.href = 'https://purunet.kumsung.co.kr/customer/customer04_view.jsp?page=1&no=' + boardNum;
-          console.log(nowMonth + '월 28일 이후 게시판 번호: ' + boardNum);
-        }
-      } else {
-        if (nowMonth > 1) {
-          boardNum = boardNum + (nowMonth * 2) - 2;
+      for (nowYear == 1; nowYear < nexYear; nowYear++) {
+        if (nowYear > 1) {
+          boardNum = 562 + (nowYear * 24) - 24;
         } else {
           boardNum = boardNum;
         }
+        // console.log("202" + (nowYear + 2) + '년도', nowMonth + '월');
+        // console.log('시작점: ', boardNum);
 
-        // 링크 이동 
-        // location.href = 'https://purunet.kumsung.co.kr/customer/customer04_view.jsp?page=1&no=' + boardNum;
-        console.log(nowMonth + '월 28일 이전 게시판 번호: ' + boardNum);
+        if (nowMonth < nextMonth && day >= 28) {
+          for (nowMonth == 1; nowMonth < nextMonth; nowMonth++) {
+            boardNum = boardNum + nowMonth * 2;
+
+            // if (nowYear > 7 && nexYear > 8) {
+            //   console.log(nowMonth + '월 28일 이후 게시판 번호: ' + boardNum);
+            // } else {
+            //   console.log(nowMonth + '월 28일 이후 게시판 번호: ' + boardNum);
+            // }
+            console.log(boardNum);
+          }
+        } else {
+          if (nowMonth > 1) {
+            boardNum = boardNum + (nowMonth * 2) - 2;
+          } else {
+            boardNum = boardNum;
+          }
+
+          // if (nowYear > 7 && nexYear > 8) {
+          //   console.log(nowMonth + '월 28일 이전 게시판 번호: ' + boardNum);
+          // } else {
+          //   console.log(nowMonth + '월 28일 이전 게시판 번호: ' + boardNum);
+          // }
+          console.log(boardNum);
+        }
+        break
       }
     })();
   </script>
