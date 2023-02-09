@@ -1,66 +1,57 @@
 [
   {
     "path": "/study",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\frontend-study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study.vue",
+    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\project\\\\study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study.vue",
     "chunkName": "pages/study",
     "children": [
       {
         "name": "study",
         "path": "",
-        "component": "C:\\\\Users\\\\user\\\\Desktop\\\\frontend-study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study\\\\index.vue",
-        "chunkName": "pages/study/index",
-        "_name": "_2f9a10db"
+        "component": "C:\\\\Users\\\\user\\\\Desktop\\\\project\\\\study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study\\\\index.vue",
+        "chunkName": "pages/study/index"
       },
       {
         "name": "study-animation",
         "path": "animation",
-        "component": "C:\\\\Users\\\\user\\\\Desktop\\\\frontend-study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study\\\\animation\\\\index.vue",
-        "chunkName": "pages/study/animation/index",
-        "_name": "_5abda1d5"
+        "component": "C:\\\\Users\\\\user\\\\Desktop\\\\project\\\\study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study\\\\animation\\\\index.vue",
+        "chunkName": "pages/study/animation/index"
       },
       {
         "name": "study-interaction",
         "path": "interaction",
-        "component": "C:\\\\Users\\\\user\\\\Desktop\\\\frontend-study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study\\\\interaction\\\\index.vue",
-        "chunkName": "pages/study/interaction/index",
-        "_name": "_74582a72"
+        "component": "C:\\\\Users\\\\user\\\\Desktop\\\\project\\\\study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study\\\\interaction\\\\index.vue",
+        "chunkName": "pages/study/interaction/index"
       },
       {
         "name": "study-sample",
         "path": "sample",
-        "component": "C:\\\\Users\\\\user\\\\Desktop\\\\frontend-study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study\\\\sample\\\\index.vue",
-        "chunkName": "pages/study/sample/index",
-        "_name": "_71fb3071"
+        "component": "C:\\\\Users\\\\user\\\\Desktop\\\\project\\\\study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study\\\\sample\\\\index.vue",
+        "chunkName": "pages/study/sample/index"
       },
       {
         "name": "study-animation-shapeAni",
         "path": "animation/shapeAni",
-        "component": "C:\\\\Users\\\\user\\\\Desktop\\\\frontend-study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study\\\\animation\\\\shapeAni.vue",
-        "chunkName": "pages/study/animation/shapeAni",
-        "_name": "_14554448"
+        "component": "C:\\\\Users\\\\user\\\\Desktop\\\\project\\\\study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study\\\\animation\\\\shapeAni.vue",
+        "chunkName": "pages/study/animation/shapeAni"
       },
       {
         "name": "study-interaction-moreView",
         "path": "interaction/moreView",
-        "component": "C:\\\\Users\\\\user\\\\Desktop\\\\frontend-study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study\\\\interaction\\\\moreView.vue",
-        "chunkName": "pages/study/interaction/moreView",
-        "_name": "_703fe896"
+        "component": "C:\\\\Users\\\\user\\\\Desktop\\\\project\\\\study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study\\\\interaction\\\\moreView.vue",
+        "chunkName": "pages/study/interaction/moreView"
       },
       {
         "name": "study-interaction-theTermAgree",
         "path": "interaction/theTermAgree",
-        "component": "C:\\\\Users\\\\user\\\\Desktop\\\\frontend-study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study\\\\interaction\\\\theTermAgree.vue",
-        "chunkName": "pages/study/interaction/theTermAgree",
-        "_name": "_2181f84a"
+        "component": "C:\\\\Users\\\\user\\\\Desktop\\\\project\\\\study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\study\\\\interaction\\\\theTermAgree.vue",
+        "chunkName": "pages/study/interaction/theTermAgree"
       }
-    ],
-    "_name": "_c25af472"
+    ]
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\frontend-study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_39881760"
+    "component": "C:\\\\Users\\\\user\\\\Desktop\\\\project\\\\study\\\\sublog\\\\web-development\\\\vue-js\\\\pages\\\\index.vue",
+    "chunkName": "pages/index"
   }
 ]
