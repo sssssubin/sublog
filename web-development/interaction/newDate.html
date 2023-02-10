@@ -29,9 +29,9 @@
             let boardNum = 562  // 게시판 번호 기준, 달마다 2씩 증가
 
             // test
-            // now_year = 2024
-            // now_month = 1
-            // next_month = 2
+            now_year = 2023
+            now_month = 1
+            next_month = 2
             now_date = 28
 
             const BASE_YEAR = 2022 // 시작 년도 기준   
@@ -40,24 +40,23 @@
             console.log('기준 년도: ' + BASE_YEAR, '/ 현재: ' + now_year + '년', now_month + '월', now_date + '일, ', '다음 달: ' + (next_month < 13 ? next_month : 1) + '월')
 
 
-            if (y > 1) {
+            if (y > 0) {
                 // boardNum = boardNum + (y * 24) - 24
                 boardNum += (y - 1) * 24
+            } else if (y == 0) {
+                // boardNum = boardNum - 24
+                boardNum -= 24
             } else {
-                boardNum = boardNum
+                // boardNum = (boardNum - 24) + ((y - 1) * 24) + 24
+                boardNum += ((y - 1) + 1 - 1) * 24
             }
 
             for (now_month; now_month < next_month; now_month++) {
                 if (now_date >= 28) {
                     boardNum += now_month * 2
                 } else {
-                    if (now_month > 1) {
-                        // boardNum = boardNum + (now_month * 2) - 2
-                        boardNum += (now_month - 1) * 2
-
-                    } else {
-                        boardNum = boardNum
-                    }
+                    // boardNum = boardNum + (now_month * 2) - 2
+                    boardNum += (now_month - 1) * 2
                 }
 
                 // 링크 이동
@@ -68,8 +67,6 @@
                 $now_month.innerHTML = now_month;
                 $now_date.innerHTML = now_date;
                 $boardNum.innerHTML = boardNum;
-
-                return
             }
         })();
     </script>
