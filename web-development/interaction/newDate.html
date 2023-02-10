@@ -48,11 +48,14 @@
                 boardNum -= 24
             } else {
                 // boardNum = (boardNum - 24) + ((y - 1) * 24) + 24
+                // boardNum = (boardNum - 24) + ((y - 1) + 1) * 24
+                // boardNum -= 24 + ((y - 1) + 1) * 24
                 boardNum += ((y - 1) + 1 - 1) * 24
             }
 
             for (now_month; now_month < next_month; now_month++) {
                 if (now_date >= 28) {
+                    // boardNum = boardNum + (now_month * 2)
                     boardNum += now_month * 2
                 } else {
                     // boardNum = boardNum + (now_month * 2) - 2
