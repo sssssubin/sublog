@@ -47,6 +47,30 @@
         .tab-pane .container {
             display: flex;
         }
+
+        .textbook-box {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            border: 2px solid;
+            padding: 2px;
+            z-index: 10;
+        }
+
+        #timeTable td {
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+
+        #timeTable td>button {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 
@@ -98,18 +122,18 @@
                                     <td class="tab-body">
                                         <div class="tab-pane active">
                                             <div class="tab">
-                                                <ul class="tab-nav">
+                                                <ul class="tab-nav textbook-nav">
                                                     <li class="tab-nav-item">
-                                                        <a class="tab-nav-link" href="#">Textbook 1</a>
+                                                        <a class="tab-nav-select" href="#">Textbook 1</a>
                                                     </li>
                                                     <li class="tab-nav-item">
-                                                        <a class="tab-nav-link" href="#">Textbook 2</a>
+                                                        <a class="tab-nav-select" href="#">Textbook 2</a>
                                                     </li>
                                                     <li class="tab-nav-item">
-                                                        <a class="tab-nav-link" href="#">Textbook 3</a>
+                                                        <a class="tab-nav-select" href="#">Textbook 3</a>
                                                     </li>
                                                     <li class="tab-nav-item">
-                                                        <a class="tab-nav-link" href="#">Textbook 4</a>
+                                                        <a class="tab-nav-select" href="#">Textbook 4</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -147,9 +171,7 @@
                                     <th>금</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr></tr>
-                            </tbody>
+                            <tbody></tbody>
                         </table>
                         <div class="buttons">
                             <button class="button reset-btn">초기화</button>
@@ -238,38 +260,6 @@
             </div>
         </div>
         <script>
-            // timeTable
-            // let n = 5;
-            // [...new Array(n)].forEach((i, index) => {
-            //     const timeTableRow = document.querySelector('#timeTable > tbody > tr');
-            //     timeTableRow.innerHTML += '<td><a href="#none">+</a></td>'
-            // });
-
-            // let i = 1
-            // let j = 1
-            // while (i <= 5) {
-            //     timeTableRow.innerHTML += '<tr><th>' + i + '교시 </th></tr>'
-            //     while (j <= 5) {
-            //         timeTableCol.innerHTML += '<td><a href="#none">+</a></td>'
-            //         console.log(i, j)
-            //         j += 1
-            //     }
-            //     i += 1
-            // }
-
-            let i = 1
-            let j = 1
-            let timeTableRow = document.querySelector('#timeTable > tbody');
-            let timeTableCol = document.querySelector('#timeTable > tbody > tr');
-            while (i <= 5) {
-                while (j <= 5) {
-                    timeTableRow.innerHTML += '<tr><th>' + i + '교시 </th><td>' + '+' + '</td></tr>'
-                    console.log(i, j)
-                    j += 1
-                }
-                i += 1
-            }
-
             // Tabs
             const tab = document.querySelectorAll('.tab');
 
@@ -304,10 +294,40 @@
                 });
             }
 
+            // Add Timetable
+            const addTimetable = () => {
+                let tableBody = document.querySelectorAll('#timeTable > tbody')
+                Array.prototype.forEach.call(tableBody, (event, indexTr) => {
+                    event.innerHTML = '<tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>'
+                    let tableRow = document.querySelectorAll('#timeTable > tbody > tr')
+                    Array.prototype.forEach.call(tableRow, (e, tableCol) => {
+                        e.innerHTML = '<th>' + (tableCol + 1) + '교시</th><td><button>+</button></td><td><button>+</button></td><td><button>+</button></td><td><button>+</button></td><td><button>+</button></td>'
+                    })
+                })
+
+                let textbook = document.querySelectorAll('.textbook-nav > li')
+                Array.prototype.forEach.call(textbook, (e, indexTextbook) => {
+                    e.addEventListener('click', event => {
+                        let textbookBox = document.querySelector('.textbook-tit')
+                        textbookBox = textbook[indexTextbook].innerText
+                        console.log(textbookBox)
+
+                        let tableColblock = document.querySelectorAll('#timeTable > tbody > tr > td')
+                        Array.prototype.forEach.call(tableColblock, (event, index) => {
+                            event.addEventListener('click', e => {
+                                tableColblock[index].innerHTML = "<div class=textbook" + "-" + "box>" + textbookBox + "<button class=close" + "-" + "btn > X</button ></div > "
+                                console.log(tableColblock[index])
+                            })
+                        })
+                    })
+                });
+            }
+
             // Init
             const init = () => {
                 // Tabs Init
                 onClickTabNavLink();
+                addTimetable();
             };
 
             document.addEventListener('DOMContentLoaded', init);
