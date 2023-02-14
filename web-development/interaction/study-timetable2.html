@@ -314,8 +314,10 @@
 
                         let tableColblock = document.querySelectorAll('#timeTable > tbody > tr > td')
                         Array.prototype.forEach.call(tableColblock, (event, index) => {
-                            event.addEventListener('click', e => {
-                                tableColblock[index].innerHTML = "<div class=textbook" + "-" + "box>" + textbookBox + "<button class=close" + "-" + "btn > X</button ></div > "
+                            console.log(tableColblock)
+                            let addBtn = tableColblock[index].children[0]
+                            addBtn.addEventListener('click', e => {
+                                tableColblock[index].innerHTML += "<div class=textbook" + "-" + "box>" + textbookBox + "<button id=closeBtn class=close-btn onclick=deleteTimetable() > X</button ></div >"
                                 console.log(tableColblock[index])
                             })
                         })
@@ -323,11 +325,22 @@
                 });
             }
 
+            // Delete Timetable
+            const deleteTimetable = () => {
+                console.log('test')
+                let tableColblock = document.querySelectorAll('#timeTable > tbody > tr > td')
+                const closeBtn = document.querySelector('closeBtn')
+                Array.prototype.forEach.call(tableColblock, (event, index) => {
+                    tableColblock[index].innerHTML = '<button>+</button>'
+                })
+            }
+
             // Init
             const init = () => {
                 // Tabs Init
                 onClickTabNavLink();
                 addTimetable();
+                deleteTimetable();
             };
 
             document.addEventListener('DOMContentLoaded', init);
