@@ -465,7 +465,7 @@ body {
 .tab-body .tab-pane {
   display: none;
 }
-.tab-body .tab-pane .container {
+.tab-body .tab-pane > .container {
   display: flex;
 }
 .tab-body .tab-pane.active {
@@ -604,4 +604,30 @@ button.check-btn {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.f-cat[data-cat=cat-red] {
+  background: #ff4136;
+}
+
+.f-cat[data-cat=cat-green] {
+  background: #2ecc40;
+}
+
+.f-cat[data-cat=cat-blue] {
+  background: #0074d9;
+}
+
+.filter-cat-results .f-cat.active {
+  opacity: 1;
+  display: flex;
+  animation: fadeIn 0.65s ease forwards;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }/*# sourceMappingURL=timetable.css.map */

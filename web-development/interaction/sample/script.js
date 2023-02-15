@@ -36,12 +36,4 @@ $(function () {
     .each(function (item) {
       $(".name_s").append('<option value="' + item + '">' + item + "</option>");
     });
-
-  $("select").each(function () {
-    $(this).multipleSelect({
-      onClick: updateList,
-      selectAll: false,
-      placeholder: $(this).data("placeholder"),
-    });
-  });
 });

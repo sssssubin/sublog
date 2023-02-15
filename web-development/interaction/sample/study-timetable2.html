@@ -7,45 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./timetable.css">
-    <link rel='stylesheet' href='http://wenzhixin.net.cn/p/multiple-select/assets/multiple-select/multiple-select.css'>
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <div class="wrap">
-        <div id="users">
-            <select class="date_s" style="width:120px;" data-placeholder="Choose a date">
-            </select>
-            <select class="name_s" style="width:150px;" data-placeholder="Choose a name">
-            </select>
-            <ul class="list">
-                <li>
-                    <h3 class="name">Jonny Wayne</h3>
-                    <p class="born">1986</p>
-                </li>
-                <li>
-                    <h3 class="name">Jonas</h3>
-                    <p class="born">1985</p>
-                </li>
-                <li>
-                    <h3 class="name">Jonas</h3>
-                    <p class="born">1985</p>
-                </li>
-                <li>
-                    <h3 class="name">Jonas</h3>
-                    <p class="born">1985</p>
-                </li>
-                <li>
-                    <h3 class="name">Martina</h3>
-                    <p class="born">1986</p>
-                </li>
-                <li>
-                    <h3 class="name">Gustaf</h3>
-                    <p class="born">1983</p>
-                </li>
-            </ul>
-
-        </div>
         <div class="tab">
             <header>
                 <h1>학습 시간표</h1>
@@ -92,12 +58,15 @@
                                     <option value="">2학년</option>
                                     <option value="">3학년</option>
                                 </select>
+                                <select class="date_s" style="width:120px;" data-placeholder="Choose a date">
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="">학기</label>
                                 <select name="" id="">
                                     <option value="">1학기</option>
                                     <option value="">2학기</option>
+                                </select><select class="name_s" style="width:150px;" data-placeholder="Choose a name">
                                 </select>
                             </div>
                             <table class="tab sub-tab">
@@ -109,19 +78,40 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="tab-nav">
-                                            <li class="tab-nav-item"><a class="tab-nav-link" href="#">과목1</a>
-                                            </li>
-                                            <li class="tab-nav-item"><a class="tab-nav-link" href="#">과목2</a></li>
+                                        <td id="users">
+                                            <ul class="list tab-nav">
+                                                <li class="tab-nav-item">
+                                                    <a href="#" class="tab-nav-link">
+                                                        <h3 class="name">과목1</h3>
+                                                        <p class="born">1학년</p>
+                                                    </a>
+                                                </li>
+                                                <li class="tab-nav-item">
+                                                    <a href="#" class="tab-nav-link">
+                                                        <h3 class="name">과목2</h3>
+                                                        <p class="born">1학년</p>
+                                                    </a>
+                                                </li>
+                                                <li class="tab-nav-item">
+                                                    <a href="#" class="tab-nav-link">
+                                                        <h3 class="name">과목1</h3>
+                                                        <p class="born">2학년</p>
+                                                    </a>
+                                                </li>
+                                                <li class="tab-nav-item">
+                                                    <a href="#" class="tab-nav-link">
+                                                        <h3 class="name">과목2</h3>
+                                                        <p class="born">2학년</p>
+                                                    </a>
+                                                </li>
+                                            </ul>
                                         </td>
                                         <td class="tab-body">
                                             <div class="tab-pane active">
                                                 <div class="tab">
                                                     <ul class="tab-nav textbook-nav">
                                                         <li class="tab-nav-item">
-                                                            <a class="tab-nav-select" href="#">
-                                                                Textbook 1
-                                                            </a>
+                                                            <a class="tab-nav-select" href="#">Textbook 1</a>
                                                         </li>
                                                         <li class="tab-nav-item">
                                                             <a class="tab-nav-select" href="#">Textbook 2</a>
@@ -134,7 +124,6 @@
                                                         </li>
                                                         <li class="tab-nav-item">
                                                             <a class="tab-nav-select" href="#">Textbook 5</a>
-                                                        </li>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -159,11 +148,66 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div class="tab-pane">Subtab pane 3</div>
-                                            <div class="tab-pane">Subtab pane 4</div>
-                                            <div class="tab-pane">Subtab pane 5</div>
-                                            <div class="tab-pane">Subtab pane 6</div>
-                                            <div class="tab-pane">Subtab pane 7</div>
+                                            <div class="tab-pane">
+                                                <div class="tab">
+                                                    <ul class="tab-nav textbook-nav">
+                                                        <li class="tab-nav-item">
+                                                            <a class="tab-nav-select" href="#">
+                                                                Textbook 1
+                                                            </a>
+                                                        </li>
+                                                        <li class="tab-nav-item">
+                                                            <a class="tab-nav-select" href="#">Textbook 2</a>
+                                                        </li>
+                                                        <li class="tab-nav-item">
+                                                            <a class="tab-nav-select" href="#">Textbook 3</a>
+                                                        </li>
+                                                        <li class="tab-nav-item">
+                                                            <a class="tab-nav-select" href="#">Textbook 4</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane">
+                                                <div class="tab">
+                                                    <ul class="tab-nav textbook-nav">
+                                                        <li class="tab-nav-item">
+                                                            <a class="tab-nav-select" href="#">
+                                                                Textbook 1
+                                                            </a>
+                                                        </li>
+                                                        <li class="tab-nav-item">
+                                                            <a class="tab-nav-select" href="#">Textbook 2</a>
+                                                        </li>
+                                                        <li class="tab-nav-item">
+                                                            <a class="tab-nav-select" href="#">Textbook 3</a>
+                                                        </li>
+                                                        <li class="tab-nav-item">
+                                                            <a class="tab-nav-select" href="#">Textbook 4</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane">
+                                                <div class="tab">
+                                                    <ul class="tab-nav textbook-nav">
+                                                        <li class="tab-nav-item">
+                                                            <a class="tab-nav-select" href="#">
+                                                                Textbook 1
+                                                            </a>
+                                                        </li>
+                                                        <li class="tab-nav-item">
+                                                            <a class="tab-nav-select" href="#">Textbook 2</a>
+                                                        </li>
+                                                        <li class="tab-nav-item">
+                                                            <a class="tab-nav-select" href="#">Textbook 3</a>
+                                                        </li>
+                                                        <li class="tab-nav-item">
+                                                            <a class="tab-nav-select" href="#">Textbook 4</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -275,8 +319,6 @@
             </div> -->
 
             <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-            <script
-                src='//wenzhixin.net.cn/p/multiple-select/assets/multiple-select/jquery.multiple.select.js'></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.0/list.min.js"></script>
             <!-- partial -->
@@ -327,7 +369,7 @@
                         })
                     })
 
-                    let subTab = document.querySelectorAll(".sub-tab > tbody > tr > td.tab-nav > li")
+                    let subTab = document.querySelectorAll(".sub-tab > tbody > tr > td > ul.tab-nav > li")
                     Array.prototype.forEach.call(subTab, (evt, idx) => {
                         evt.addEventListener('click', event => {
                             let textbookBox2 = document.querySelector('.textbook-tit')
@@ -345,6 +387,7 @@
                                         addBtn.addEventListener('click', e => {
                                             tableColblock[index].innerHTML += "<div class=textbook" + "-" + "box>" + textbookBox2 + textbookBox + "<button id=closeBtn class=close-btn onclick=deleteCell() ></button ></div >"
                                         })
+                                        console.log()
                                     })
                                 })
                             });

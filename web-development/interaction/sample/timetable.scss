@@ -618,7 +618,7 @@
      .tab-pane {
          display: none;
 
-         .container {
+         >.container {
              display: flex;
          }
 
@@ -758,5 +758,54 @@
          display: flex;
          align-items: center;
          justify-content: center;
+     }
+ }
+
+ ////
+ $red: #ff4136;
+ $green: #2ecc40;
+ $blue: #0074d9;
+
+ .f-cat[data-cat='cat-red'] {
+     background: $red;
+ }
+
+ .f-cat[data-cat='cat-green'] {
+     background: $green;
+ }
+
+ .f-cat[data-cat='cat-blue'] {
+     background: $blue;
+ }
+
+ .filter-cat-results .f-cat {
+     //  opacity: 0;
+     //  display: none;
+
+     &.active {
+         opacity: 1;
+         display: flex;
+         -webkit-animation: fadeIn 0.65s ease forwards;
+         animation: fadeIn 0.65s ease forwards;
+     }
+ }
+
+ @-webkit-keyframes fadeIn {
+     0% {
+         opacity: 0;
+     }
+
+     100% {
+         opacity: 1;
+     }
+ }
+
+ @keyframes fadeIn {
+     0% {
+         opacity: 0;
+     }
+
+     100% {
+         opacity: 1;
      }
  }
