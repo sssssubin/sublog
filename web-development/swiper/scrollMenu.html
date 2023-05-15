@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CodePen - A Pen by zoobley</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <style>
+      *{margin:0;padding:0;}
+      ul,li{list-style:none;}
+      a {text-decoration:none; color:#666}
+
+      .red {background:red; color:#fff; text-align:center;}
+      .blue {background:blue; color:#fff; text-align:center;}
+      .green {background:green; color:#fff; text-align:center;}
+      .orange {background:orange; color:#fff; text-align:center;}
+      .skyblue {background:skyblue; color:#fff; text-align:center;}
+      .pink {background:pink; color:#fff; text-align:center;}
+
+      /* table > table-cell + inline-block */
+      .table_cell_inblk {display:table; width:100%; padding:0 20px; box-sizing:border-box;}
+      .table_cell_inblk .inblk {display:inline-block; width:60px; height:60px; border-radius:100%; background:cadetblue; text-align:center;}
+      .table_cell_inblk .inblk:before {display:inline-block; content:""; width:0; height:100%; vertical-align:middle;}
+      .table_cell_inblk .inblk span {display:inline-block; vertical-align:middle; line-height:1.3em;}
+      .table_cell_inblk .table_cell {display:table-cell; width:100%; padding-left:15px; box-sizing:border-box;}
+      /* =============================== */
+
+      .swiper-slide >div {height:100px;}
+      .swiper-slide >div:before {display:inline-block; content:""; width:0; height:100%; vertical-align:middle;}
+      .swiper-slide >div >span {display:inline-block; vertical-align:middle;}
+
+      /* scroller bar 보이지않게 (scroll-wrap 높이만큼 히든) */
+      .scroll-wrap {overflow:hidden; height:40px;}
+      .scroller {overflow:hidden; width:100%; height:100%; overflow-x:auto; padding-bottom:15px;}
+      .scroller ul {display:table; width:max-content!important;}
+      .scroller ul li {display:table-cell; width: 100px;}
+      .scroller ul li a {display:block; padding:9px 10px 7px 10px; white-space:nowrap;}
+      .scroller ul li.on a {color:blue; font-weight:bold;}
+
+      .swiper-slide {
+          height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="mainNavi">
+      <div class="scroll-wrap">
+        <div class="scroller">
+          <ul class="list-nav"></ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div id="mainCont" class="swiper mySwiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide blue" data-slide-title="메뉴1">Slide 1</div>
+        <div class="swiper-slide pink" data-slide-title="메뉴2">Slide 2</div>
+        <div class="swiper-slide red" data-slide-title="메뉴3">Slide 3</div>
+        <div class="swiper-slide blue" data-slide-title="메뉴4">Slide 4</div>
+        <div class="swiper-slide pink" data-slide-title="메뉴5">Slide 5</div>
+        <div class="swiper-slide blue" data-slide-title="메뉴6">Slide 6</div>
+        <div class="swiper-slide blue" data-slide-title="메뉴7">Slide 7</div>
+      </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script>
+      var mySwiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        pagination: {
+          el: ".list-nav",
+          renderBullet: function (index, className) {
+              const bullets = document.querySelectorAll(".mySwiper > .swiper-wrapper > .swiper-slide");
+              return '<li><a href="#">' + (bullets[index].dataset.slideTitle) + '</a></li>';
+          }
+        },
+        on: {
+          init: function (mySwiper) {
+            $("#mainNavi .list-nav li:eq(" + this.realIndex + ")").stop().addClass("on");
+
+            //event
+            $("#mainNavi .list-nav li a").click(function() {
+              if ($(this).parent("li").stop().hasClass("on")) return false;
+                var index = $(this).parent("li").index();
+                
+                $("#mainNavi .list-nav li")
+                  .stop()
+                  .removeClass("on")
+                  .children("a")
+                  .attr("aria-selected", "false");
+                $("#mainNavi .list-nav li:eq(" + index + ")")
+                  .stop()
+                  .children("a")
+                  .attr("aria-selected", "true");
+
+                mySwiper.slideTo(index, 0); //slideTo(index,speed,callback)
+            })
+          },
+          slideChangeTransitionEnd: function (mySwiper) {
+            $("#mainNavi .list-nav li")
+              .stop()
+              .removeClass("on")
+              .children("a")
+              .attr("aria-selected", "false");
+            $("#mainNavi .list-nav li:eq(" + this.realIndex + ")")
+              .stop()
+              .addClass("on")
+              .children("a")
+              .attr("aria-selected", "true");
+
+            var scrollMenuOn = $(".scroll-wrap .scroller ul li.on");
+            var scroller = $(".scroll-wrap .scroller");
+
+            scroller.stop().animate({
+              scrollLeft: scrollMenuOn.offset().left + scroller.scrollLeft() + scrollMenuOn.width() / 2 - scroller.width() / 2
+            }, 500);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
