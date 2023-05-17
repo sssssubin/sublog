@@ -23,10 +23,6 @@
       color: #000;
       margin: 0;
       padding: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
 
     .swiper {
@@ -67,15 +63,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      background: rgba(0, 0, 0, 0.1);
-      padding: 8px;
-    }
-
-    .swiper-horizontal>.swiper-pagination-bullets,
-    .swiper-pagination-bullets.swiper-pagination-horizontal,
-    .swiper-pagination-custom,
-    .swiper-pagination-fraction {
-      bottom: 0;
     }
 
     .swiper-pagination-bullet {
@@ -114,62 +101,6 @@
     .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
       margin: 0;
     }
-
-    #counter {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      width: 100%;
-      padding: 8px;
-      box-sizing: border-box;
-    }
-
-    #counter .item {
-      background-color: #007aff;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-radius: 20px;
-      padding: 20px 0;
-      gap: 10px;
-    }
-
-    #counter .item .count {
-      color: #fff;
-      font-size: 40px;
-      width: 100%;
-      text-align: center;
-      margin: 0;
-    }
-
-    #counter .item h3 {
-      margin: 0;
-      color: lightskyblue;
-    }
-
-    @media (max-width: 768px) {
-      #counter {
-        gap: 8px;
-      }
-
-      #counter .item {
-        width: 100%;
-        gap: 8px;
-        padding: 8px;
-        border-radius: 8px;
-      }
-
-      #counter .item .count {
-        font-size: 24px;
-      }
-
-      #counter .item h3 {
-        font-size: 15px;
-      }
-    }
   </style>
 </head>
 
@@ -177,36 +108,17 @@
   <!-- Swiper -->
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">Slide 1</div>
-      <div class="swiper-slide">Slide 2</div>
-      <div class="swiper-slide">Slide 3</div>
-      <div class="swiper-slide">Slide 4</div>
-      <div class="swiper-slide">Slide 5</div>
-      <div class="swiper-slide">Slide 6</div>
-      <div class="swiper-slide">Slide 7</div>
-      <div class="swiper-slide">Slide 8</div>
-      <div class="swiper-slide">Slide 9</div>
+      <div class="swiper-slide" data-slide-title="Slide 1">Slide 1</div>
+      <div class="swiper-slide" data-slide-title="Slide 2">Slide 2</div>
+      <div class="swiper-slide" data-slide-title="Slide 3">Slide 3</div>
+      <div class="swiper-slide" data-slide-title="Slide 4">Slide 4</div>
+      <div class="swiper-slide" data-slide-title="Slide 5">Slide 5</div>
+      <div class="swiper-slide" data-slide-title="Slide 6">Slide 6</div>
+      <div class="swiper-slide" data-slide-title="Slide 7">Slide 7</div>
+      <div class="swiper-slide" data-slide-title="Slide 8">Slide 8</div>
+      <div class="swiper-slide" data-slide-title="Slide 9">Slide 9</div>
     </div>
     <div class="swiper-pagination"></div>
-  </div>
-
-  <div id="counter">
-    <div class="item">
-      <h1 class="count" data-number="100"></h1>
-      <h3 class="text">Counter 1</h3>
-    </div>
-    <div class="item">
-      <h1 class="count" data-number="100"></h1>
-      <h3 class="text">Counter 2</h3>
-    </div>
-    <div class="item">
-      <h1 class="count" data-number="100"></h1>
-      <h3 class="text">Counter 3</h3>
-    </div>
-    <div class="item">
-      <h1 class="count" data-number="100"></h1>
-      <h3 class="text">Counter 4</h3>
-    </div>
   </div>
 
   <!-- Swiper JS -->
@@ -214,37 +126,17 @@
 
   <!-- Initialize Swiper -->
   <script>
-    var bullet = ['국어', '수학', '사회', '과학', '영어', '도덕', '체육', '미술', '기술가정'];
     var swiper = new Swiper(".mySwiper", {
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
         renderBullet: function (index, className) {
-          return '<span class="' + className + '">' + (bullet[index]) + '</span>';
+          const bullets = document.querySelectorAll(".mySwiper > .swiper-wrapper > .swiper-slide");
+          let bulletTitle = bullets[index].dataset.slideTitle;
+          return `<span class="${className}">${bulletTitle}</span>`;
         }
-      }
+      },
     });
-
-    // counter
-    let count = document.querySelectorAll(".count")
-    let arr = Array.from(count)
-
-    arr.map(function (item) {
-      let startnumber = 0
-
-      function counterup() {
-        startnumber++
-        item.innerHTML = startnumber
-
-        if (startnumber == item.dataset.number) {
-          clearInterval(stop)
-        }
-      }
-
-      let stop = setInterval(function () {
-        counterup()
-      }, 10)
-    })
   </script>
 </body>
 

@@ -3,6 +3,7 @@
 html,
 body {
   position: relative;
+  height: 100%;
 }
 
 body {
@@ -16,16 +17,10 @@ body {
 
 .swiper {
   width: 100%;
-  height: inherit;
-}
-
-.swiper-wrapper {
-  height: inherit;
+  height: 100%;
 }
 
 .swiper-slide {
-  width: 100%;
-  height: 100vh;
   text-align: center;
   font-size: 18px;
   background: #fff;
@@ -82,7 +77,6 @@ body {
   margin: 0;
 }
 
-/* ////////////////////// */
 .horizonScroll {
   overflow-x: auto;
   margin: 0 auto;
@@ -96,44 +90,10 @@ body {
   padding: 0;
 }
 
-/* .swiper-pagination {
-  overflow: hidden;
-  font-size: 0;
-  white-space: nowrap;
-} */
-
-/* .swiper-pagination-bullet {display: inline-block; width: auto;text-decoration: none;} */
-
 .horizonScroll__itemText {
   display: block;
   position: relative;
-  /* margin: 0 5px;
-  height: 47px;
-  padding: 16px 5px 8px 5px;
-  box-sizing: border-box;
-  text-align: center;
-  white-space: nowrap;
-  font-size: 1rem;
-  line-height: 1em;
-  color: #333; */
 }
-
-/* .on .horizonScroll__itemText {
-  color: #1b64bc;
-  font-weight: bold;
-  letter-spacing: -.026em;
-}
-
-.on .horizonScroll__itemText:after {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #1b64bc;
-} */
 
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   position: unset;

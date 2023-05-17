@@ -79,48 +79,6 @@
       color: #777;
       transition: opacity 0.5s ease 0.75s;
     }
-
-    .swiper-progress-bar {
-      position: relative;
-      width: 100%;
-      display: block;
-      z-index: 1;
-      height: 2px;
-    }
-
-    .swiper-progress-bar .slide_progress-bar {
-      position: absolute;
-      height: 2px;
-      background: rgba(0, 0, 0, 0.3);
-      width: auto;
-      clear: both;
-      opacity: 0;
-      bottom: 45px;
-      left: 0;
-      right: 0;
-    }
-
-    .swiper-progress-bar .slide_progress-bar:after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background: #000;
-      height: 100%;
-      width: 0;
-      content: "";
-      transition: 0.1s width linear;
-    }
-
-    .swiper-progress-bar.active .slide_progress-bar {
-      opacity: 1;
-    }
-
-    .swiper-progress-bar.animate .slide_progress-bar:after {
-      transition: width linear;
-      transition-delay: unset;
-      width: 100%;
-      transition-duration: 5s;
-    }
   </style>
 </head>
 
@@ -145,10 +103,6 @@
 
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
-
-    <div class="swiper-progress-bar">
-      <span class="slide_progress-bar"></span>
-    </div>
   </div>
 
   <!-- Swiper JS -->
@@ -159,11 +113,7 @@
   <script>
     $(document).ready(function () {
       var swiper = new Swiper(".mySwiper", {
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false
-        },
-        speed: 500,
+        autoplay: true,
         loop: true,
         pagination: {
           el: ".swiper-pagination",
@@ -180,25 +130,14 @@
             $(".swiper-progress-bar").eq(0).addClass("animate");
             $(".swiper-progress-bar").eq(0).addClass("active");
           },
-          slideChangeTransitionStart: function () {
+          slideChange: function () {
             $(".swiper-progress-bar").removeClass("animate");
             $(".swiper-progress-bar").removeClass("active");
             $(".swiper-progress-bar").eq(0).addClass("active");
-          },
-          slideChangeTransitionEnd: function () {
-            $(".swiper-progress-bar").eq(0).addClass("animate");
           }
         }
       });
-      $(".mySwiper").hover(function () {
-        swiper.autoplay.stop();
-        $(".swiper-progress-bar").removeClass("animate");
-      }, function () {
-        swiper.autoplay.start();
-        $(".swiper-progress-bar").addClass("animate");
-      });
     });
-
   </script>
 </body>
 

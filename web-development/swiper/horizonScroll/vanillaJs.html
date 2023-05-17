@@ -43,20 +43,21 @@
         clickable: true,
         renderBullet: function (index, className) {
           const bullets = document.querySelectorAll(".mySwiper > .swiper-wrapper > .swiper-slide");
-          return `<a href="#" class="${className} horizonScroll__item"><span class="horizonScroll__itemText">${bullets[index].dataset.slideTitle}</span></a>`;
+          let bulletTitle = bullets[index].dataset.slideTitle;
+          return `<a href="#" class="${className} horizonScroll__item"><span class="horizonScroll__itemText">${bulletTitle}</span></a>`;
         }
       },
       on: {
-        realIndexChange: function(MAIN_SWIPER) {              
+        realIndexChange: function (MAIN_SWIPER) {
           const BOX_WIDTH = BOX.clientWidth;
-          const BOX_WIDTH_HARF = BOX_WIDTH / 2; 
-          const BOX_ITEM_WIDTH = BOX_ITEM.clientWidth;        
+          const BOX_WIDTH_HARF = BOX_WIDTH / 2;
+          const BOX_ITEM_WIDTH = BOX_ITEM.clientWidth;
           let target = BOX_ITEM_LIST[this.realIndex];
           let targetLeft = target.offsetLeft;
           let targetWidth = target.clientWidth;
           let selectTargetPos = targetLeft + targetWidth / 2;
           let pos;
-          
+
           if (selectTargetPos <= BOX_WIDTH_HARF) {
             // left
             pos = 0;
@@ -65,8 +66,8 @@
             pos = BOX_ITEM_WIDTH - BOX_WIDTH;
           } else {
             pos = selectTargetPos - BOX_WIDTH_HARF; // 중앙정렬
-          } 
-          
+          }
+
           setTimeout(function () {
             BOX.scroll({
               left: pos,
@@ -84,7 +85,7 @@
 
     BOX_ITEM.style.width = 'max-content';
     BOX_ITEM.style.gap = '15px';
-    
+
   </script>
 </body>
 
