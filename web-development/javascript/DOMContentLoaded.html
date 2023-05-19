@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box_wrap { 
+      display: flex;
+      flex-direction: column;
+    }
+    .box {
+      width: 100%;
+      height: auto;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+    .box.blue { background:skyblue; }
+    .box.pink { background:pink; }
+  </style>
+</head>
+<body onload="alert('All resources in the document are fully loaded and parsed 2')">  
+  <div class="box_wrap"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script>   
+    // 1. DOMContentLoaded
+    // - HTML과 script가 로드 된 시점에 이벤트 발생
+    // - onLoad 이벤트 보다 먼저 실행
+    // - 빠른 실행 속도가 필요할 때 적합
+    // - IE8 이하의 브라우저 지원하지 않음 (상관X)
+    const bodyDiv  = document.querySelector('.box_wrap');
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+      bodyDiv.innerHTML += `<div class="box blue">document DOMContentLoaded</div>`
+      console.log('DOM fully loaded and parsed 1');
+    });
+    window.addEventListener('DOMContentLoaded', (event) => {
+      bodyDiv.innerHTML += `<div class="box pink">window DOMContentLoaded</div>`
+      console.log('DOM fully loaded and parsed 2');
+    });
+
+    // 2. onload (load)
+    // - 문서의 모든 리소스(images, js, css, etc)가 로드 된 후 이벤트
+    // - 문서의 포함된 모든 컨텐츠가 로드된 후 실행되기때문에 불필요한 로딩시간이 발생됨
+    // - 동일한 문서에 onload는 하나만 존재 해야 한다
+    // - 중복 된 경우 가장 마지막 선언이 실행
+    // - 외부 라이브러리에서 이미 선언된 경우 이를 찾아 하나로 합치는 과정이 필요
+    // - 외부의 자원(iframe, image, script)을 사용하는 경우에도 해당
+    // - window객체 뿐만 아니라 원하는 DOM객체가 로드됐을 때 코드설정 가능
+    window.onload = () => {
+      bodyDiv.innerHTML += `<div class="box blue">window onload</div>`
+      console.log('All resources in the document are fully loaded and parsed 1');
+    }
+    window.addEventListener('load', (event) => {
+      bodyDiv.innerHTML += `<div class="box pink">window load</div>`
+      console.log('All resources in the document are fully loaded and parsed 3');
+    })
+
+    // 3. jQuery ready
+    // - ready의 경우 여러번 사용되면 선언 순서에 따라 순차적으로 실행됨
+    $(document).ready(function () {
+      bodyDiv.innerHTML += `<div class="box">document jQuery ready</div>`
+      console.log('DOM fully loaded and parsed 3');
+    })
+  </script>
+</body>
+</html>
