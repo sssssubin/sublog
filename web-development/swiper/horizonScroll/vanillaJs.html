@@ -34,58 +34,62 @@
   <script>
     "use strict";
 
-    const MAIN_SWIPER = new Swiper(".mySwiper", {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      loop: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        renderBullet: function (index, className) {
-          const bullets = document.querySelectorAll(".mySwiper > .swiper-wrapper > .swiper-slide");
-          let bulletTitle = bullets[index].dataset.slideTitle;
-          return `<a href="#" class="${className} horizonScroll__item"><span class="horizonScroll__itemText">${bulletTitle}</span></a>`;
-        }
-      },
-      on: {
-        realIndexChange: function (MAIN_SWIPER) {
-          const BOX_WIDTH = BOX.clientWidth;
-          const BOX_WIDTH_HARF = BOX_WIDTH / 2;
-          const BOX_ITEM_WIDTH = BOX_ITEM.clientWidth;
-          let target = BOX_ITEM_LIST[this.realIndex];
-          let targetLeft = target.offsetLeft;
-          let targetWidth = target.clientWidth;
-          let selectTargetPos = targetLeft + targetWidth / 2;
-          let pos;
-
-          if (selectTargetPos <= BOX_WIDTH_HARF) {
-            // left
-            pos = 0;
-          } else if (BOX_ITEM_WIDTH - selectTargetPos <= BOX_WIDTH_HARF) {
-            //right : target 절반 이후 영역이 BOX_WIDTH_HARF 보다 작을경우 right 정렬
-            pos = BOX_ITEM_WIDTH - BOX_WIDTH;
-          } else {
-            pos = selectTargetPos - BOX_WIDTH_HARF; // 중앙정렬
+    //지정한 이벤트(DOMContentLoaded)를 수신할 객체
+    function mainListener() {
+      const MAIN_SWIPER = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          renderBullet: function (index, className) {
+            const bullets = document.querySelectorAll(".mySwiper > .swiper-wrapper > .swiper-slide");
+            let bulletTitle = bullets[index].dataset.slideTitle;
+            return `<a href="#" class="${className} horizonScroll__item"><span class="horizonScroll__itemText">${bulletTitle}</span></a>`;
           }
+        },
+        on: {
+          realIndexChange: function (MAIN_SWIPER) {
+            const BOX_WIDTH = BOX.clientWidth;
+            const BOX_WIDTH_HARF = BOX_WIDTH / 2;
+            const BOX_ITEM_WIDTH = BOX_ITEM.clientWidth;
+            let target = BOX_ITEM_LIST[this.realIndex];
+            let targetLeft = target.offsetLeft;
+            let targetWidth = target.clientWidth;
+            let selectTargetPos = targetLeft + targetWidth / 2;
+            let pos;
 
-          setTimeout(function () {
-            BOX.scroll({
-              left: pos,
-              top: 0,
-              behavior: 'smooth'
-            })
-          }, 200);
+            if (selectTargetPos <= BOX_WIDTH_HARF) {
+              // left
+              pos = 0;
+            } else if (BOX_ITEM_WIDTH - selectTargetPos <= BOX_WIDTH_HARF) {
+              //right : target 절반 이후 영역이 BOX_WIDTH_HARF 보다 작을경우 right 정렬
+              pos = BOX_ITEM_WIDTH - BOX_WIDTH;
+            } else {
+              pos = selectTargetPos - BOX_WIDTH_HARF; // 중앙정렬
+            }
+
+            setTimeout(function () {
+              BOX.scroll({
+                left: pos,
+                top: 0,
+                behavior: 'smooth'
+              })
+            }, 200);
+          }
         }
-      }
-    });
+      });
+      const BOX = document.querySelector('.horizonScroll');
+      const BOX_ITEM = document.querySelector(".horizonScroll .swiper-pagination");
+      const BOX_ITEM_LIST = document.querySelectorAll('.horizonScroll .swiper-pagination .swiper-pagination-bullet');
 
-    const BOX = document.querySelector('.horizonScroll');
-    const BOX_ITEM = document.querySelector(".horizonScroll .swiper-pagination");
-    const BOX_ITEM_LIST = document.querySelectorAll('.horizonScroll .swiper-pagination .swiper-pagination-bullet');
+      BOX_ITEM.style.width = 'max-content';
+      BOX_ITEM.style.gap = '15px';
+    }
 
-    BOX_ITEM.style.width = 'max-content';
-    BOX_ITEM.style.gap = '15px';
-
+    //DOM이 완전히 로드되었을 때의 핸들러
+    document.addEventListener("DOMContentLoaded", mainListener, false)
   </script>
 </body>
 

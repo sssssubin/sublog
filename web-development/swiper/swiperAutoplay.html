@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 300px;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+  <!-- Swiper -->
+  <div style="width: 100%; height: 500px;"></div>
+  <div class="con1">
+    <div class="swiper con1-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide">Slide 6</div>
+        <div class="swiper-slide">Slide 7</div>
+        <div class="swiper-slide">Slide 8</div>
+        <div class="swiper-slide">Slide 9</div>
+      </div>
+    </div>
+  </div>  
+  <div style="width: 100%; height: 500px;"></div>
+  <div class="con2">
+    <div class="swiper con2-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide">Slide 6</div>
+        <div class="swiper-slide">Slide 7</div>
+        <div class="swiper-slide">Slide 8</div>
+        <div class="swiper-slide">Slide 9</div>
+      </div>
+    </div>
+  </div>  
+  <div style="width: 100%; height: 500px;"></div>
+  <div class="con3">
+    <div class="swiper con3-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide">Slide 6</div>
+        <div class="swiper-slide">Slide 7</div>
+        <div class="swiper-slide">Slide 8</div>
+        <div class="swiper-slide">Slide 9</div>
+      </div>
+    </div>
+  </div>
+  <div style="width: 100%; height: 500px;"></div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    function mainListener() { 
+      const CON1_SWIPER = new Swiper(".con1-swiper", {});
+      const CON2_SWIPER = new Swiper(".con2-swiper", {});
+      const CON3_SWIPER = new Swiper(".con3-swiper", {});
+
+      // Autoplay start when scroll to element
+      const CON1 = document.querySelector('.con1');
+      const CON2 = document.querySelector('.con2');
+      const CON3 = document.querySelector('.con3');
+      const ELERECT1 = CON1.getBoundingClientRect();
+      const ELERECT2 = CON2.getBoundingClientRect();
+      const ELERECT3 = CON3.getBoundingClientRect();
+
+      function swiperAutoPlay() {
+        let windowY = window.scrollY;
+        
+        // Scroll to element
+        if(windowY > ELERECT1.y) {
+          CON1_SWIPER.autoplay.start()
+        } else {
+          CON1_SWIPER.autoplay.stop()
+        }
+      
+        if(windowY > ELERECT2.y) {
+          CON2_SWIPER.autoplay.start()
+        } else {
+          CON2_SWIPER.autoplay.stop()
+        }
+        
+        if(windowY > ELERECT3.y) {
+          CON3_SWIPER.autoplay.start()
+        } else {
+          CON3_SWIPER.autoplay.stop()
+        }
+      }
+      window.addEventListener("scroll", swiperAutoPlay);
+    }
+    document.addEventListener("DOMContentLoaded", mainListener, false)
+  </script>
+</body>
+</html>

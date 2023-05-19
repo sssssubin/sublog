@@ -77,6 +77,9 @@
 
   <!-- Window: resize event -->
   <script>
+
+  //지정한 이벤트(DOMContentLoaded)를 수신할 객체
+  function mainListener() { 
     // addEventListener("resize", (event) => { });
     // onresize = (event) => { };
 
@@ -84,17 +87,18 @@
     const HEIGHT_OUTPUT = document.querySelector("#height");
     const WIDTH_OUTPUT = document.querySelector("#width");
 
+    //  default : On
+    BANNER.classList.add('show');
 
     // 배너 On & Off
     function bannerToggle() {
       HEIGHT_OUTPUT.textContent = window.innerHeight;
       WIDTH_OUTPUT.textContent = window.innerWidth;
 
-      //  default : On
-      BANNER.classList.add('show');
-
       if (window.innerWidth < 1200) { // Mobile ver
         BANNER.classList.remove('show');  //  On -> Off
+      } else {
+        BANNER.classList.add('show');
       }
     }
 
@@ -109,8 +113,12 @@
 
     window.addEventListener('load', bannerToggle, { capture: false, once: true, passive: false });
     window.addEventListener("resize", reportWindowSize, false);
-        // window.onload = bannerToggle;
-        // window.onresize = reportWindowSize;
+    // window.onload = bannerToggle;
+    // window.onresize = reportWindowSize;
+  }
+  
+  //DOM이 완전히 로드되었을 때의 핸들러
+  document.addEventListener("DOMContentLoaded", mainListener, false)
   </script>
 </body>
 
