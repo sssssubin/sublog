@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   /*
    ** Headers of the page
    */
@@ -6,7 +6,8 @@ module.exports = {
     title: "vue-js",
     meta: [
       { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { lang: 'ko' },
+      { name: "viewport", content: "width=device-width, initial-scale=1, user-scalable=no" },
       { hid: "description", name: "description", content: "Nuxt.js project" },
     ],
     link: [
@@ -53,7 +54,9 @@ module.exports = {
     },
   },
   css: ["~assets/scss/common.scss"],
-  modules: ["@nuxtjs/style-resources"],
+  buildModules: [
+    "@nuxtjs/style-resources",
+  ],
   styleResources: {
     scss: ["@/assets/scss/_*.scss"],
   },
