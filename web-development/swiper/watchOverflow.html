@@ -101,13 +101,17 @@
       },
       navigation: {
         nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
+        prevEl: '.swiper-button-prev',
+        enabled: false
       },
       breakpoints: {
         1200: {
           slidesPerView: 3,
           spaceBetween: 30,
-          // centeredSlides: false
+          // centeredSlides: false,
+          navigation: {
+            enabled: true
+          },
         }
       }
     });
@@ -115,3 +119,6 @@
 </body>
 
 </html>
+
+
+<!-- 참고) https://codepen.io/millfeel/pen/ZEBPQNJ, https://mill-study.tistory.com/232, https://swiperjs.com/swiper-api#controller -->
