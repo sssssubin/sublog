@@ -10,6 +10,7 @@ Vue의 단일 파일 컴포넌트 환경에서는 sass-loader를 통해 <style> 
 
 따라서 이러한 문제를 해결하기 위해 @nuxtjs/style-resources 라는 모듈이 존재합니다. 해당 모듈을 설치하고, 자동으로 import하고 싶은 스타일링 로직 파일을 지정해두면, 앱을 빌드할 때 각각의 컴포넌트의 <style> 영역에 해당 스타일 파일들을 자동으로 import합니다.
 
+
 ### 설치
 nuxt.config.js 파일의 buildModules 값에 @nuxtjs/style-resources를 추가하고, styleResources 값에 자동으로 import하고자 하는 파일을 설정합니다.
 
@@ -28,9 +29,11 @@ nuxt.config.js 파일의 buildModules 값에 @nuxtjs/style-resources를 추가�
 }
 
 ```
+
 ### 사용
 
 컴포넌트의 <style> 영역에서 @import 문을 사용하지 않고 외부에 있는 요소를 사용할 수 있습니다.
+
 
 ### 작동 방식과 주의사항
 
@@ -39,6 +42,7 @@ nuxt.config.js 파일의 buildModules 값에 @nuxtjs/style-resources를 추가�
 주의할 점은 모든 컴포넌트의 <style> 영역에 동일한 css를 모두 import하므로, 만약 styleResources에 변수/믹스인/함수가 아닌 일반적인 스타일 규칙이 있을 경우 번들 사이즈와 HMR 성능에 문제를 일으킬 수 있습니다.
 
 @nuxtjs/style-resources의 레포지토리에도 모듈로 사용할 css 파일에 "actual style"을 절대 사용하지 말라는 주의사항이 언급되어 있습니다.
+
 
 ### nuxt.config.js의 css 속성과의 차이점
 

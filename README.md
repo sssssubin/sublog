@@ -36,7 +36,7 @@ export default {
 
 ### @nuxtjs/style-resources 설치 및 셋팅
 
-```bash
+``` bash
 $ npm install --save-dev @nuxtjs/style-resources
 
 // nuxt.config.js
@@ -44,13 +44,14 @@ $ npm install --save-dev @nuxtjs/style-resources
   buildModules: [
     '@nuxtjs/style-resources',
   ],
-  
-	styleResources: {
-		scss :[
-			'@/assets/scss/_*.scss'
-		]
-	}
+
+  styleResources: {
+   scss: [
+     '@/assets/scss/_*.scss'
+   ],
+  }
 }
+
 ```
 
 ## git log --> 명령어 'hist' 지정
