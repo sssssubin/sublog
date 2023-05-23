@@ -24,7 +24,7 @@ $ npm run dev
 ### node-sass, sass-loader 설치 및 셋팅
 
 ```bash
-$ npm install --save-dev node-sass sass-loader@10
+$ npm install --save-dev node-sass sass-loader
 
 // nuxt.config.js
 export default {
@@ -40,16 +40,17 @@ export default {
 $ npm install --save-dev @nuxtjs/style-resources
 
 // nuxt.config.js
-module.exports = {
-	modules:['@nuxtjs/style-resources'],
+{
+  buildModules: [
+    '@nuxtjs/style-resources',
+  ],
+  
 	styleResources: {
 		scss :[
 			'@/assets/scss/_*.scss'
 		]
 	}
 }
-
-참고) https://junglast.com/blog/nuxt-style-resources
 ```
 
 ## git log --> 명령어 'hist' 지정
