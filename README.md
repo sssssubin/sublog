@@ -48,6 +48,8 @@ module.exports = {
 		]
 	}
 }
+
+참고) https://junglast.com/blog/nuxt-style-resources
 ```
 
 ## git log --> 명령어 'hist' 지정
