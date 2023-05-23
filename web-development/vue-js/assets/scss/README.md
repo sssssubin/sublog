@@ -1,4 +1,4 @@
-# @nuxtjs/style-resources
+## @nuxtjs/style-resources
 
 < Nuxt에서 별도의 import 없이 전역 스타일링 로직(변수, 믹스인) 사용하기 >
 
@@ -11,7 +11,9 @@ Vue의 단일 파일 컴포넌트 환경에서는 sass-loader를 통해 <style> 
 따라서 이러한 문제를 해결하기 위해 @nuxtjs/style-resources 라는 모듈이 존재합니다. 해당 모듈을 설치하고, 자동으로 import하고 싶은 스타일링 로직 파일을 지정해두면, 앱을 빌드할 때 각각의 컴포넌트의 <style> 영역에 해당 스타일 파일들을 자동으로 import합니다.
 
 
-## 설치
+
+
+### 설치
 nuxt.config.js 파일의 buildModules 값에 @nuxtjs/style-resources를 추가하고, styleResources 값에 자동으로 import하고자 하는 파일을 설정합니다.
 
 ``` bash
@@ -30,12 +32,16 @@ nuxt.config.js 파일의 buildModules 값에 @nuxtjs/style-resources를 추가�
 
 ```
 
-## 사용
+
+
+### 사용
 
 컴포넌트의 <style> 영역에서 @import 문을 사용하지 않고 외부에 있는 요소를 사용할 수 있습니다.
 
 
-## 작동 방식과 주의사항
+
+
+### 작동 방식과 주의사항
 
 @nuxtjs/style-resources의 역할은, 빌드 과정에서 css를 번들링하기 이전에 nuxt.config.js의 styleResources에 추가했던 파일들을 각각의 .vue 파일의 <style> 영역에 자동으로 import하는 것입니다. 이렇게 자동으로 import를 한 이후에는 일반적인 빌드와 동일한 과정을 거칩니다.
 
@@ -44,7 +50,9 @@ nuxt.config.js 파일의 buildModules 값에 @nuxtjs/style-resources를 추가�
 @nuxtjs/style-resources의 레포지토리에도 모듈로 사용할 css 파일에 "actual style"을 절대 사용하지 말라는 주의사항이 언급되어 있습니다.
 
 
-## nuxt.config.js의 css 속성과의 차이점
+
+
+### nuxt.config.js의 css 속성과의 차이점
 
 먼저, nuxt.config.js의 css 속성에 추가한 파일은 글로벌 영역에 추가되기는 하지만, 각각의 vue 컴포넌트에서 별도로 import를 하지 않는 이상 css 속성에 추가한 파일의 변수, 믹스인, 함수 등에 접근할 수 없습니다.
 
