@@ -55,3 +55,5 @@ css 속성에 추가한 파일(css, scss, sass, less, ...)과 각 .vue 컴포넌
 예를 들어, app.vue는 _mixin.scss와 독립적으로 css로 컴파일 될 것이므로, _mixin.scss를 컴포넌트 내에 직접 import하지 않는 이상 app.vue는 css로 컴파일이 완료된 버전의 _mixin.scss만 참조할 수 있을 것입니다. 따라서 _mixin.scss에 일반적인 스타일 규칙이 있다면 해당 페이지에 포함된 모든 컴포넌트가 영향을 받겠지만, 스타일 규칙이 아닌 변수/믹스인/함수의 정의는 css로 컴파일 되는 과정에서 사라질 것이므로 개별 컴포넌트에서 사용할 수 없습니다.
 
 
+  
+참고: https://junglast.com/blog/nuxt-style-resources
