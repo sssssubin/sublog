@@ -28,7 +28,6 @@ nuxt.config.js 파일의 buildModules 값에 @nuxtjs/style-resources를 추가�
    ],
   }
 }
-
 ```
 <br>
 <br>
