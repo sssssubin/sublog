@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+    }
+
+    .scroll-wrap {
+      overflow-x: auto;
+    }
+
+    .nav .nav__list {
+      display: flex;
+      list-style: none;
+      width: max-content;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav .nav__list .nav__item {
+      width: auto;
+      padding: 10px 20px;
+    }
+
+    .nav .nav__list .nav__item.on {
+      font-weight: bold;
+      background-color: #333;
+      color: #fff;
+    }
+
+    .con {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .con .con__list {
+      display: flex;
+      width: max-content;
+    }
+
+    .con .con__list .con__item {
+      width: 100vw;
+      height: 100vh;
+      display: none;
+      animation: fadeIn 1s;  
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .con .con__list .con__item.on {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <nav>
+      <div class="nav scroll-wrap">
+        <ul class="nav__list"></ul>
+      </div>
+    </nav>
+    <main>
+      <div class="con">
+        <div class="con__list"></div>
+      </div>
+    </main>
+  </div>
+  <script>
+
+
+    const BOX = document.querySelector('.nav');
+    const BOX_LIST = document.querySelector(".nav .nav__list");
+    const CON_LIST = document.querySelector(".con .con__list");
+
+    // Add item in list
+    function addItem(list, tagName, className) {
+      for (let i = 0; i < 10; i++) {
+        list.innerHTML += `<${tagName} class="${className}">menu ${i + 1}</${tagName}>`
+      }      
+    }
+    addItem(BOX_LIST, 'li', 'nav__item');
+    addItem(CON_LIST, 'div', 'con__item');
+
+    const BOX_LIST_ITEM = document.querySelectorAll('.nav .nav__list .nav__item');
+    const CON_LIST_ITEM = document.querySelectorAll('.con .con__list .con__item');
+
+    // default
+    BOX_LIST_ITEM[0].classList.add('on');
+    CON_LIST_ITEM[0].classList.add('on');
+
+    // Move mposition to center when click target
+    function muCenter(selectTarget) {
+      const BOX_WIDTH = BOX.clientWidth;
+      const BOX_WIDTH_HARF = BOX_WIDTH / 2;
+      const BOX_LIST_WIDTH = BOX_LIST.clientWidth;
+      let target = selectTarget;
+      let targetLeft = target.offsetLeft;
+      let targetWidth = target.clientWidth;
+      let selectTargetPos = targetLeft + targetWidth / 2;
+      let pos;
+
+      if (selectTargetPos <= BOX_WIDTH_HARF) {
+        // left
+        pos = 0;
+      } else if (BOX_LIST_WIDTH - selectTargetPos <= BOX_WIDTH_HARF) {
+        //right : target 절반 이후 영역이 BOX_WIDTH_HARF 보다 작을경우 right 정렬
+        pos = BOX_LIST_WIDTH - BOX_WIDTH;
+      } else {
+        pos = selectTargetPos - BOX_WIDTH_HARF; // 중앙정렬
+      }
+
+      setTimeout(function () {
+        BOX.scroll({
+          left: pos,
+          top: 0,
+          behavior: 'smooth'
+        })
+      }, 200);
+    }
+
+    // Switch 'on' to target when click target
+    function onToggle(item, index) {
+      for (let i = 0; i < item.length; i++) {
+        if (item[i].classList.contains('on')) {
+          item[i].classList.remove('on');
+        }
+      }
+      item[index].classList.add('on');
+    }
+
+    BOX_LIST_ITEM.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        onToggle(BOX_LIST_ITEM, index);
+        onToggle(CON_LIST_ITEM, index);
+        muCenter(item);
+      })
+    });
+  </script>
+</body>
+
+</html>
