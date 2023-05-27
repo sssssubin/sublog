@@ -90,18 +90,13 @@ export default {
                             pos = selectTargetPos - BOX_WIDTH_HARF; // 중앙정렬
                         }
 
-                        BOX.scroll({
-                            left: pos,
-                            top: 0,
-                            behavior: 'smooth'
-                        })
-                        // setTimeout(function () {
-                        //     BOX.scroll({
-                        //         left: pos,
-                        //         top: 0,
-                        //         behavior: 'smooth'
-                        //     })
-                        // }, 100);
+                        setTimeout(function () {
+                            BOX.scroll({
+                                left: pos,
+                                top: 0,
+                                behavior: 'smooth'
+                            })
+                        }, 300);
                     }
                     
                 }
@@ -123,7 +118,8 @@ export default {
             height: 500px;
             text-align: center;
             font-size: 18px;
-            background: #fff;
+            background: #333;
+            color: #fff;
 
             /* Center slide text vertically */
             display: -webkit-box;
