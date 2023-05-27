@@ -1,5 +1,5 @@
 <template>
-    <div class="base-swiper">
+    <!-- <div class="base-swiper">
         <client-only>
             <swiper
                 ref="mySwiper"
@@ -16,7 +16,17 @@
         <div class="horizonScroll" slot="pagination">
             <div class="swiper-pagination"></div>
         </div>
-    </div>
+    </div> -->
+     <swiper
+        ref="mySwiper"
+        class="swiper"
+        :options="swiperOption"
+    >
+        <swiper-slide v-for="(slide, index) in slides" :key="index">{{ slide.tit }}</swiper-slide>  
+        <div class="swiper-pagination" slot="pagination"></div>
+        <div class="swiper-button-prev" slot="button-prev"></div>
+        <div class="swiper-button-next" slot="button-next"></div>
+    </swiper>
 </template>
 
 <script>
@@ -55,51 +65,50 @@ export default {
                     nextEl: '.swiper-button-next', 
                     prevEl: '.swiper-button-prev' 
                 },
-                on: {
-                    init: () => {                     
-                        const BOX = this.$refs.mySwiper.$el.nextElementSibling;         
-                        const BOX_ITEM = BOX.childNodes[0];       
+                // on: {
+                //     init: () => {                     
+                //         const BOX = this.$refs.mySwiper.$el.nextElementSibling;         
+                //         const BOX_ITEM = BOX.childNodes[0];       
 
-                        BOX_ITEM.style.width = 'max-content';
-                        BOX_ITEM.style.gap = '15px';
-                    },
-                    realIndexChange: () => {
-                        const MAIN_SWIPER = this.$refs.mySwiper.$el.swiper;
-                        const BOX = this.$refs.mySwiper.$el.nextElementSibling;         
-                        const BOX_ITEM = BOX.childNodes[0];  
-                        const BOX_ITEM_LIST = BOX_ITEM.childNodes;
+                //         BOX_ITEM.style.width = 'max-content';
+                //         BOX_ITEM.style.gap = '15px';
+                //     },
+                //     realIndexChange: () => {
+                //         const MAIN_SWIPER = this.$refs.mySwiper.$el.swiper;
+                //         const BOX = this.$refs.mySwiper.$el.nextElementSibling;         
+                //         const BOX_ITEM = BOX.childNodes[0];  
+                //         const BOX_ITEM_LIST = BOX_ITEM.childNodes;
                     
-                        const BOX_WIDTH = BOX.clientWidth;
-                        const BOX_WIDTH_HARF = BOX_WIDTH / 2;
-                        const BOX_ITEM_WIDTH = BOX_ITEM.clientWidth;
+                //         const BOX_WIDTH = BOX.clientWidth;
+                //         const BOX_WIDTH_HARF = BOX_WIDTH / 2;
+                //         const BOX_ITEM_WIDTH = BOX_ITEM.clientWidth;
 
-                        let index = MAIN_SWIPER.realIndex;                        
-                        let target = BOX_ITEM_LIST[index];
-                        let targetLeft = target.offsetLeft;
-                        let targetWidth = target.clientWidth;
-                        let selectTargetPos = targetLeft + targetWidth / 2;
-                        let pos;
+                //         let index = MAIN_SWIPER.realIndex;                        
+                //         let target = BOX_ITEM_LIST[index];
+                //         let targetLeft = target.offsetLeft;
+                //         let targetWidth = target.clientWidth;
+                //         let selectTargetPos = targetLeft + targetWidth / 2;
+                //         let pos;
 
-                        if (selectTargetPos <= BOX_WIDTH_HARF) {
-                            // left
-                            pos = 0;
-                        } else if (BOX_ITEM_WIDTH - selectTargetPos <= BOX_WIDTH_HARF) {
-                            //right : target 절반 이후 영역이 BOX_WIDTH_HARF 보다 작을경우 right 정렬
-                            pos = BOX_ITEM_WIDTH - BOX_WIDTH;
-                        } else {
-                            pos = selectTargetPos - BOX_WIDTH_HARF; // 중앙정렬
-                        }
+                //         if (selectTargetPos <= BOX_WIDTH_HARF) {
+                //             // left
+                //             pos = 0;
+                //         } else if (BOX_ITEM_WIDTH - selectTargetPos <= BOX_WIDTH_HARF) {
+                //             //right : target 절반 이후 영역이 BOX_WIDTH_HARF 보다 작을경우 right 정렬
+                //             pos = BOX_ITEM_WIDTH - BOX_WIDTH;
+                //         } else {
+                //             pos = selectTargetPos - BOX_WIDTH_HARF; // 중앙정렬
+                //         }
 
-                        setTimeout(function () {
-                            BOX.scroll({
-                                left: pos,
-                                top: 0,
-                                behavior: 'smooth'
-                            })
-                        }, 300);
-                    }
-                    
-                }
+                //         setTimeout(function () {
+                //             BOX.scroll({
+                //                 left: pos,
+                //                 top: 0,
+                //                 behavior: 'smooth'
+                //             })
+                //         }, 300);
+                //     }                    
+                // }
             },
         }
     },
@@ -111,69 +120,68 @@ export default {
 <style lang="scss">
 .base-swiper {
     position: relative;
-    .swiper {
-        width: 100%;
-        height: 100%;
-        .swiper-slide {
-            height: 500px;
-            text-align: center;
-            font-size: 18px;
-            background: #333;
-            color: #fff;
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #333;
+        color: #fff;
 
-            /* Center slide text vertically */
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            -webkit-justify-content: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            -webkit-align-items: center;
-            align-items: center;
-        }  
-    }
-    
-    .horizonScroll {
-        overflow-x: auto;
-        margin: 0 auto;
-        padding: 0 3px;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }  
+}
+
+.horizonScroll {
+    overflow-x: auto;
+    margin: 0 auto;
+    padding: 0 3px;
+    box-sizing: border-box;
+    background: powderblue;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 9999;
+    padding: 0;
+    .swiper-pagination {
         box-sizing: border-box;
-        background: powderblue;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        z-index: 9999;
-        padding: 0;
-        .swiper-pagination {
+        display: flex;                  
+        position: unset;
+        .swiper-pagination-bullet {
+            width: auto;
+            height: 50px;
+            font-size: 12px;
+            color: #000;
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0 20px;
+            border-radius: 8px;
             box-sizing: border-box;
-            display: flex;                  
-            position: unset;
-            .swiper-pagination-bullet {
-                width: auto;
-                height: 50px;
-                font-size: 12px;
-                color: #000;
-                opacity: 1;
-                background: rgba(0, 0, 0, 0.2);
-                padding: 0 20px;
-                border-radius: 8px;
-                box-sizing: border-box;
-                display: flex;
-                align-items: center;
-                justify-content: center;                
-                .horizonScroll__itemText {
-                    display: block;
-                    position: relative;
-                }
+            display: flex;
+            align-items: center;
+            justify-content: center;                
+            .horizonScroll__itemText {
+                display: block;
+                position: relative;
             }
-            .swiper-pagination-bullet-active {
-                color: #fff;
-                background: #007aff;
-            }
+        }
+        .swiper-pagination-bullet-active {
+            color: #fff;
+            background: #007aff;
         }
     }
 }
