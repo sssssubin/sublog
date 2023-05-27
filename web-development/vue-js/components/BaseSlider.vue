@@ -17,16 +17,18 @@
             <div class="swiper-pagination"></div>
         </div>
     </div> -->
-     <swiper
-        ref="mySwiper"
-        class="swiper"
-        :options="swiperOption"
-    >
-        <swiper-slide v-for="(slide, index) in slides" :key="index">{{ slide.tit }}</swiper-slide>  
-        <div class="swiper-pagination" slot="pagination"></div>
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
-    </swiper>
+    <client-only>
+        <swiper
+            ref="mySwiper"
+            class="swiper"
+            :options="swiperOption"
+        >
+            <swiper-slide v-for="(slide, index) in slides" :key="index">{{ slide.tit }}</swiper-slide>  
+            <div class="swiper-pagination" slot="pagination"></div>
+            <div class="swiper-button-prev" slot="button-prev"></div>
+            <div class="swiper-button-next" slot="button-next"></div>
+        </swiper>
+    </client-only>   
 </template>
 
 <script>
