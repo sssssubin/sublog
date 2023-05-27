@@ -30,6 +30,12 @@ export default {
           alt: "",
           tit: "전체 동의 & 버튼 활성화",
         },
+        {
+          to: "/study/interaction/slider",
+          src: "",
+          alt: "",
+          tit: "slider",
+        },
       ],
     }
   },

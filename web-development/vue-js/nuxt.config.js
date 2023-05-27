@@ -53,6 +53,9 @@ export default {
       },
     },
   },
+  plugins: [
+    { src: '@/plugins/vue-awesome-swiper', mode: 'client' }
+  ],
   css: ["~assets/scss/common.scss"],
   buildModules: [
     "@nuxtjs/style-resources",

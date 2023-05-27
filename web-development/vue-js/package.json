@@ -20,7 +20,9 @@
     "chromatic": "npx chromatic --project-token=044049a90c6f"
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "swiper": "^5.4.5",
+    "vue-awesome-swiper": "^4.1.0"
   },
   "devDependencies": {
     "@babel/runtime-corejs3": "^7.20.13",

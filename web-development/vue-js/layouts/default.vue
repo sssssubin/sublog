@@ -1,18 +1,21 @@
 <template>
   <div id="app">
     <nuxt/>
-    <WindowEvents />
   </div>
 </template>
 
 <script>
-import WindowEvents from "~/components/util/WindowEvents"
 export default {
-  components: {
-    WindowEvents,
+  mounted() {    
+    window.addEventListener("resize", this.resizeEvent)
+    window.scrollTo(0, 0)
+    this.resizeEvent()
   },
-  mounted() {
-    console.log("layout mounted !")
+  methods: {
+    resizeEvent() {
+      const desktopSize = 768
+      this.$store.dispatch("ui/setMobile", window.innerWidth < desktopSize)
+    },
   },
 }
 </script>
