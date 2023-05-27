@@ -132,6 +132,10 @@ export default {
             -ms-flex-align: center;
             -webkit-align-items: center;
             align-items: center;
+
+            // ios 깜빡임 문제 해결
+            -webkit-backface-visibility: hidden;
+            -webkit-transform: translate3d(0, 0, 0);
         }  
     }
     
