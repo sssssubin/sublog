@@ -118,7 +118,8 @@ export default {
         .swiper-slide {
             text-align: center;
             font-size: 18px;
-            background: #fff;
+            background: powderblue;
+            color: #333;
             /* Center slide text vertically */
             display: -webkit-box;
             display: -ms-flexbox;
@@ -147,7 +148,7 @@ export default {
         background: powderblue;
         width: 100%;
         position: absolute;
-        top: 0;
+        top: 10px;
         z-index: 9999;
         padding: 0;
         .swiper-pagination {
