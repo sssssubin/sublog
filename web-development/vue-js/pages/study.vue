@@ -22,11 +22,11 @@
   width: 100%;
   background: #f8f9fa;
   margin: 0;
-  padding: 10px;
+  padding: 0;
   height: 100vh;
   > nav > ul {
     list-style: none;
-    margin: 0 0 10px;
+    margin: 10px;
     padding: 0;
     box-sizing: border-box;
     display: flex;

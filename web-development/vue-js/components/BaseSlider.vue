@@ -1,17 +1,22 @@
 <template>
-    <swiper
-        ref="mySwiper"
-        class="swiper"
-        :options="swiperOption"
-    >
-        <swiper-slide v-for="(slide, index) in slides" :key="index">{{ slide.tit }}</swiper-slide>  
+    <div class="base-swiper">
+        <client-only>
+            <swiper
+                ref="mySwiper"
+                class="swiper"
+                :options="swiperOption"
+            >
+                <swiper-slide v-for="(slide, index) in slides" :key="index">{{ slide.tit }}</swiper-slide>  
 
-        <div class="horizonScroll" id="horizonScroll" slot="pagination">
+                <div class="swiper-button-prev" slot="button-prev"></div>
+                <div class="swiper-button-next" slot="button-next"></div>
+            </swiper>
+         </client-only>        
+
+        <div class="horizonScroll" slot="pagination">
             <div class="swiper-pagination"></div>
         </div>
-        <div class="swiper-button-prev" slot="button-prev"></div>
-        <div class="swiper-button-next" slot="button-next"></div>
-    </swiper>
+    </div>
 </template>
 
 <script>
@@ -51,18 +56,17 @@ export default {
                     prevEl: '.swiper-button-prev' 
                 },
                 on: {
-                    init: () => {             
-                        const MAIN_SWIPER = this.$refs.mySwiper.$el.swiper;           
-                        const BOX = MAIN_SWIPER.$el[0].childNodes[1];                        
-                        const BOX_ITEM = BOX.childNodes[0];
+                    init: () => {                     
+                        const BOX = this.$refs.mySwiper.$el.nextElementSibling;         
+                        const BOX_ITEM = BOX.childNodes[0];       
 
                         BOX_ITEM.style.width = 'max-content';
                         BOX_ITEM.style.gap = '15px';
                     },
                     realIndexChange: () => {
                         const MAIN_SWIPER = this.$refs.mySwiper.$el.swiper;
-                        const BOX = MAIN_SWIPER.$el[0].childNodes[1];                        
-                        const BOX_ITEM = BOX.childNodes[0];
+                        const BOX = this.$refs.mySwiper.$el.nextElementSibling;         
+                        const BOX_ITEM = BOX.childNodes[0];  
                         const BOX_ITEM_LIST = BOX_ITEM.childNodes;
                     
                         const BOX_WIDTH = BOX.clientWidth;
@@ -71,7 +75,6 @@ export default {
 
                         let index = MAIN_SWIPER.realIndex;                        
                         let target = BOX_ITEM_LIST[index];
-                        console.log(index)
                         let targetLeft = target.offsetLeft;
                         let targetWidth = target.clientWidth;
                         let selectTargetPos = targetLeft + targetWidth / 2;
@@ -87,13 +90,18 @@ export default {
                             pos = selectTargetPos - BOX_WIDTH_HARF; // 중앙정렬
                         }
 
-                        setTimeout(function () {
-                            BOX.scroll({
-                                left: pos,
-                                top: 0,
-                                behavior: 'smooth'
-                            })
-                        }, 100);
+                        BOX.scroll({
+                            left: pos,
+                            top: 0,
+                            behavior: 'smooth'
+                        })
+                        // setTimeout(function () {
+                        //     BOX.scroll({
+                        //         left: pos,
+                        //         top: 0,
+                        //         behavior: 'smooth'
+                        //     })
+                        // }, 100);
                     }
                     
                 }
@@ -106,28 +114,33 @@ export default {
 </script>
 
 <style lang="scss">
-.swiper {
-    width: 100%;
-    height: 100%;
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
+.base-swiper {
+    position: relative;
+    .swiper {
+        width: 100%;
+        height: 100%;
+        .swiper-slide {
+            height: 500px;
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
 
-        /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }   
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }  
+    }
+    
     .horizonScroll {
         overflow-x: auto;
         margin: 0 auto;
@@ -137,7 +150,7 @@ export default {
         width: 100%;
         position: absolute;
         top: 0;
-        z-index: 1;
+        z-index: 9999;
         padding: 0;
         .swiper-pagination {
             box-sizing: border-box;

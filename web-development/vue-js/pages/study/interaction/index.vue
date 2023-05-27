@@ -24,12 +24,12 @@ export default {
           alt: "",
           tit: "텍스트 더 보기",
         },
-        {
-          to: "/study/interaction/theTermAgree",
-          src: "thumbnail2.png",
-          alt: "",
-          tit: "전체 동의 & 버튼 활성화",
-        },
+        // {
+        //   to: "/study/interaction/theTermAgree",
+        //   src: "thumbnail2.png",
+        //   alt: "",
+        //   tit: "전체 동의 & 버튼 활성화",
+        // },
         {
           to: "/study/interaction/slider",
           src: "",
