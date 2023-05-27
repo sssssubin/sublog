@@ -20,7 +20,7 @@
 <style lang="scss">
 .study-container {
   width: 100%;
-  // background: #f8f9fa;
+  background: #f8f9fa;
   margin: 0;
   height: 100vh;
   > nav {
