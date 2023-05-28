@@ -24,12 +24,6 @@ export default {
           alt: "",
           tit: "도형 애니메이션",
         },
-        {
-          to: "/study/animation/",
-          src: "",
-          alt: "",
-          tit: "",
-        },
       ],
     }
   },

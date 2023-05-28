@@ -31,10 +31,16 @@ export default {
         //   tit: "전체 동의 & 버튼 활성화",
         // },
         {
-          to: "/study/interaction/slider",
+          to: "/study/interaction/vueAwesomeSwiper",
           src: "",
           alt: "",
-          tit: "slider",
+          tit: "vueAwesomeSwiper",
+        },
+        {
+          to: "/study/interaction/defaultSlider",
+          src: "",
+          alt: "",
+          tit: "swiperslider",
         },
       ],
     }

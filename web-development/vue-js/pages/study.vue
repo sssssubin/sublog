@@ -8,9 +8,6 @@
         <li>
           <NuxtLink to="/study/animation">Animation</NuxtLink>
         </li>
-        <li>
-          <NuxtLink to="/study/sample">sample</NuxtLink>
-        </li>
       </ul>
     </nav>
     <NuxtChild />
@@ -24,15 +21,15 @@
   margin: 0;
   height: 100vh;
   > nav {
-    padding: 10px;
+    padding: 20px;
     > ul {
       list-style: none;
       padding: 0;
       box-sizing: border-box;
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      gap: 15px;
       li {
+        width: 100%;
         flex-grow: 1;
         a {
           width: 100%;
