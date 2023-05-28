@@ -40,7 +40,7 @@ export default {
           to: "/study/interaction/defaultSlider",
           src: "",
           alt: "",
-          tit: "swiperslider",
+          tit: "Vanilla js slide",
         },
       ],
     }

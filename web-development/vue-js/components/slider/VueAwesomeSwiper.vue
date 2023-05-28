@@ -134,9 +134,10 @@ export default {
             -webkit-align-items: center;
             align-items: center;
 
-            // ios 깜빡임 문제 해결
+            // ios 깜빡임 문제 해결 (.swiper-backface-hidden 빠짐)
+            transform: translateZ(0);
             -webkit-backface-visibility: hidden;
-            -webkit-transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
         }  
     }
     
