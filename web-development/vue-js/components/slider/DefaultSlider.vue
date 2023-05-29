@@ -138,12 +138,6 @@ export default {
   // transition-duration: 300ms;
   
   box-sizing: content-box;
-
-  /* backface hidden */
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
   
   .slide_item {
     /* layout */
@@ -163,6 +157,12 @@ export default {
 
     /* transition */
     transition: left 0.15s;
+
+    /* backface hidden */
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 
     /* 각 슬라이드가 변경되는 것을 시각적으로 확인하기 쉽도록 각 슬라이드별 색상 적용 */
     &:nth-child(1) {
