@@ -5,8 +5,8 @@
     </div>
     
     <ul class="slide_pagination"></ul>
-    <div class="slide_prev_button slide_button" @click="movePrev()">◀</div>
-    <div class="slide_next_button slide_button" @click="moveNext()">▶</div>
+    <div class="slide_prev_button slide_button" @click="prevBtn()">◀</div>
+    <div class="slide_next_button slide_button" @click="nextBtn()">▶</div>
   </div>
 </template>
 
@@ -23,6 +23,8 @@ export default {
         {tit: 'slide 5'},
       ],
       currentSlide: 1, // 현재 슬라이드
+      startPoint: 0,
+      endPoint: 0
     }
   },
   mounted() {
@@ -33,8 +35,37 @@ export default {
     this.createPagination();
     this.clickPageNationItem();
     window.addEventListener("resize", this.changeSlideWidth);   
+
+    // PC 클릭 이벤트 (드래그)
+    slide.addEventListener("mousedown", (e) => {     
+      this.startPoint = e.pageX; // 마우스 드래그 시작 위치 저장
+    });
+    slide.addEventListener("mouseup", (e) => {      
+      this.endPoint = e.pageX; // 마우스 드래그 끝 위치 저장
+      this.movePrevOrNext();
+    });
+
+    // 모바일 터치 이벤트 (스와이프)
+    slide.addEventListener("touchstart", (e) => {
+      this.startPoint = e.touches[0].pageX; // 터치가 시작되는 위치 저장
+    });
+    slide.addEventListener("touchend", (e) => {      
+      this.endPoint = e.changedTouches[0].pageX; // 터치가 끝나는 위치 저장     
+      this.movePrevOrNext();
+    });
   },
   methods: {
+    movePrevOrNext() {
+      if (this.startPoint < this.endPoint) {
+        // 마우스가 오른쪽으로 드래그 된 경우
+        console.log("prev move");
+        this.movePrev();
+      } else if (this.startPoint > this.endPoint) {
+        // 마우스가 왼쪽으로 드래그 된 경우
+        console.log("next move");
+        this.moveNext();
+      }
+    },
     createPagination() { // 페이지네이션 생성
       const slideItems = document.querySelectorAll(".slide_item");
       const pagination = document.querySelector(".slide_pagination");
@@ -108,6 +139,12 @@ export default {
         this.currentSlide++;
       }
     },
+    nextBtn() {
+      this.moveNext();
+    },
+    prevBtn() {
+      this.movePrev();
+    },
     changeSlideWidth() { // 브라우저 화면이 조정될 때 마다 slideWidth를 변경하기 위해
       this.getOffsetValue(this.currentSlide);
     }
@@ -138,6 +175,9 @@ export default {
   // transition-duration: 300ms;
   
   box-sizing: content-box;
+
+  /* slide drag를 위해 DOM요소가 드래그로 선택되는것을 방지 */
+  user-select: none;
   
   .slide_item {
     /* layout */
