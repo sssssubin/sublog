@@ -135,9 +135,11 @@ export default {
             align-items: center;
 
             // ios 깜빡임 문제 해결 (.swiper-backface-hidden 빠짐)
-            transform: translateZ(0);
-            -webkit-backface-visibility: hidden;
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
             backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            
         }  
     }
     
