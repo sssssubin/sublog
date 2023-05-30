@@ -304,7 +304,7 @@ export default {
     /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
     overflow: hidden;
   }
-  height: auto;
+  height: 300px;
 
   /* layout */
   display: flex;
@@ -335,7 +335,7 @@ export default {
 
     /* size */
     width: 100%;
-    height: 300px;
+    height: 100%;
     /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
     flex-shrink: 0;
 

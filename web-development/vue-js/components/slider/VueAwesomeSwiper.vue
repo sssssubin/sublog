@@ -111,10 +111,10 @@ export default {
 <style lang="scss">
 .base-swiper {
     position: relative;
-    height: 100%;
+    height: auto;
     .swiper {
         width: 100%;
-        height: 100%;
+        height: 500px;
         .swiper-slide {
             text-align: center;
             font-size: 18px;
