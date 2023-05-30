@@ -67,19 +67,24 @@ export default {
     window.addEventListener("resize", (this.changeSlideWidth));   
 
     // PC 클릭 이벤트 (드래그)
+    const body = document.querySelector('body');
     slide.addEventListener("mousedown", (e) => {     
+      body.style.overflowY = 'hidden';
       this.startPoint = e.pageX; // 마우스 드래그 시작 위치 저장
     });
-    slide.addEventListener("mouseup", (e) => {      
+    slide.addEventListener("mouseup", (e) => {     
+      body.style.overflowY = 'auto'; 
       this.endPoint = e.pageX; // 마우스 드래그 끝 위치 저장
       this.movePrevOrNext();
     });
 
     // 모바일 터치 이벤트 (스와이프)
     slide.addEventListener("touchstart", (e) => {
+      body.style.overflowY = 'hidden';
       this.startPoint = e.touches[0].pageX; // 터치가 시작되는 위치 저장
     });
-    slide.addEventListener("touchend", (e) => {      
+    slide.addEventListener("touchend", (e) => {   
+      body.style.overflowY = 'auto';   
       this.endPoint = e.changedTouches[0].pageX; // 터치가 끝나는 위치 저장     
       this.movePrevOrNext();
     });
