@@ -32,6 +32,13 @@ export default {
       endPoint: 0,
       currentSlideItems: [],
       offset: 0,
+      gesture: {
+        x: [],
+        y: [],
+      },
+      tolerance: 100,
+      xTravel: 0,
+      yTravel: 0,
     }
   },
   mounted() {
@@ -67,26 +74,45 @@ export default {
     window.addEventListener("resize", (this.changeSlideWidth));   
 
     // PC 클릭 이벤트 (드래그)
-    const body = document.querySelector('body');
     slide.addEventListener("mousedown", (e) => {     
-      body.style.overflowY = 'hidden';
+      e.preventDefault();
+      console.log(e);
       this.startPoint = e.pageX; // 마우스 드래그 시작 위치 저장
     });
-    slide.addEventListener("mouseup", (e) => {     
-      body.style.overflowY = 'auto'; 
+    slide.addEventListener("mouseup", (e) => {      
+      e.preventDefault();
       this.endPoint = e.pageX; // 마우스 드래그 끝 위치 저장
       this.movePrevOrNext();
     });
 
-    // 모바일 터치 이벤트 (스와이프)
+    // 모바일 터치 이벤트 (스와이프), 참고) https://www.codehim.com/vanilla-javascript/touch-swipe-detection-in-pure-javascript/
     slide.addEventListener("touchstart", (e) => {
-      body.style.overflowY = 'hidden';
-      this.startPoint = e.touches[0].pageX; // 터치가 시작되는 위치 저장
+      e.preventDefault();
+      // 터치가 시작되는 위치 저장
+      for (let i=0;i<e.touches.length;i++){
+        this.gesture.x.push(e.touches[i].clientX);
+        this.gesture.y.push(e.touches[i].clientY);
+      }      
+    });
+    slide.addEventListener("touchmove", (e) => {      
+      e.preventDefault();
+      for (let i=0; i<e.touches.length; i++) {
+        this.gesture.x.push(e.touches[i].clientX);
+        this.gesture.y.push(e.touches[i].clientY);
+      }
     });
     slide.addEventListener("touchend", (e) => {   
-      body.style.overflowY = 'auto';   
-      this.endPoint = e.changedTouches[0].pageX; // 터치가 끝나는 위치 저장     
+      e.preventDefault();
+      // 터치가 끝나는 위치 저장
+      this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
+      this.yTravel = this.gesture.y[this.gesture.y.length-1] - this.gesture.y[0];
+
       this.movePrevOrNext();
+
+      this.gesture.x = [];
+      this.gesture.y = [];
+      this.xTravel = '';
+      this.yTravel = '';
     });
   },
   methods: {
@@ -232,6 +258,27 @@ export default {
       } else if (this.startPoint > this.endPoint) {
         // 마우스가 왼쪽으로 드래그 된 경우
         this.moveNext();
+      }
+
+      console.log(this.xTravel, this.yTravel)
+      let y = (this.xTravel < this.tolerance) && (this.xTravel >- this.tolerance);
+      let x = (this.yTravel < this.tolerance) && (this.yTravel >- this.tolerance);
+      
+      if (y && this.yTravel<-this.tolerance){
+        console.log('Swiped Up')
+      }
+      if (y && this.yTravel>this.tolerance){
+        console.log('Swiped Down')
+      }
+      if (x && this.xTravel<-this.tolerance){
+        // 마우스가 왼쪽으로 드래그 된 경우
+        console.log('Swiped Left')
+        this.moveNext();
+      }
+      if (x && this.xTravel>this.tolerance){        
+        // 마우스가 오른쪽으로 드래그 된 경우
+        console.log('Swiped Right')
+        this.movePrev();
       }
     },
   }  
