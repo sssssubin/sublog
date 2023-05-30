@@ -28,8 +28,6 @@ export default {
       slideWidth: '',
       maxSlide: 0,
       paginationItems: [],
-      startPoint: 0,
-      endPoint: 0,
       currentSlideItems: [],
       offset: 0,
       gesture: {
@@ -76,13 +74,19 @@ export default {
     // PC 클릭 이벤트 (드래그)
     slide.addEventListener("mousedown", (e) => {     
       e.preventDefault();
-      console.log(e);
-      this.startPoint = e.pageX; // 마우스 드래그 시작 위치 저장
+      // 마우스 드래그 시작 위치 저장
+        this.moveEvent(e);
+    });
+    slide.addEventListener("mousemove", (e) => {      
+      if(e.buttons === 1) {  // mousedown 한 상태에서 이동      
+        e.preventDefault();
+        this.moveEvent(e);
+      }
     });
     slide.addEventListener("mouseup", (e) => {      
       e.preventDefault();
-      this.endPoint = e.pageX; // 마우스 드래그 끝 위치 저장
-      this.movePrevOrNext();
+      // 마우스 드래그 끝 위치 저장      
+      this.moveEndEvent();      
     });
 
     // 모바일 터치 이벤트 (스와이프), 참고) https://www.codehim.com/vanilla-javascript/touch-swipe-detection-in-pure-javascript/
@@ -90,29 +94,19 @@ export default {
       e.preventDefault();
       // 터치가 시작되는 위치 저장
       for (let i=0;i<e.touches.length;i++){
-        this.gesture.x.push(e.touches[i].clientX);
-        this.gesture.y.push(e.touches[i].clientY);
+        this.moveEvent(e.touches[i]);
       }      
     });
     slide.addEventListener("touchmove", (e) => {      
       e.preventDefault();
       for (let i=0; i<e.touches.length; i++) {
-        this.gesture.x.push(e.touches[i].clientX);
-        this.gesture.y.push(e.touches[i].clientY);
+        this.moveEvent(e.touches[i]);
       }
     });
     slide.addEventListener("touchend", (e) => {   
       e.preventDefault();
       // 터치가 끝나는 위치 저장
-      this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
-      this.yTravel = this.gesture.y[this.gesture.y.length-1] - this.gesture.y[0];
-
-      this.movePrevOrNext();
-
-      this.gesture.x = [];
-      this.gesture.y = [];
-      this.xTravel = '';
-      this.yTravel = '';
+      this.moveEndEvent();    
     });
   },
   methods: {
@@ -250,17 +244,26 @@ export default {
           this.moveSlidePosition(this.offset, this.currentSlide);
         });
       });
-    },    
-    movePrevOrNext() {
-      if (this.startPoint < this.endPoint) {
-        // 마우스가 오른쪽으로 드래그 된 경우
-        this.movePrev();
-      } else if (this.startPoint > this.endPoint) {
-        // 마우스가 왼쪽으로 드래그 된 경우
-        this.moveNext();
-      }
+    },        
+    moveEvent(element) {
+      this.gesture.x.push(element.clientX);
+      this.gesture.y.push(element.clientY);
+    },
+    moveEndEvent() {
+      // 이동 종료 위치 저장
+      this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
+      this.yTravel = this.gesture.y[this.gesture.y.length-1] - this.gesture.y[0];  
 
-      console.log(this.xTravel, this.yTravel)
+      // 슬라이드 이동
+      this.movePrevOrNext();
+
+      // 위치 값 초기화
+      this.gesture.x = [];
+      this.gesture.y = [];
+      this.xTravel = '';
+      this.yTravel = '';
+    },
+    movePrevOrNext() {
       let y = (this.xTravel < this.tolerance) && (this.xTravel >- this.tolerance);
       let x = (this.yTravel < this.tolerance) && (this.yTravel >- this.tolerance);
       
@@ -292,7 +295,7 @@ export default {
 }
 .slide {
   &__wrap {
-    height: 100%;
+    height: auto;
 
     /* position */
     /* slide_button의 position absolute가 컨테이너 안쪽에서 top, left, right offset이 적용될 수 있도록 relative를 준다. (기본값이 static인데, static인 경우 그 상위 컨테이너로 나가면서 현재 코드에선 html을 기준으로 offset을 적용시키기 때문) */
@@ -301,7 +304,7 @@ export default {
     /* 컨테이너의 내용물이 컨테이너 크기(width, height)를 넘어설 때 보이지 않도록 하기 위해 hidden을 준다. */
     overflow: hidden;
   }
-  height: 100%;
+  height: auto;
 
   /* layout */
   display: flex;
@@ -332,7 +335,7 @@ export default {
 
     /* size */
     width: 100%;
-    height: 100%;
+    height: 300px;
     /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
     flex-shrink: 0;
 
