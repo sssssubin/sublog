@@ -23,6 +23,7 @@
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 
 export default {
+  name: "vue-awesome-swiper",
 	components:	{
        Swiper,
        SwiperSlide

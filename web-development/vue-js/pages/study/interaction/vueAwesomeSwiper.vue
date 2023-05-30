@@ -5,7 +5,7 @@
 <script>
 import VueAwesomeSwiper from "~/components/slider/VueAwesomeSwiper";
 export default {
-    name: 'vue-awesome-swiper',
+    name: 'vue-awesome-swiper-page',
     components: {
         VueAwesomeSwiper
     }

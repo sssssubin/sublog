@@ -34,13 +34,13 @@ export default {
           to: "/study/interaction/vueAwesomeSwiper",
           src: "",
           alt: "",
-          tit: "vueAwesomeSwiper",
+          tit: "Vue Awesome Swiper",
         },
         {
-          to: "/study/interaction/defaultSlider",
+          to: "/study/interaction/vanillaJsSlider",
           src: "",
           alt: "",
-          tit: "Vanilla js slide",
+          tit: "Vanilla Js Slider",
         },
       ],
     }

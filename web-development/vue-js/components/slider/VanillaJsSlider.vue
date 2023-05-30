@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "default-slider",
+  name: "vanilla-js-slider",
   data() {
     return {
       slides: [
