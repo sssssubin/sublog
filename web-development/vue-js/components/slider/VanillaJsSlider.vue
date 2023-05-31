@@ -91,7 +91,7 @@ export default {
         this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
         this.offset = this.slideWidth * this.currentSlide;
         this.currentSlideItems.forEach((i) => {
-          i.setAttribute("style", `left: ${-this.offset + this.xTravel}px`);
+          i.setAttribute("style", `transition: ${0}s; left: ${-this.offset + this.xTravel}px`);
         });
         // this.slide.style.transform = `translate3d(${-this.offset + this.xTravel}px, 0, 0)`; 
         // 마우스 드래그 이동 위치 저장      
@@ -153,7 +153,7 @@ export default {
         this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
         this.offset = this.slideWidth * this.currentSlide;
         this.currentSlideItems.forEach((i) => {
-          i.setAttribute("style", `left: ${-this.offset + this.xTravel}px`);
+          i.setAttribute("style", `transition: ${0}s; left: ${-this.offset + this.xTravel}px`);
         });
         // this.slide.style.transform = `translate3d(${-this.offset + this.xTravel}px, 0, 0)`; 
         // 터치 이동 위치 저장      
