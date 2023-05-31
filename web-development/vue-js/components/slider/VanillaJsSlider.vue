@@ -88,11 +88,11 @@ export default {
     slide.addEventListener("mousemove", (e) => {      
       if(e.buttons === 1) {  // mousedown 한 상태에서 이동      
         e.preventDefault();     
-        // this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
-        // this.offset = this.slideWidth * this.currentSlide;
-        // this.currentSlideItems.forEach((i) => {
-        //   i.setAttribute("style", `left: ${-this.offset + this.xTravel}px`);
-        // });
+        this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
+        this.offset = this.slideWidth * this.currentSlide;
+        this.currentSlideItems.forEach((i) => {
+          i.setAttribute("style", `left: ${-this.offset + this.xTravel}px`);
+        });
         // this.slide.style.transform = `translate3d(${-this.offset + this.xTravel}px, 0, 0)`; 
         // 마우스 드래그 이동 위치 저장      
         this.gesture.x.push(e.clientX);
@@ -150,11 +150,11 @@ export default {
     slide.addEventListener("touchmove", (e) => {      
       e.preventDefault();
       for (let i=0; i<e.touches.length; i++) {
-        // this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
-        // this.offset = this.slideWidth * this.currentSlide;
-        // this.currentSlideItems.forEach((i) => {
-        //   i.setAttribute("style", `left: ${-this.offset + this.xTravel}px`);
-        // });
+        this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
+        this.offset = this.slideWidth * this.currentSlide;
+        this.currentSlideItems.forEach((i) => {
+          i.setAttribute("style", `left: ${-this.offset + this.xTravel}px`);
+        });
         // this.slide.style.transform = `translate3d(${-this.offset + this.xTravel}px, 0, 0)`; 
         // 터치 이동 위치 저장      
         this.gesture.x.push(e.touches[i].clientX);
