@@ -145,7 +145,6 @@ export default {
     .horizonScroll {
         overflow-x: auto;
         margin: 0 auto;
-        padding: 0 15px;
         box-sizing: border-box;
         background: powderblue;
         width: 100%;
@@ -153,6 +152,7 @@ export default {
         top: 10px;
         z-index: 9999;
         .swiper-pagination {
+            padding: 0 15px;
             box-sizing: border-box;
             display: flex;                  
             position: unset;
