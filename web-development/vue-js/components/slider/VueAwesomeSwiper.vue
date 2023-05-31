@@ -36,8 +36,6 @@ export default {
                 {tit: 'Slide 3'},
                 {tit: 'Slide 4'},
                 {tit: 'Slide 5'},
-                {tit: 'Slide 6'},
-                {tit: 'Slide 7'},
             ],
             swiperOption: { 
                 slidesPerView: 1, 

@@ -71,8 +71,9 @@ export default {
     // PC 클릭 이벤트 (드래그)
     slide.addEventListener("mousedown", (e) => {     
       e.preventDefault();
-      // 마우스 드래그 시작 위치 저장
-      this.moveEvent(e);
+      // 마우스 드래그 시작 위치 저장      
+      this.gesture.x.push(e.clientX);
+      this.gesture.y.push(e.clientY);
     });
     slide.addEventListener("mousemove", (e) => {      
       if(e.buttons === 1) {  // mousedown 한 상태에서 이동      
@@ -80,14 +81,48 @@ export default {
         this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
         this.offset = this.slideWidth * this.currentSlide;
         this.slide.style.transform = `translate3d(${-this.offset + this.xTravel}px, 0, 0)`; 
-        this.moveEvent(e);  
+        // 마우스 드래그 이동 위치 저장      
+        this.gesture.x.push(e.clientX);
+        this.gesture.y.push(e.clientY);
       }
     });
     slide.addEventListener("mouseup", (e) => {      
       e.preventDefault();
-      this.slide.style.transform = `translate3d(${-this.offset}px, 0, 0)`; 
+
       // 마우스 드래그 끝 위치 저장      
-      this.moveEndEvent();      
+      this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0]; 
+      this.yTravel = this.gesture.y[this.gesture.y.length-1] - this.gesture.y[0]; 
+      let x = (this.yTravel<this.tolerance) && (this.yTravel>-this.tolerance);
+      let y = (this.xTravel<this.tolerance) && (this.xTravel>-this.tolerance);
+      
+      // 슬라이드 이동      
+      if (y && this.yTravel<-this.tolerance){
+        console.log('Swiped Up')
+      }
+      if (y && this.yTravel>this.tolerance){
+        console.log('Swiped Down')
+      }
+      if (x && this.xTravel<-this.tolerance){
+        // 마우스가 왼쪽으로 드래그 된 경우
+        console.log('Swiped Left')
+        this.moveNext();
+      }
+      if (x && this.xTravel>this.tolerance){        
+        // 마우스가 오른쪽으로 드래그 된 경우
+        console.log('Swiped Right')
+        this.movePrev();
+      }
+
+      // 슬라이드 이동을 안 했을 때 제자리로 원위치
+      setTimeout(() => {          
+        this.moveSlidePosition(this.offset, this.currentSlide);
+      }, 0);
+
+      // 위치 값 초기화
+      this.gesture.x = [];
+      this.gesture.y = [];
+      this.xTravel = '';
+      this.yTravel = '';
     });
 
     // 모바일 터치 이벤트 (스와이프), 참고) https://www.codehim.com/vanilla-javascript/touch-swipe-detection-in-pure-javascript/
@@ -95,7 +130,8 @@ export default {
       e.preventDefault();
       // 터치가 시작되는 위치 저장
       for (let i=0;i<e.touches.length;i++){
-        this.moveEvent(e.touches[i]);
+        this.gesture.x.push(e.touches[i].clientX);
+        this.gesture.y.push(e.touches[i].clientY);
       }      
     });
     slide.addEventListener("touchmove", (e) => {      
@@ -104,14 +140,48 @@ export default {
         this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
         this.offset = this.slideWidth * this.currentSlide;
         this.slide.style.transform = `translate3d(${-this.offset + this.xTravel}px, 0, 0)`; 
-        this.moveEvent(e.touches[i]);
+        // 터치 이동 위치 저장      
+        this.gesture.x.push(e.touches[i].clientX);
+        this.gesture.y.push(e.touches[i].clientY);
       }
     });
     slide.addEventListener("touchend", (e) => {   
-      e.preventDefault();
-      this.slide.style.transform = `translate3d(${-this.offset}px, 0, 0)`; 
+      e.preventDefault();     
+
       // 터치가 끝나는 위치 저장
-      this.moveEndEvent();    
+      this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0]; 
+      this.yTravel = this.gesture.y[this.gesture.y.length-1] - this.gesture.y[0]; 
+      let x = (this.yTravel<this.tolerance) && (this.yTravel>-this.tolerance);
+      let y = (this.xTravel<this.tolerance) && (this.xTravel>-this.tolerance);
+      
+      // 슬라이드 이동      
+      if (y && this.yTravel<-this.tolerance){
+        console.log('Swiped Up')
+      }
+      if (y && this.yTravel>this.tolerance){
+        console.log('Swiped Down')
+      }
+      if (x && this.xTravel<-this.tolerance){
+        // 마우스가 왼쪽으로 드래그 된 경우
+        console.log('Swiped Left')
+        this.moveNext();
+      }
+      if (x && this.xTravel>this.tolerance){        
+        // 마우스가 오른쪽으로 드래그 된 경우
+        console.log('Swiped Right')
+        this.movePrev();
+      } 
+      
+      // 슬라이드 이동을 안 했을 때 제자리로 원위치
+      setTimeout(() => {          
+        this.moveSlidePosition(this.offset, this.currentSlide);
+      }, 0);
+
+      // 위치 값 초기화
+      this.gesture.x = [];
+      this.gesture.y = [];
+      this.xTravel = '';
+      this.yTravel = '';
     });
   
     // 브라우저 화면이 조정될 때 마다 slideWidth를 변경하기 위해
@@ -192,12 +262,8 @@ export default {
 
         // setTimeout을 사용하는 이유는 비동기 처리를 이용해 transform이 제대로 적용되게 하기 위함
         setTimeout(() => {
-          this.getOffsetValue(this.offset, this.currentSlide);
-          this.smoothSlide(); 
+          this.moveSlidePosition(this.offset, this.currentSlide);
         }, 0);
-
-        // 슬라이드 이동 시 현재 활성화된 pagination 변경
-        this.changeActive(this.currentSlide);
       }
     },
     movePrev() {            
@@ -214,13 +280,9 @@ export default {
 
         this.currentSlide--;
 
-        setTimeout(() => {
-          this.getOffsetValue(this.offset, this.currentSlide);
-          this.smoothSlide(); 
+        setTimeout(() => {          
+          this.moveSlidePosition(this.offset, this.currentSlide);
         }, 0);
-
-        // 슬라이드 이동 시 현재 활성화된 pagination 변경
-        this.changeActive(this.currentSlide);
       }
     },
     nextBtn() {
@@ -241,45 +303,45 @@ export default {
         });
       });
     },        
-    moveEvent(element) {
-      this.gesture.x.push(element.clientX);
-      this.gesture.y.push(element.clientY);
-    },
-    moveEndEvent() {
-      // 이동 종료 위치 저장
-      this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
-      this.yTravel = this.gesture.y[this.gesture.y.length-1] - this.gesture.y[0];  
+    // moveEvent(element) {
+    //   this.gesture.x.push(element.clientX);
+    //   this.gesture.y.push(element.clientY);
+    // },
+    // moveEndEvent() {
+    //   // 이동 종료 위치 저장
+    //   this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
+    //   this.yTravel = this.gesture.y[this.gesture.y.length-1] - this.gesture.y[0];  
 
-      // 슬라이드 이동
-      this.movePrevOrNext();
+    //   // 슬라이드 이동
+    //   this.movePrevOrNext();
 
-      // 위치 값 초기화
-      this.gesture.x = [];
-      this.gesture.y = [];
-      this.xTravel = '';
-      this.yTravel = '';
-    },
-    movePrevOrNext() {
-      let y = (this.xTravel<this.tolerance) && (this.xTravel>-this.tolerance);
-      let x = (this.yTravel<this.tolerance) && (this.yTravel>-this.tolerance);
+    //   // 위치 값 초기화
+    //   this.gesture.x = [];
+    //   this.gesture.y = [];
+    //   this.xTravel = '';
+    //   this.yTravel = '';
+    // },
+    // movePrevOrNext() {
+    //   let y = (this.xTravel<this.tolerance) && (this.xTravel>-this.tolerance);
+    //   let x = (this.yTravel<this.tolerance) && (this.yTravel>-this.tolerance);
       
-      if (y && this.yTravel<-this.tolerance){
-        console.log('Swiped Up')
-      }
-      if (y && this.yTravel>this.tolerance){
-        console.log('Swiped Down')
-      }
-      if (x && this.xTravel<-this.tolerance){
-        // 마우스가 왼쪽으로 드래그 된 경우
-        console.log('Swiped Left')
-        this.moveNext();
-      }
-      if (x && this.xTravel>this.tolerance){        
-        // 마우스가 오른쪽으로 드래그 된 경우
-        console.log('Swiped Right')
-        this.movePrev();
-      }
-    },
+    //   if (y && this.yTravel<-this.tolerance){
+    //     console.log('Swiped Up')
+    //   }
+    //   if (y && this.yTravel>this.tolerance){
+    //     console.log('Swiped Down')
+    //   }
+    //   if (x && this.xTravel<-this.tolerance){
+    //     // 마우스가 왼쪽으로 드래그 된 경우
+    //     console.log('Swiped Left')
+    //     this.moveNext();
+    //   }
+    //   if (x && this.xTravel>this.tolerance){        
+    //     // 마우스가 오른쪽으로 드래그 된 경우
+    //     console.log('Swiped Right')
+    //     this.movePrev();
+    //   }
+    // },
     changeSlideWidth() {
       // 슬라이크 전체 크기(width 구하기)    
       const slide = document.querySelector(".slide");
