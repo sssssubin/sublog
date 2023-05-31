@@ -145,30 +145,7 @@ export default {
       for (let i=0;i<e.touches.length;i++){
         this.gesture.x.push(e.touches[i].clientX);
         this.gesture.y.push(e.touches[i].clientY);
-      }         
-           
-      // 마우스가 오른쪽으로 드래그 된 경우
-      if(this.xTravel>this.tolerance){        
-        this.currentSlide--;      
-        if (this.currentSlide > 0) {
-          this.currentSlide;
-        } else {     
-          // 첫 슬라이드에서 마지막 슬라이드로 넘어가는 경우    
-          this.currentSlide == this.maxSlide;
-        }
-      }
-      
-      // 마우스가 왼쪽으로 드래그 된 경우
-      if(this.xTravel<-this.tolerance) {
-        this.currentSlide++;  
-        if (this.currentSlide <= this.maxSlide) {
-          this.currentSlide;
-        } else {
-          // 마지막 슬라이드에서 첫 슬라이드로 넘어가는 경우        
-          this.currentSlide = 0;
-          this.currentSlide++;
-        }
-      }
+      }      
     });
     slide.addEventListener("touchmove", (e) => {      
       e.preventDefault();
