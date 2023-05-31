@@ -66,25 +66,30 @@ export default {
     this.copySlide();   
       
     // 각 페이지네이션 클릭 시 해당 슬라이드로 이동하기
-    this.clickPageNationItem();
-
-    // 브라우저 화면이 조정될 때 마다 slideWidth를 변경하기 위해
-    window.addEventListener("resize", (this.changeSlideWidth));   
+    this.clickPageNationItem();  
 
     // PC 클릭 이벤트 (드래그)
     slide.addEventListener("mousedown", (e) => {     
       e.preventDefault();
       // 마우스 드래그 시작 위치 저장
-        this.moveEvent(e);
+      this.moveEvent(e);
     });
     slide.addEventListener("mousemove", (e) => {      
       if(e.buttons === 1) {  // mousedown 한 상태에서 이동      
-        e.preventDefault();
-        this.moveEvent(e);
+        e.preventDefault();     
+        this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
+        this.offset = this.slideWidth * this.currentSlide;
+        this.slide.style.transform = `translate3d(${-this.offset + this.xTravel}px, 0, 0)`; 
+        this.smoothSlide(300); 
+        this.moveEvent(e); 
       }
     });
     slide.addEventListener("mouseup", (e) => {      
       e.preventDefault();
+      if(this.xTravel <= this.tolerance || this.xTravel >= -this.tolerance) {
+        this.slide.style.transform = `translate3d(${-this.offset}px, 0, 0)`; 
+        this.smoothSlide(300);
+      }
       // 마우스 드래그 끝 위치 저장      
       this.moveEndEvent();      
     });
@@ -99,15 +104,26 @@ export default {
     });
     slide.addEventListener("touchmove", (e) => {      
       e.preventDefault();
+      this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
+      this.offset = this.slideWidth * this.currentSlide;
+      this.slide.style.transform = `translate3d(${-this.offset + this.xTravel}px, 0, 0)`; 
+      this.smoothSlide(300);
       for (let i=0; i<e.touches.length; i++) {
         this.moveEvent(e.touches[i]);
       }
     });
     slide.addEventListener("touchend", (e) => {   
       e.preventDefault();
+      if(this.xTravel <= this.tolerance || this.xTravel >= -this.tolerance) {
+        this.slide.style.transform = `translate3d(${-this.offset}px, 0, 0)`; 
+        this.smoothSlide(300);
+      }
       // 터치가 끝나는 위치 저장
       this.moveEndEvent();    
     });
+  
+    // 브라우저 화면이 조정될 때 마다 slideWidth를 변경하기 위해
+    window.addEventListener("resize", (this.changeSlideWidth)); 
   },
   methods: {
     createPagination() {
@@ -152,9 +168,9 @@ export default {
       offset = this.slideWidth * currentSlide;
       this.slide.style.transform = `translate3d(${-offset}px, 0, 0)`;   
     },
-    smoothSlide() { 
+    smoothSlide(time) { 
       // transition-duration 이용하여 slide 기능 부드럽게 하기
-      let timer = 300;
+      let timer = time;
       this.slide.style.transitionDuration = `${timer}ms`   
 
       setTimeout(() => {
@@ -166,7 +182,7 @@ export default {
     moveSlidePosition(offset, currentSlide) {
       this.getOffsetValue(offset, currentSlide);
       this.changeActive(currentSlide); 
-      this.smoothSlide(); 
+      this.smoothSlide(300); 
     },
     moveNext() {
       // 이후 버튼 누를 경우 현재 슬라이드를 변경
@@ -185,7 +201,7 @@ export default {
         // setTimeout을 사용하는 이유는 비동기 처리를 이용해 transform이 제대로 적용되게 하기 위함
         setTimeout(() => {
           this.getOffsetValue(this.offset, this.currentSlide);
-          this.smoothSlide(); 
+          this.smoothSlide(300); 
         }, 0);
 
         // 슬라이드 이동 시 현재 활성화된 pagination 변경
@@ -208,7 +224,7 @@ export default {
 
         setTimeout(() => {
           this.getOffsetValue(this.offset, this.currentSlide);
-          this.smoothSlide(); 
+          this.smoothSlide(300); 
         }, 0);
 
         // 슬라이드 이동 시 현재 활성화된 pagination 변경
@@ -220,18 +236,6 @@ export default {
     },
     prevBtn() {
       this.movePrev();
-    },
-    changeSlideWidth() {
-      // 슬라이크 전체 크기(width 구하기)
-      window.addEventListener("resize", () => {
-        const slide = document.querySelector(".slide");
-        let slideWidth = slide.clientWidth;
-        this.slide =  slide; 
-        this.slideWidth = slideWidth;
-
-        // 슬라이드를 이동시키기 위한 offset 값 구하기
-        this.getOffsetValue(this.offset, this.currentSlide);   
-      });   
     },
     clickPageNationItem() {
       this.paginationItems.forEach((item, i) => {
@@ -264,8 +268,8 @@ export default {
       this.yTravel = '';
     },
     movePrevOrNext() {
-      let y = (this.xTravel < this.tolerance) && (this.xTravel >- this.tolerance);
-      let x = (this.yTravel < this.tolerance) && (this.yTravel >- this.tolerance);
+      let y = (this.xTravel<this.tolerance) && (this.xTravel>-this.tolerance);
+      let x = (this.yTravel<this.tolerance) && (this.yTravel>-this.tolerance);
       
       if (y && this.yTravel<-this.tolerance){
         console.log('Swiped Up')
@@ -283,6 +287,16 @@ export default {
         console.log('Swiped Right')
         this.movePrev();
       }
+    },
+    changeSlideWidth() {
+      // 슬라이크 전체 크기(width 구하기)    
+      const slide = document.querySelector(".slide");
+      let slideWidth = slide.clientWidth;
+      this.slide =  slide; 
+      this.slideWidth = slideWidth;
+
+      // 슬라이드를 이동시키기 위한 offset 값 구하기
+      this.getOffsetValue(this.offset, this.currentSlide);  
     },
   }  
 }
