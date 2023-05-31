@@ -80,16 +80,12 @@ export default {
         this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
         this.offset = this.slideWidth * this.currentSlide;
         this.slide.style.transform = `translate3d(${-this.offset + this.xTravel}px, 0, 0)`; 
-        this.smoothSlide(300); 
-        this.moveEvent(e); 
+        this.moveEvent(e);  
       }
     });
     slide.addEventListener("mouseup", (e) => {      
       e.preventDefault();
-      if(this.xTravel <= this.tolerance || this.xTravel >= -this.tolerance) {
-        this.slide.style.transform = `translate3d(${-this.offset}px, 0, 0)`; 
-        this.smoothSlide(300);
-      }
+      this.slide.style.transform = `translate3d(${-this.offset}px, 0, 0)`; 
       // 마우스 드래그 끝 위치 저장      
       this.moveEndEvent();      
     });
@@ -104,20 +100,16 @@ export default {
     });
     slide.addEventListener("touchmove", (e) => {      
       e.preventDefault();
-      this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
-      this.offset = this.slideWidth * this.currentSlide;
-      this.slide.style.transform = `translate3d(${-this.offset + this.xTravel}px, 0, 0)`; 
-      this.smoothSlide(300);
       for (let i=0; i<e.touches.length; i++) {
+        this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
+        this.offset = this.slideWidth * this.currentSlide;
+        this.slide.style.transform = `translate3d(${-this.offset + this.xTravel}px, 0, 0)`; 
         this.moveEvent(e.touches[i]);
       }
     });
     slide.addEventListener("touchend", (e) => {   
       e.preventDefault();
-      if(this.xTravel <= this.tolerance || this.xTravel >= -this.tolerance) {
-        this.slide.style.transform = `translate3d(${-this.offset}px, 0, 0)`; 
-        this.smoothSlide(300);
-      }
+      this.slide.style.transform = `translate3d(${-this.offset}px, 0, 0)`; 
       // 터치가 끝나는 위치 저장
       this.moveEndEvent();    
     });
@@ -168,9 +160,9 @@ export default {
       offset = this.slideWidth * currentSlide;
       this.slide.style.transform = `translate3d(${-offset}px, 0, 0)`;   
     },
-    smoothSlide(time) { 
+    smoothSlide() { 
       // transition-duration 이용하여 slide 기능 부드럽게 하기
-      let timer = time;
+      let timer = 300;
       this.slide.style.transitionDuration = `${timer}ms`   
 
       setTimeout(() => {
@@ -182,7 +174,7 @@ export default {
     moveSlidePosition(offset, currentSlide) {
       this.getOffsetValue(offset, currentSlide);
       this.changeActive(currentSlide); 
-      this.smoothSlide(300); 
+      this.smoothSlide(); 
     },
     moveNext() {
       // 이후 버튼 누를 경우 현재 슬라이드를 변경
@@ -201,7 +193,7 @@ export default {
         // setTimeout을 사용하는 이유는 비동기 처리를 이용해 transform이 제대로 적용되게 하기 위함
         setTimeout(() => {
           this.getOffsetValue(this.offset, this.currentSlide);
-          this.smoothSlide(300); 
+          this.smoothSlide(); 
         }, 0);
 
         // 슬라이드 이동 시 현재 활성화된 pagination 변경
@@ -224,7 +216,7 @@ export default {
 
         setTimeout(() => {
           this.getOffsetValue(this.offset, this.currentSlide);
-          this.smoothSlide(300); 
+          this.smoothSlide(); 
         }, 0);
 
         // 슬라이드 이동 시 현재 활성화된 pagination 변경
