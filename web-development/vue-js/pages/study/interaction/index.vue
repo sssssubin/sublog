@@ -42,6 +42,12 @@ export default {
           alt: "",
           tit: "Vanilla Js Slider",
         },
+        {
+          to: "/study/interaction/sliderInSlider",
+          src: "",
+          alt: "",
+          tit: "slider in slider",
+        },
       ],
     }
   },

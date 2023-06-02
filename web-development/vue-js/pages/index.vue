@@ -51,6 +51,10 @@ export default {
   margin-bottom: 60px;
   color: #35495e;
   letter-spacing: 1px;
+  @include desktop {    
+    font-size: 10vw;
+    margin-bottom: 80px;
+  }
 }
 .links {
   width: 100%;
@@ -58,10 +62,11 @@ export default {
   flex-wrap: wrap;
   gap: 15px;
   > a {
+    width: 100%;
     flex-grow: 1;
     &:first-child {
-      flex-grow: 3;
       width: 100%;
+      flex-grow: 3;
     }
   }
 }
