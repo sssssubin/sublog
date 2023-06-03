@@ -1,7 +1,7 @@
 <template>
   <MainSlider :mainSlides="mainSlides">
     <swiper-slide v-for="(slide, i) in mainSlides" :key="i">
-      <span v-if="slide.tit" class="screen-out">{{ slide.tit }}</span>
+      <span class="screen-out">{{ slide.tit }}</span>
       <ContentType1 v-if="slide.cont" :cont="slide.cont" />
     </swiper-slide>
   </MainSlider>
