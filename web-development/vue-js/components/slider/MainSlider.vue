@@ -40,7 +40,7 @@ export default {
             const bullets = document.querySelectorAll(
               ".swiper.main > .swiper-wrapper > .swiper-slide"
             );
-            let bulletTitle = bullets[index].childNodes[0].innerText;
+            let bulletTitle = bullets[index].dataset.slideTitle;
             return `<a href="#" class="${className} horizonScroll__item"><span class="horizonScroll__itemText">${bulletTitle}</span></a>`;
           },
         },
