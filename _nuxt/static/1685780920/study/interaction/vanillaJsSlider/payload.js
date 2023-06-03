@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/study/interaction/vanillaJsSlider", {data:[{},{}],fetch:{},mutations:[]});
