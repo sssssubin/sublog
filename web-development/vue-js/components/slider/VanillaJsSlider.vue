@@ -26,7 +26,7 @@ export default {
       slide: {},
       slideItems: [],
       currentSlideItems: [],
-      slideWidth: '',
+      slideWidth: 0,
       maxSlide: 0,
       paginationItems: [],
       offset: 0,
@@ -249,12 +249,6 @@ export default {
     moveSlidePosition(offset, currentSlide) {
       this.getOffsetValue(offset, currentSlide);
       this.changeActive(currentSlide); 
-      this.currentSlideItems.forEach((i) => {
-        i.style.transitionDuration = '0.15s';
-        i.style.transitionTimingFunction = 'ease';
-        i.style.transitionDelay = '0s';
-        i.style.transitionProperty = 'left';
-      }); 
     },
     moveNext() {
       // 이후 버튼 누를 경우 현재 슬라이드를 변경
@@ -374,7 +368,6 @@ export default {
   /* transition */
   transition-property: transform;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  // transition-duration: 300ms;
   
   box-sizing: content-box;
 
@@ -404,7 +397,7 @@ export default {
     -webkit-backface-visibility: hidden;
 
     /* transition */
-    // transition: left 0.15s;
+    transition: left 0.15s;
       
     /* 각 슬라이드가 변경되는 것을 시각적으로 확인하기 쉽도록 각 슬라이드별 색상 적용 */
     &.item1 {
