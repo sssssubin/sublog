@@ -71,7 +71,7 @@ export default {
     // 슬라이드를 이동시키기 위한 offset 값 초기화   
     this.offset = this.slideWidth * this.currentSlide;
     this.currentSlideItems.forEach((i) => {
-      i.setAttribute("style", `transition: ${0}s; left: ${-this.offset}px`);
+      i.setAttribute("style", `left: ${-this.offset}px`);
     });
 
       
@@ -91,9 +91,8 @@ export default {
         this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
         this.offset = this.slideWidth * this.currentSlide;
         this.currentSlideItems.forEach((i) => {
-          i.setAttribute("style", `transition: ${0}s; left: ${-this.offset + this.xTravel}px`);
+          i.setAttribute("style", `left: ${-this.offset + this.xTravel}px`);
         });
-        // this.slide.style.transform = `translate3d(${-this.offset + this.xTravel}px, 0, 0)`; 
         // 마우스 드래그 이동 위치 저장      
         this.gesture.x.push(e.clientX);
         this.gesture.y.push(e.clientY);
@@ -153,9 +152,8 @@ export default {
         this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
         this.offset = this.slideWidth * this.currentSlide;
         this.currentSlideItems.forEach((i) => {
-          i.setAttribute("style", `transition: ${0}s; left: ${-this.offset + this.xTravel}px`);
+          i.setAttribute("style", `left: ${-this.offset + this.xTravel}px`);
         });
-        // this.slide.style.transform = `translate3d(${-this.offset + this.xTravel}px, 0, 0)`; 
         // 터치 이동 위치 저장      
         this.gesture.x.push(e.touches[i].clientX);
         this.gesture.y.push(e.touches[i].clientY);
@@ -245,25 +243,18 @@ export default {
       // 슬라이드를 이동시키기 위한 offset 값 구하기
       offset = this.slideWidth * currentSlide;
       this.currentSlideItems.forEach((i) => {
-        i.setAttribute("style", `transition: ${0.15}s; left: ${-offset}px`);
-      });
-      // this.slide.style.transform = `translate3d(${-offset}px, 0, 0)`;   
+        i.setAttribute("style", `left: ${-offset}px`);
+      }); 
     },
-    // smoothSlide() { 
-    //   // transition-duration 이용하여 slide 기능 부드럽게 하기
-    //   let timer = 300;
-    //   this.slide.style.transitionDuration = `${timer}ms`   
-
-    //   setTimeout(() => {
-    //     if(this.slide.style.transitionDuration == `${timer}ms`){
-    //       this.slide.style.transitionDuration = '0ms'   
-    //     }     
-    //   }, timer); // 타이머가 만료된 뒤 실행   
-    // },
     moveSlidePosition(offset, currentSlide) {
       this.getOffsetValue(offset, currentSlide);
       this.changeActive(currentSlide); 
-      // this.smoothSlide(); 
+      this.currentSlideItems.forEach((i) => {
+        i.style.transitionDuration = '0.15s';
+        i.style.transitionTimingFunction = 'ease';
+        i.style.transitionDelay = '0s';
+        i.style.transitionProperty = 'left';
+      }); 
     },
     moveNext() {
       // 이후 버튼 누를 경우 현재 슬라이드를 변경
@@ -288,8 +279,9 @@ export default {
           this.currentSlideItems.forEach((i) => {
             i.setAttribute("style", `transition: ${0.15}s; left: ${-this.offset}px`);
           });
-          this.changeActive(this.currentSlide); 
         }, 0);
+
+        this.changeActive(this.currentSlide); 
       }
     },
     movePrev() {            
@@ -314,8 +306,9 @@ export default {
           this.currentSlideItems.forEach((i) => {
             i.setAttribute("style", `transition: ${0.15}s; left: ${-this.offset}px`);
           });
-          this.changeActive(this.currentSlide); 
         }, 0);
+        
+        this.changeActive(this.currentSlide); 
       }
     },
     nextBtn() {
@@ -335,46 +328,7 @@ export default {
           this.moveSlidePosition(this.offset, this.currentSlide);
         });
       });
-    },        
-    // moveEvent(element) {
-    //   this.gesture.x.push(element.clientX);
-    //   this.gesture.y.push(element.clientY);
-    // },
-    // moveEndEvent() {
-    //   // 이동 종료 위치 저장
-    //   this.xTravel = this.gesture.x[this.gesture.x.length-1] - this.gesture.x[0];
-    //   this.yTravel = this.gesture.y[this.gesture.y.length-1] - this.gesture.y[0];  
-
-    //   // 슬라이드 이동
-    //   this.movePrevOrNext();
-
-    //   // 위치 값 초기화
-    //   this.gesture.x = [];
-    //   this.gesture.y = [];
-    //   this.xTravel = '';
-    //   this.yTravel = '';
-    // },
-    // movePrevOrNext() {
-    //   let y = (this.xTravel<this.tolerance) && (this.xTravel>-this.tolerance);
-    //   let x = (this.yTravel<this.tolerance) && (this.yTravel>-this.tolerance);
-      
-    //   if (y && this.yTravel<-this.tolerance){
-    //     console.log('Swiped Up')
-    //   }
-    //   if (y && this.yTravel>this.tolerance){
-    //     console.log('Swiped Down')
-    //   }
-    //   if (x && this.xTravel<-this.tolerance){
-    //     // 마우스가 왼쪽으로 드래그 된 경우
-    //     console.log('Swiped Left')
-    //     this.moveNext();
-    //   }
-    //   if (x && this.xTravel>this.tolerance){        
-    //     // 마우스가 오른쪽으로 드래그 된 경우
-    //     console.log('Swiped Right')
-    //     this.movePrev();
-    //   }
-    // },
+    },      
     changeSlideWidth() {
       // 슬라이크 전체 크기(width 구하기)    
       const slide = document.querySelector(".slide");
@@ -383,10 +337,9 @@ export default {
       this.slideWidth = slideWidth;
 
       // 슬라이드를 이동시키기 위한 offset 값 구하기
-      // this.getOffsetValue(this.offset, this.currentSlide);  
       this.offset = this.slideWidth * this.currentSlide;
       this.currentSlideItems.forEach((i) => {
-        i.setAttribute("style", `transition: ${0}s; left: ${-this.offset}px`);
+        i.setAttribute("style", `left: ${-this.offset}px`);
       });
     },
   }  
@@ -451,7 +404,7 @@ export default {
     -webkit-backface-visibility: hidden;
 
     /* transition */
-    transition: left 0.15s;
+    // transition: left 0.15s;
       
     /* 각 슬라이드가 변경되는 것을 시각적으로 확인하기 쉽도록 각 슬라이드별 색상 적용 */
     &.item1 {
