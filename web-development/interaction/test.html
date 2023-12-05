@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 탭 메뉴 */
+    .tab__wrap {
+      margin-top: 40px;
+    }
+    .tab__wrap .row-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tab__wrap .row-group .btn-area {
+      width: auto;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .tab__wrap .row-group .btn-area a {
+      color: #121212;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: -0.16px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      height: auto;
+      padding: 9px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      background: #fff;
+      gap: 4px;
+    }
+    .tab__wrap .row-group .btn-area a > img {
+      width: 20px;
+      height: 20px;
+      display: block;
+    }
+    .tab__list {
+      width: 100%;      
+      min-width: max-content;
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid #79d1c7;
+    }
+    .tab__item {
+      flex-grow: 1;
+      padding: 16px 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .tab__item[selected=selected] {
+      position: relative;
+    }
+    .tab__item[selected=selected] .tab__item__text {
+      color: #79d1c7;
+    }
+    .tab__item[selected=selected]:after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 4px;
+      background: #79d1c7;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .tab__item__text {
+      color: #121212;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 32px;
+      letter-spacing: -0.24px;
+    }
+    
+
+    .scroll-wrap {
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="tab__wrap">
+    <div class="tab scroll-wrap">
+      <div id="subject" class="tab__list">
+        <div class="tab__item" selected="selected"><span class="tab__item__text">menu01</span></div>
+        <div class="tab__item"><span class="tab__item__text">menu02</span></div>
+        <div class="tab__item"><span class="tab__item__text">menu03</span></div>
+        <div class="tab__item"><span class="tab__item__text">menu04</span></div>
+        <div class="tab__item"><span class="tab__item__text">menu05</span></div>
+        <div class="tab__item"><span class="tab__item__text">menu06</span></div>
+      </div>
+    </div>  
+  </div>
+  <script>
+    const NAV = document.querySelector('.tab');
+    const NAV_LIST = document.querySelector(".tab .tab__list");
+    const NAV_LIST_ITEM = document.querySelectorAll('.tab .tab__list .tab__item');
+  
+    // Move position of target to center when click target
+    function muCenter(selectTarget) {
+      const NAV_WIDTH = NAV.clientWidth;
+      const NAV_WIDTH_HARF = NAV_WIDTH / 2;
+      const NAV_LIST_WIDTH = NAV_LIST.clientWidth;
+      let target = selectTarget;
+      let targetLeft = target.offsetLeft;
+      let targetWidth = target.clientWidth;
+      let selectTargetPos = targetLeft + targetWidth / 2;
+      let pos;
+      
+      if (selectTargetPos <= NAV_WIDTH_HARF) {
+        // left
+        pos = 0;
+      } else if (NAV_LIST_WIDTH - selectTargetPos <= NAV_WIDTH_HARF) {
+        //right : target 절반 이후 영역이 NAV_WIDTH_HARF 보다 작을경우 right 정렬
+        pos = NAV_LIST_WIDTH - NAV_WIDTH;
+      } else {
+        pos = selectTargetPos - NAV_WIDTH_HARF; // 중앙정렬
+      }
+
+      setTimeout(function () {
+        NAV.scroll({
+          left: pos,
+          top: 0,
+          behavior: 'smooth'
+        })
+      }, 200);
+    }
+
+    // forEach()
+    NAV_LIST_ITEM.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        muCenter(item);
+      })
+    });    
+  </script>
+</body>
+</html>
