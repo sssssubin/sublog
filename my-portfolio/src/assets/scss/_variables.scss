@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+// 색상 맵 정의
+$colors: (
+  primary: #00c850,
+  secondary: grey,
+  white: #ffffff,
+  light-white: #eeeeee,
+  dark-white: #bdbdbd,
+  beige: #f3d7bc,
+  red: #dc143c,
+  dark-red: #9a0e2a,
+  brown: #583939,
+  dark-grey: #4d4d4d,
+  grey: #616161,
+  light-grey: #7c7979,
+  black: #000000,
+  dark-black: #151515,
+);
+
+// 색상 함수
+// ex) color(primary);
+@function color($color_name) {
+  @return map-get($colors, $color_name);
+}
+
+// 폰트 크기 맵 정의
+$fonts: (
+  large: 48px,
+  medium: 28px,
+  regular: 18px,
+  small: 16px,
+  micro: 14px,
+);
+
+// 폰트 함수
+// ex) @include font(primary);
+@function font($font_name) {
+  @return map-get($fonts, $font_name);
+}
+
+// 폰트 스타일 적용 믹스인
+@mixin apply-font($font_size, $weight: 700) {
+  font-size: $font_size;
+  font-weight: $weight;
+  line-height: $font_size * 1.5;
+  letter-spacing: -($font_size * 0.03);
+}
+
+// 폰트 스타일 설정 믹스인
+@mixin font($type: primary, $weight: 700) {
+  @if map-has-key($fonts, $type) {
+    @include apply-font(font($type), $weight);
+  } @else {
+    @warn "Font '#{$type}' not found in $fonts.";
+  }
+}
+
+// Size
+$size-border-radius: 4px;
+
+// Animation
+$animation-duration: 300ms;

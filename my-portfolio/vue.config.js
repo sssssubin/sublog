@@ -3,9 +3,11 @@
 module.exports = {
   css: {
     loaderOptions: {
-      sass: {
-        additionalData: `@import "@/assets/scss/common.scss";`
-      }
-    }
-  }
-};
+      scss: {
+        additionalData: `
+          @import "@/assets/scss/_variables.scss";
+        `,
+      },
+    },
+  },
+}
