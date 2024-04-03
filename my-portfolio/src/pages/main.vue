@@ -189,8 +189,6 @@ export default {
 <style lang="scss">
 @import "@/assets/scss/common.scss";
 
-
-/* Arrow up */
 .arrow-up {
   position: fixed;
   bottom: 32px;

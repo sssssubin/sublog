@@ -1,10 +1,16 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router/index";
+import Vue from 'vue';
+import App from './App.vue';
+import store from './store/ui';
+import router from './router/index';
 
 Vue.config.productionTip = false;
 
 new Vue({
   router,
-  render: (h) => h(App),
-}).$mount("#app");
+  store,
+  render: h => h(App),
+  mounted() {
+    // 해상도 변경 감지 액션 실행
+    this.$store.dispatch('checkScreenWidth');
+  },
+}).$mount('#app');

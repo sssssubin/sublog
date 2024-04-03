@@ -3,9 +3,11 @@ import VueRouter from "vue-router";
 
 // Layouts
 import DefaultLayout from "../layouts/DefaultLayout.vue";
+import DashboardLayout from "../layouts/DashboardLayout.vue"
 
 // Pages
 import Main from "../pages/main.vue";
+import Dashboard from "../pages/dashboard.vue"
 
 Vue.use(VueRouter);
 
@@ -14,6 +16,11 @@ const routes = [
     path: "/",
     component: Main,
     meta: { layout: DefaultLayout },
+  },
+  {
+    path: "/Dashboard",
+    component: Dashboard,
+    meta: { layout: DashboardLayout },
   },
 ];
 

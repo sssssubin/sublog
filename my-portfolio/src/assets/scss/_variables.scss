@@ -87,3 +87,29 @@ $mobile-breakpoints : 768px;
     @content;
   }
 }
+
+// 가로 세로 비율 정의
+$ratios: (
+  ratio-type1: 1.04545455, // 너비 대 높이의 비율 (예: 3:2 = 1.5)
+);
+
+// 가로 세로 비율 함수
+// ex) ratio(primary);
+@function get-ratio($ratio_name) {
+  @return map-get($ratios, $ratio_name);
+}
+
+// 가로 세로 비율 적용 믹스인
+@mixin calculate-height($width, $aspect-ratio) {
+  height: ($width / $aspect-ratio); // 너비를 비율로 나누어서 높이를 계산
+}
+
+// 가로 세로 비율 설정 믹스인
+@mixin ratio($width, $type: ratio-4-3) {
+  @if map-has-key($ratios, $type) {
+    $aspect-ratio: get-ratio($type);
+    @include calculate-height($width, $aspect-ratio);
+  } @else {
+    @warn "Ratio '#{$type}' not found in $ratios.";
+  }
+}
