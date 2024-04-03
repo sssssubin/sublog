@@ -1,7 +1,7 @@
 <template>
-  <section id="home" data-link="home">
+  <section id="home" class="section" data-link="home">
     <div class="home__container">
-      <div class="home__avatar">
+      <!-- <div class="home__avatar">
         <div class="avatar__img"></div>
         <span class="avatar__text">SUBIN</span>
       </div>
@@ -12,14 +12,21 @@
         corporis veniam assumenda totam,<br />
         nulla vero ab laboriosam a quod consequatur illo,<br />
         distinctio odio eveniet fugit.
-      </h2>
-      <button class="home__contact" data-link="#contact">Contact Me</button>
+      </h2> -->
+      <button class="home__contact" data-link="#contact" @click="smoothScrollTo">Contact Me</button>
     </div>
   </section>
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    smoothScrollTo() {
+      const scrollTo = document.querySelector("#contact")
+      scrollTo.scrollIntoView({ behavior: "smooth" })
+    },
+  },
+}
 </script>
 
 <style lang="scss">
@@ -30,9 +37,16 @@ export default {}
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  @include mobile768 {
+    height: 85vh;
+    padding: 0 0 32px 0;
+  }
   .home {
     &__container {
       padding-right: 38px;
+      @include mobile768 {
+        padding-right: 16px;
+      }
     }
     &__avatar {
       position: absolute;
@@ -45,6 +59,10 @@ export default {}
         rotateX(10deg);
       transform: translate(-50%, -50%) perspective(600px) rotateY(20deg)
         rotateX(10deg);
+      @include mobile768 {
+        width: calc(369px / 2);
+        top: 40%;
+      }
     }
     &__title,
     &__description {
@@ -59,6 +77,9 @@ export default {}
       padding: 8px 12px;
       border: 2px solid color(white);
       border-radius: $size-border-radius;
+      @include mobile768 {
+        margin: 12px 0 12px 12px;
+      }
       &:hover {
         background-color: color(red);
       }
@@ -71,6 +92,15 @@ export default {}
       height: 447px;
       -webkit-transform: translateZ(80px) scale(0.8);
       transform: translateZ(80px) scale(0.8);
+      @include mobile768 {
+        width: calc(369px / 2);
+        height: calc(447px / 2);
+        &::after {
+          bottom: calc(-30px / 2);
+          width: calc(80% / 2);
+          height: calc(30px / 2);
+        }
+      }
       &::before {
         content: "";
         position: absolute;
@@ -109,6 +139,19 @@ export default {}
       height: 495px;
       // -webkit-transform: translateZ(150px) translateX(-11px) translateY(-13px) scale(0.55);
       // transform: translateZ(150px) translateX(-11px) translateY(-13px) scale(0.55));
+      @include mobile768 {
+        width: calc(390px / 2);
+        height: calc(495px / 2);
+        line-height: 380px;
+        // -webkit-transform: translateZ(150px) translateX(-11px) translateY(-13px) scale(0.55);
+        // transform: translateZ(150px) translateX(-11px) translateY(-13px) scale(0.55);
+        &::after {
+          bottom: calc(36px / 2);
+          left: 0;
+          letter-spacing: 2px;
+          text-indent: initial;
+        }
+      }
       @include font(large);
       line-height: 800px;
       text-align: center;

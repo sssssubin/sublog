@@ -35,7 +35,7 @@ $fonts: (
 
 // 폰트 함수
 // ex) @include font(primary);
-@function font($font_name) {
+@function get-font-size($font_name) {
   @return map-get($fonts, $font_name);
 }
 
@@ -50,7 +50,24 @@ $fonts: (
 // 폰트 스타일 설정 믹스인
 @mixin font($type: primary, $weight: 700) {
   @if map-has-key($fonts, $type) {
-    @include apply-font(font($type), $weight);
+    $font_size: get-font-size($type);
+    @include apply-font($font_size, $weight);
+    
+    @include mobile768 {
+      $responsive_font_sizes: (
+        large: 30px,
+        medium: 18px,
+        regular: 16px,
+        small: 14px,
+        micro: 12px
+      );
+      
+      @if map-has-key($responsive_font_sizes, $type) {
+        $font_size: map-get($responsive_font_sizes, $type);
+      }
+      
+      @include apply-font($font_size, $weight);
+    }
   } @else {
     @warn "Font '#{$type}' not found in $fonts.";
   }
@@ -61,3 +78,12 @@ $size-border-radius: 4px;
 
 // Animation
 $animation-duration: 300ms;
+
+// breakpoints
+$mobile-breakpoints : 768px;
+
+@mixin mobile768 {
+  @media (max-width: #{$mobile-breakpoints - 1px}) {
+    @content;
+  }
+}

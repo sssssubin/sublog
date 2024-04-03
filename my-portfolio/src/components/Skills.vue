@@ -145,9 +145,18 @@ export default {
   color: color(white);
   margin-top: 34px;
 
+  @include mobile768 {
+    flex-direction: column;
+  }
+
   &__left {
     flex-basis: fit-content;
     margin-right: 20px;
+  
+    @include mobile768 {
+      margin-right: 0;
+      margin-bottom: 38px;
+    }
   }
 
   &__title {
@@ -176,6 +185,10 @@ export default {
   box-shadow: 0 10px 25px 5px rgba(0, 0, 0, 0.2);
   background: #151515;
   overflow: hidden;
+  
+  @include mobile768 {
+    width: 100%;
+  }
   &__top {
     position: absolute;
     margin: auto;
@@ -381,6 +394,9 @@ export default {
       transition: all $animation-duration ease-in-out;
       backface-visibility: hidden;
       position: relative;
+      @include mobile768 {
+        margin: 16px;
+      }
       figcaption {
         position: absolute;
         left: 50%;
@@ -399,6 +415,9 @@ export default {
       transform: rotateY(-180deg);
       transition: all $animation-duration ease-in-out;
       backface-visibility: hidden;
+      @include mobile768 {
+        margin: 16px;
+      }
       figcaption {
         position: absolute;
         left: 50%;
@@ -421,6 +440,9 @@ export default {
     &__img {
       width: 200px;
       display: block;
+      @include mobile768 {
+        width: 100%;
+      }
     }
 
     figcaption {

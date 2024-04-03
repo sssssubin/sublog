@@ -11,7 +11,7 @@ body {
 
 a {
   text-decoration: none;
-  color: color(white);
+  color: #ffffff;
 }
 
 ul {
@@ -29,37 +29,82 @@ button {
 
 /* Typography */
 h1 {
-  font-size: var(--font-large);
-  font-weight: var(--weight-bold);
-  color: color(black);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 72px;
+  letter-spacing: -1.44px;
+  color: #000000;
   margin: 16px 0;
+}
+@media (max-width: 767px) {
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 45px;
+    letter-spacing: -0.9px;
+  }
 }
 
 h2 {
-  font-size: var(--font-medium);
-  font-weight: var(--weight-semi-bold);
-  color: color(black);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 42px;
+  letter-spacing: -0.84px;
+  color: #000000;
   margin: 8px 0;
+}
+@media (max-width: 767px) {
+  h2 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 27px;
+    letter-spacing: -0.54px;
+  }
 }
 
 h3 {
-  font-size: var(--font-regular);
-  font-weight: var(--weight-regular);
-  color: color(black);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: -0.54px;
+  color: #000000;
   margin: 8px 0;
+}
+@media (max-width: 767px) {
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.48px;
+  }
 }
 
 p {
-  font-size: var(--font-regular);
-  font-weight: var(--font-regular);
-  color: color(black);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: -0.54px;
+  color: #000000;
   margin: 4px 0;
+}
+@media (max-width: 767px) {
+  p {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: -0.48px;
+  }
 }
 
 /* Section common */
 .section {
   padding: 87.6px 50px 50px;
   text-align: center;
+}
+@media (max-width: 767px) {
+  .section {
+    padding: 62px 16px 16px;
+  }
 }
 
 .section__container {

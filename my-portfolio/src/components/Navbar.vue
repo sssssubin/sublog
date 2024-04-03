@@ -1,5 +1,5 @@
 <template>
-  <nav id="navbar" :data-link="navbarDataLink">
+  <nav id="navbar" data-link="navbar">
     <div class="navbar__logo">
       <img src="@/assets/imgs/logo_img.png" alt="subin's logo" />
       <router-link to="/">Subin</router-link>
@@ -11,38 +11,32 @@
         v-for="(menuItem, index) in menuItems"
         :key="index"
       >
-        <router-link :to="menuItem.dataLink">{{ menuItem.label }}</router-link>
+        {{ menuItem.label }}
       </li>
     </ul>
 
-    <button class="navbar__toggle-btn" @click="toggleMenu">
-      <i class="fas fa-bars"></i>
-      <i class="fas fa-times-circle"></i>
+    <button class="navbar__toggle-btn" @click="toggleMenu()">
+      <i class="fa-bars">■</i>   
+      <i class="fa-times-circle">□</i>   
     </button>
   </nav>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      menuItems: [
-        { label: "Home", dataLink: "#home" },
-        { label: "About", dataLink: "#about" },
-        { label: "Skills", dataLink: "#skills" },
-        { label: "Work", dataLink: "#work" },
-        { label: "Animations", dataLink: "#animations" },
-        { label: "Contact", dataLink: "#contact" },
-      ],
-      navbarDataLink: null,
-    }
-  },
-  mounted() {
-    this.navbarDataLink = this.$el.getAttribute("data-link")
+  props: {
+    menuItems: Array,
   },
   methods: {
     toggleMenu() {
       // Add logic to toggle the menu
+      const navbarMenu = document.querySelector(".navbar__menu");
+      const navbarBtnOn = document.querySelector(".navbar__toggle-btn > .fa-times-circle");
+      const navbarBtnOff = document.querySelector(".navbar__toggle-btn > .fa-bars");
+      
+      navbarMenu.classList.toggle("open");
+      navbarBtnOn.classList.toggle("on");
+      navbarBtnOff.classList.toggle("off");
     },
   },
 }
@@ -63,10 +57,18 @@ export default {
   transform-style: preserve-3d;
   -webkit-transform: translateZ(310px);
   transform: translateZ(310px);
+  @include mobile768 {
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: color(red);
+  }
   &.navbar--dark {
     background-color: color(red);
     transition: all $animation-duration ease-in-out;
     padding: 8px 16px;
+    @include mobile768 {
+      padding: 16px;
+    }
   }
   .navbar {
     &__logo {
@@ -85,6 +87,15 @@ export default {
     }
     &__menu {
       display: flex;
+      @include mobile768 {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        display: none;
+        &.open {
+          display: block;
+        }
+      }
       &__item {
         padding: 8px 16px;
         margin: 0 6px;
@@ -105,15 +116,32 @@ export default {
       position: absolute;
       right: 16px;
       display: none;
+      @include mobile768 {        
+        display: block;
+      }
       i {
         position: absolute;
         top: 0.2px;
         right: 0;
         width: 30px;
       }
+      @include mobile768 {
+        .fa-bars {
+          opacity: 1;
+          &.off {
+            opacity: 0;
+          }
+        }
+      }
       .fa-times-circle {
         opacity: 0;
         pointer-events: none;
+        @include mobile768 {
+          &.on {
+            pointer-events: auto;
+            opacity: 1;
+          }
+        }
       }
     }
   }

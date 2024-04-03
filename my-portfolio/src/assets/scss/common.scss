@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import './variables';
 
 /* Universal tags */
 * {
@@ -32,14 +33,12 @@ button {
 /* Typography */
 h1 {
   @include font(large);
-  font-weight: var(--weight-bold);
   color: color(black);
   margin: 16px 0;
 }
 
 h2 {
   @include font(medium);
-  font-weight: var(--weight-semi-bold);
   color: color(black);
   margin: 8px 0;
 }
@@ -60,6 +59,10 @@ p {
 .section {
   padding: 87.6px 50px 50px;
   text-align: center;
+
+  @include mobile768 {
+    padding: 62px 16px 16px;
+  }
 }
 
 .section__container {

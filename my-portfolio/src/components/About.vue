@@ -63,7 +63,15 @@ export default {
     display: flex;
     justify-content: space-between;
     margin: 50px 0;
+    @include mobile768 {
+      margin: 30px 0 0 0;
+      flex-direction: column;
+      align-items: center;
+    }
     .major {
+      @include mobile768 {
+        margin-bottom: 30px;
+      }
       &__icon {
         width: 170px;
         height: 170px;
@@ -109,6 +117,9 @@ export default {
         border-radius: 50%;
         width: 148px;
         display: block;
+        @include mobile768 {
+          width: 72px;
+        }
       }
       &__description {
         margin: 0 0 0 16px;
