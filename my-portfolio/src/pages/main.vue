@@ -109,7 +109,7 @@ export default {
     window.addEventListener('resize', function() {
       let w = window.outerWidth;
       if(w <= 768) {
-        this.updateOpacity();
+        this.handleScroll();
       }
     }.bind(this));
   },
