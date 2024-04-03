@@ -1,6 +1,7 @@
 <template>
   <div class="dashboard">
-    <div class="dashboard__container">대쉬보드 화면입니다.</div>
+    <div class="dashboard__container">
+    </div>
   </div>
 </template>
 
@@ -12,22 +13,20 @@ export default {};
 @import "@/assets/scss/common.scss";
 
 .dashboard {
-  background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+  background: url(../assets/imgs/dashboard-main-bg.png) center/cover no-repeat;
   width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   &__container {
-    background: url(../assets/imgs/home-background.png) center/cover no-repeat rgba(255, 255, 255, 0.25);
-    width: 92%;
-    max-width: 1440px;
-    @include ratio(92%, ratio-type1);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 84%;
+    max-width: 2000px;
+    @include ratio(84%, ratio-type1);
+    max-height: 1300px;
+    border-radius: 95px;
+    background-color: rgba(255, 255, 255, 0.271);
+    box-shadow: 0px 65px 68px 0px rgba(129, 129, 129, 0.16);
   }
 }
 </style>
