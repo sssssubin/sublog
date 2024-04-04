@@ -7,7 +7,7 @@ import DashboardLayout from "../layouts/DashboardLayout.vue"
 
 // Pages
 import Main from "../pages/main.vue";
-import Dashboard from "../pages/dashboard.vue"
+import Dashboard from "../pages/dashboard/home.vue"
 
 Vue.use(VueRouter);
 
@@ -18,7 +18,7 @@ const routes = [
     meta: { layout: DefaultLayout },
   },
   {
-    path: "/Dashboard",
+    path: "/dashboard",
     component: Dashboard,
     meta: { layout: DashboardLayout },
   },

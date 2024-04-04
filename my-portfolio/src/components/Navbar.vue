@@ -2,7 +2,7 @@
   <nav id="navbar" data-link="navbar">
     <div class="navbar__logo">
       <img src="@/assets/imgs/logo_img.png" alt="subin's logo" />
-      <router-link to="/">Subin</router-link>
+      <router-link to="/dashboard">Subin</router-link>
     </div>
     <ul class="navbar__menu">
       <li

@@ -13,7 +13,7 @@ export default {};
 @import "@/assets/scss/common.scss";
 
 .dashboard {
-  background: url(../assets/imgs/dashboard-main-bg.png) center/cover no-repeat;
+  background: url(../../assets/imgs/dashboard-main-bg.png) center/cover no-repeat;
   width: 100%;
   height: 100vh;
   display: flex;
