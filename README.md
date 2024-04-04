@@ -1,6 +1,6 @@
 # sublog
 
-frontend study
+frontend develop log
 
 ## nuxt 설치
 
