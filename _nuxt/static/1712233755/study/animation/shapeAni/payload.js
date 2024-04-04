@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/study/animation/shapeAni", {data:[{},{}],fetch:{},mutations:[]});

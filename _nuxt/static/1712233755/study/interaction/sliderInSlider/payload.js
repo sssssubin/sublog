@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/study/interaction/sliderInSlider", {data:[{},{}],fetch:{},mutations:[]});
